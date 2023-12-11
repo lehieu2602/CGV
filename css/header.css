@@ -1,0 +1,174 @@
+* {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.header {
+  height: 120px;
+  width: 100%;
+  background: url(../img/bg-top.png);
+}
+
+.main {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+.header .main .header-logo {
+  margin: auto 0;
+}
+.header .main .header-logo:hover {
+  opacity: 0.7;
+}
+.header .main .header-menu {
+  display: flex;
+  margin-top: 62px;
+}
+.header .main .header-buy {
+  margin-top: 20px;
+}
+.header .main ul li {
+  list-style: none;
+  font-weight: bold;
+  line-height: 30px;
+  color: black;
+  padding-left: 20px;
+}
+
+.menu-ul {
+  display: none;
+}
+
+.header .main ul li:hover .menu-ul {
+  display: block;
+}
+
+.header .main ul li:hover .menu-ul ul {
+  display: block;
+  position: absolute;
+  margin: 0;
+  padding: 0;
+}
+
+.header .main ul li:hover .menu-ul ul li {
+  width: 170px;
+  background-color: #666;
+  padding: 5px;
+}
+
+.header .main ul li:hover .menu-ul ul li a {
+  text-align: left;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.menu-icon {
+  display: none;
+}
+
+.menu {
+  margin-top: 20px;
+}
+.menu ul {
+  padding: 0 10px;
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  box-sizing: border-box;
+}
+.menu ul a {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  border-right: 1px solid #666;
+}
+
+.menu ul a:last-child {
+  border: none;
+}
+
+.hr-line {
+  border: 1px solid #666;
+}
+
+.header table {
+  display: none;
+}
+
+.header .ul-res {
+  display: none;
+}
+
+@media screen and (max-width: 720px) {
+  .header {
+    width: 100%;
+    background: none;
+  }
+  .header .main {
+    background-color: #fffcf4;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .header table {
+    background-color: #fffcf4;
+    display: table;
+  }
+
+  .header .main .header-menu {
+    display: none;
+  }
+  .header .main .header-buy {
+    display: none;
+  }
+  .header .main .header-logo {
+    content: url("/img/cgvlogo-small.png");
+    display: normal;
+  }
+  .menu {
+    display: none;
+  }
+
+  .header .menu-icon {
+    background-color: red;
+    height: 40px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  td {
+    text-align: center;
+    vertical-align: middle;
+    padding: 10px;
+    border: 1px solid black;
+  }
+
+  .menu-icon table td img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  ul {
+    background-color: #e6e3dc;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: none;
+  }
+
+  li {
+    padding: 5px;
+    margin-bottom: 5px;
+  }
+}
