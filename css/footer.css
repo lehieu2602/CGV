@@ -1,0 +1,36 @@
+.footer {
+  height: 50px;
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
+}
+.footer .footer-theater {
+  margin-bottom: 30px;
+}
+.footer .footer-theater ul {
+  margin-top: 8px;
+  padding: 0 10px;
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  box-sizing: border-box;
+}
+.footer .footer-theater ul a {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+.footer .footer-info .row .col-md-2 a img {
+  width: 100%;
+}
+.footer .footer-info .row .col-md-10 {
+  font-size: 14px;
+  line-height: 18px;
+  color: #666;
+}
+
+.footer .footer-end {
+  margin-top: 10px;
+  background: url(../img/bg-bottom-footer.jpg) repeat-x scroll center bottom
+    rgba(0, 0, 0, 0);
+  height: 120px;
+}
