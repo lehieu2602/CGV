@@ -101,11 +101,16 @@
   display: none;
 }
 
+/* .header .ul-res li {
+  display: none;
+} */
+
 @media screen and (max-width: 720px) {
   .header {
     width: 100%;
     background: none;
   }
+
   .header .main {
     background-color: #fffcf4;
     height: 50px;
@@ -159,7 +164,7 @@
     margin: 0 auto;
   }
 
-  ul {
+  .ul-res {
     background-color: #e6e3dc;
     list-style: none;
     padding: 0;
