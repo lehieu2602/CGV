@@ -1,3 +1,7 @@
+<?php
+include_once("db\connect.php");
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/header.css" />
     <link rel="stylesheet" href="../css/footer.css" />
+    <link rel="stylesheet" href="../css/home.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
     <title>Document</title>
 </head>
@@ -15,9 +20,11 @@
 
     <?php
     include("view/header.html");
-    include("view/allTheaterCopy.php");
+    // include("view/allTheaterCopy.php");
+    include("view/home.php");
     // include("view/special_cinema.html");
     include("view/footer.html");
+
 
     ?>
 
