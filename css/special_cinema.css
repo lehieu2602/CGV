@@ -1,0 +1,33 @@
+.list-cinema {
+  display: flex;
+  scroll-snap-type: x mandatory;
+  overflow-x: scroll;
+}
+
+.list-cinema a {
+  scroll-snap-align: start;
+}
+
+#prevButton,
+#nextButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  padding: 10px;
+  background-color: #ccc;
+  border: none;
+}
+
+#prevButton {
+  left: 0;
+}
+#nextButton {
+  right: 0;
+}
+
+.image-structure {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
