@@ -1,6 +1,6 @@
 <?php
 include_once("db\connect.php");
-session_start();
+// session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -298,10 +298,10 @@ session_start();
                                                                                 <div class="cinemas-area">
                                                                                         <ul style="list-style-type: none;">
                                                                                                 <?php
-                                                                                                $sql_listCity = mysqli_query($mysqli, 'Select * from citys');
+                                                                                                $sql_listCity = mysqli_query($mysqli, 'Select * from location');
                                                                                                 while ($city = mysqli_fetch_array($sql_listCity)) {
                                                                                                         $id = $city['id'];
-                                                                                                        $name = $city['city_name'];
+                                                                                                        $name = $city['name'];
                                                                                                         echo ("<li><span id=" . $id . ">" . $name . "</span></li>");
                                                                                                 }
                                                                                                 ?>
@@ -312,12 +312,11 @@ session_start();
                                                                                 <ul class="nav nav-pills " style=" list-style-type: none;" role="tablist">
 
                                                                                         <?php
-
-                                                                                        $sql_listTheater = mysqli_query($mysqli, 'Select * from theaters');
+                                                                                        $sql_listTheater = mysqli_query($mysqli, 'select cinemas.id, cinemas.name ,location.name as theaters_city from cinemas join location on cinemas.id_location = location.id');
                                                                                         while ($row_listTheater = mysqli_fetch_array($sql_listTheater)) {
-                                                                                                $id = $row_listTheater['theaters_id'];
+                                                                                                $id = $row_listTheater['id'];
                                                                                                 $city = $row_listTheater['theaters_city'];
-                                                                                                $name = $row_listTheater['theaters_name'];
+                                                                                                $name = $row_listTheater['name'];
 
                                                                                                 echo '<li class="nav-item ' . $city . ' cgv_theater" style="display: none;"><span class="nav-link" id="' . $id . '" >' . $name . '</span></li>';
                                                                                         }
