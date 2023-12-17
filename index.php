@@ -11,11 +11,18 @@
 </head>
 
 <body>
+
+
     <?php
     include("view/header.html");
-    include("view/special_cinema.html");
+    include("view/allTheaterCopy.php");
+    // include("view/special_cinema.html");
     include("view/footer.html");
+
     ?>
+
+
+
 </body>
 <script type="text/javascript" src="js/footer.js"></script>
 <script type="text/javascript" src="js/header.js"></script>
