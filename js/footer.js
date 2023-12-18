@@ -7,7 +7,6 @@ function showSlides() {
 
   for (i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";
-    console.log(slides[i]);
   }
   slideIndex++;
   if (slideIndex > slides.length) {

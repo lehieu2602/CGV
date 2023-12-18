@@ -13,13 +13,12 @@ session_start();
     <link rel="stylesheet" href="../css/home.css" />
     <link rel="stylesheet" href="../css/listMovies.css" />
     <link rel="stylesheet" href="../css/movieD.css" />
+    <link rel="stylesheet" href="../css/all-theater.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
     <title>Document</title>
 </head>
 
 <body>
-
-
     <?php
     include("view/header.html");
     if (isset($_GET['controller'])) {
@@ -45,10 +44,10 @@ session_start();
         }
     } else if ($controller == 'newsDetail') {
         include('view/newsDetail.php');
-    } else if ($controller == 'listTheater') {
-        include('view/listTheater.php');
+    } else if ($controller == 'allTheater') {
+        include('view/allTheater.php');
     } else {
-        include("view/slider.php");
+        // include("view/slider.php");
         include('view/home.php');
     }
 
