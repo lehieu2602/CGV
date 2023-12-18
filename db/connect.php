@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "anhan123";
 $db = "new_cgv_db";
 $mysqli = mysqli_connect($servername, $username, $password, $db);
 

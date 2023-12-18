@@ -1,15 +1,14 @@
 <div class="membership-title" style="text-align: center;">
-    <img src="img\theaterimg\membership.jpg" style="max-width: 60%; height: auto; display: inline-block;">
+    <img src="img\theaterimg\membership.jpg" style="max-width: 100%; height: auto; display: inline-block;">
 </div>
 <br>
 <div class="container" style="background-color: whitesmoke; margin-bottom: 5%;">
 
     <!-- <div class="row">
             <div class="col-md-12"> -->
-    <ul class="nav nav-tabs nav-fill" id="myTab" role="tablist" style="background-color: silver;">
+    <ul class="nav nav-tabs nav-fill" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
-            <a class="nav-link active" id="diemthuong-tab" href="#diemthuong" role="tab" aria-controls="diemthuong" aria-selected="true">CHƯƠNG TRÌNH ĐIỂM THƯỞNG</a>
-
+            <a class="nav-link active" id="diemthuong-tab" data-toggle="tab" href="#diemthuong" role="tab" aria-controls="diemthuong" aria-selected="true">CHƯƠNG TRÌNH ĐIỂM THƯỞNG</a>
         </li>
         <li class="nav-item" role="presentation">
             <a class="nav-link" id="quatang-tab" data-toggle="tab" href="#quatang" role="tab" aria-controls="quatang" aria-selected="false">QUÀ TẶNG SINH NHẬT</a>
@@ -429,11 +428,6 @@
         <br>
 
     </div>
-
-
-</div>
-
-
 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
