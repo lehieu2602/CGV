@@ -1,6 +1,6 @@
 <!-- Content -->
 <?php
-$sql_listMovie = mysqli_query($mysqli, 'Select * from movies order by movie_id desc');
+$sql_listMovie = mysqli_query($mysqli, 'Select * from movies order by id desc');
 ?>
 <div class="menu container">
     <ul>

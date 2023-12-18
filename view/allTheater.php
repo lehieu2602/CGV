@@ -39,11 +39,11 @@
 
                                                                                 <?php
 
-                                                                                $sql_listTheater = mysqli_query($mysqli, 'select cinemas.id, cinemas.name ,location.name as theaters_city from cinemas join location on cinemas.id_location = location.id');
+                                                                                $sql_listTheater = mysqli_query($mysqli, 'Select * from cinemas');
                                                                                 while ($row_listTheater = mysqli_fetch_array($sql_listTheater)) {
                                                                                         $id = $row_listTheater['id'];
-                                                                                        $city = $row_listTheater['theaters_city'];
                                                                                         $name = $row_listTheater['name'];
+                                                                                        $city = $row_listTheater['id_location'];
 
                                                                                         echo '<li class="nav-item ' . $city . ' cgv_theater" style="display: none;"><span class="nav-link" id="' . $id . '" >' . $name . '</span></li>';
                                                                                 }
@@ -105,12 +105,12 @@
 
 <div class="tab-content">
         <?php
-        $sql_listTheater = mysqli_query($mysqli, 'select cinemas.id, cinemas.name ,location.name as theaters_city, address_info, img from cinemas join location on cinemas.id_location = location.id');
+        $sql_listTheater = mysqli_query($mysqli, 'Select * from cinemas');
         while ($row_listTheater = mysqli_fetch_array($sql_listTheater)) {
                 $id = $row_listTheater['id'];
-                $city = $row_listTheater['theaters_city'];
+                $city = $row_listTheater['id_location'];
                 $name = $row_listTheater['name'];
-                $imgs = json_decode($row_listTheater['img'], true);
+                $imgs = $row_listTheater['img'];
                 $info = $row_listTheater['address_info'];
                 echo ' <div class="theater-container product-view" id="show-theater-' . $id . '" style=" display: none;">
                         <div class="heater-head">
@@ -124,15 +124,26 @@
                         </div>
                         <div id="myCarousel-' . $id . '" class="carousel carousel-fade slide border" data-ride="carousel" style="width: 80%; margin-left: 10%;">
                                 <div class="carousel-inner">';
-                foreach ($imgs as $index => $img) {
-                        echo "<script>console.log('Debug Objects: " . $img . "' );</script>";
+                echo gettype(json_encode($imgs));
+                $trimmedString = trim($imgs, '[]');
+
+                // Split the string into an array using the comma as a delimiter
+                $arrayOfStrings = explode(', ', $trimmedString);
+
+                // Trim each element in the array to remove any extra spaces
+                $arrayOfStrings = array_map('trim', $arrayOfStrings);
+
+                // Print the resulting array
+                // print_r($arrayOfStrings);
+                foreach ($arrayOfStrings as $index => $img) {
                         $activeClass = ($index === 0) ? "active" : "";
 
-                        echo '<div class="carousel-item ' . $activeClass . '">
-                                            <img class="d-block w-100" src="' . $img . '">
-                                        </div>';
+
+                        echo ' <div class="carousel-item ' . $activeClass . '">
+                                <img class="d-block w-100" src=' . $img . '>
+                        </div>';
                 }
-                echo '        <div class="carousel-caption">
+                echo '<div class="carousel-caption">
                                                 <div class=" theater-address">' . $info . '</div>
                                                 <div class="fax"><label style="font-weight: bold;font-family:';
                 echo " 'Arial'";
