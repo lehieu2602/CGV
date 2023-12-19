@@ -40,6 +40,21 @@ var imageOptions = {
   option2: ["image3.jpg", "image4.jpg" /* Add more images as needed */],
 };
 
+const img_theaters = [
+  "../img/cgv-cine-1.png",
+  "../img/cgv-cine-2.png",
+  "../img/cgv-cine-3.png",
+  "../img/cgv-cine-4.png",
+  "../img/cgv-cine-5.png",
+  "../img/cgv-cine-6.png",
+  "../img/cgv-cine-7.png",
+  "../img/cgv-cine-8.png",
+  "../img/cgv-cine-9.png",
+  "../img/cgv-cine-10.png",
+  "../img/cgv-cine-11.png",
+  "../img/cgv-cine-12.png",
+];
+
 function changeImages(option) {
   console.log(option);
   var selectedOption = option;
