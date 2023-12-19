@@ -1,3 +1,49 @@
+<?php
+    if(isset($_POST['login'])){
+        $username = $_POST['emailUser'];
+        $password = md5($_POST['password']);
+        $sql_login = mysqli_query($mysqli, "SELECT * FROM `users` WHERE `user_email` = '$username' and `user_password` = '$password'");
+        $count = mysqli_num_rows($sql_login);
+        if($count > 0){
+            while($getId = mysqli_fetch_array($sql_login)){
+                $_SESSION['idUser'] = $getId['user_id'];
+            }
+            $_SESSION['user'] = $username;
+            echo "<script type='text/javascript'>alert('Hello ".$_SESSION['user']."');</script>";
+        }
+        else{
+            echo "<script type='text/javascript'>alert('Sai Tài Khoản Hoặc Mật Khẩu');</script>";
+        }
+    }
+    if(isset($_POST['register'])){
+        $username = $_POST['emailReg'];
+        $password = md5($_POST['passwordReg']);
+        $sql_checkName = mysqli_query($mysqli, "SELECT * FROM `users` WHERE `user_email` = '$username'");
+        $countName = mysqli_num_rows($sql_checkName);
+        if($countName == 0){
+            $sql_register = mysqli_query($mysqli, "INSERT INTO `users` (`user_id`, `user_email`, `user_password`) VALUES (NULL, '$username', '$password');");
+            $sql_checkreg = mysqli_query($mysqli, "SELECT * FROM `users` WHERE `user_email` = '$username'");
+            $count = mysqli_num_rows($sql_checkreg);
+            if($count > 0){
+                echo "<script type='text/javascript'>alert('Đăng Ký Tài Khoản Thành Công');</script>";
+            }
+        }
+        else{
+            echo "<script type='text/javascript'>alert('Tên Đăng Nhập Đã Tồn Tại');</script>";
+        }
+    }
+    if(isset($_GET['signout'])){
+        $signout = $_GET['signout'];
+    }else {
+        $signout = '';
+    }
+    if($signout == 'true'){
+        session_destroy();
+        header('location: index.php');
+    }
+?>
+
+
 <div class="login-signup">
     <ul class="nav nav-tabs nav-fill" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
@@ -14,9 +60,9 @@
                 <form action="" class="cgv-login-form" method="post" id="cgv-login-form">
                     <div id="correct"></div>
                     <label for="fname">Email hoặc số điện thoại</label><br>
-                    <input type="text" name="login[username]" id="login[username]" class="input-text required-entry" placeholder="Email hoặc số điện thoại" autocomplete="off">
+                    <input type="text" name="emailUser" id="emailUser" class="input-text required-entry" placeholder="Email hoặc số điện thoại" autocomplete="off">
                     <label for="lname">Mật khẩu</label>
-                    <input type="password" id="login[password]" name="login[password]" class="input-text required-entry" placeholder="Mật khẩu" autocomplete="off">
+                    <input type="password" id="password" name="password" class="input-text required-entry" placeholder="Mật khẩu" autocomplete="off">
 
                     <input type="submit" id="cgv-btnlogin" value="Đăng nhập">
                     <div class="cgv-login-forgotp-link">
