@@ -1,3 +1,22 @@
+<div class="login container">
+  <?php
+  if (isset($_SESSION['user']) && $_SESSION['user'] != '') {
+    echo "<ul>
+              <a style ='text-transform: none' class='dropdown-toggle noselect' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' >Xin chào <span class='userEmail'>" . $_SESSION['user'] . "</span></a>
+                <div class='dropdown-menu noselect'aria-labelledby='dropdownMenuButton'style ='text-transform: none'>
+                  <a class='dropdown-item'href='?controller=userInfo'style ='margin: 0'>Thông Tin Tài Khoản</a>
+                  <a class='dropdown-item'href='?signout=true'style ='margin: 0'>Đăng Xuất</a>
+                </div>
+                  </ul>";
+  } else {
+    echo '<ul>
+          <a href="">vé của tôi</a>
+          <a href="" data-toggle="modal" data-target="#login">đăng nhập/đăng ký</a>
+      </ul>';
+  }
+  ?>
+</div>
+
 <div class="header">
   <div class="main container">
     <a class="header-logo" href="index.php">
@@ -18,7 +37,7 @@
         <div class="menu-ul">
           <ul>
             <li><a href="#">Tất Cả Các Rạp</a></li>
-            <li><a href="#">Rạp Đặc Biệt</a></li>
+            <li><a href="?controller=specialTheater">Rạp Đặc Biệt</a></li>
             <li><a href="#">Rạp 3D</a></li>
           </ul>
         </div>
@@ -63,31 +82,4 @@
     <li id="menuList">ĐĂNG KÝ</li>
     <li id="menuList">ĐĂNG NHẬP</li>
   </ul>
-</div>
-<!-- only for main screen -->
-<div class="menu container">
-  <ul>
-    <a href="?controller=listTheater">
-      <img src="../img/header-logo-1.png" alt="" />
-    </a>
-    <a href="?controller=listmovies">
-      <img src="../img/header-logo-2.png" alt="" />
-    </a>
-    <a href="">
-      <img src="../img/header-logo-3.png" alt="" />
-    </a>
-    <a href="">
-      <img src="../img/header-logo-4.png" alt="" />
-    </a>
-    <a href="">
-      <img src="../img/header-logo-5.png" alt="" />
-    </a>
-    <a href="?controller=listnews">
-      <img src="../img/header-logo-6.png" alt="" />
-    </a>
-    <a href="">
-      <img src="../img/header-logo-7.png" alt="" />
-    </a>
-  </ul>
-  <hr class="hr-line" />
 </div>

@@ -4,7 +4,9 @@
 <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
 
-<div class="content container" style="background-color: #363636; border-radius: 10px;">
+
+
+<div class="content container" style="background-color: #363636; border-radius: 10px; margin-top: 2%;">
         <div class="content-movie">
 
                 <div class="content-event">
@@ -22,10 +24,10 @@
                                                                         <div class="cinemas-area">
                                                                                 <ul style="list-style-type: none;">
                                                                                         <?php
-                                                                                        $sql_listCity = mysqli_query($mysqli, 'Select * from citys');
+                                                                                        $sql_listCity = mysqli_query($mysqli, 'Select * from location');
                                                                                         while ($city = mysqli_fetch_array($sql_listCity)) {
                                                                                                 $id = $city['id'];
-                                                                                                $name = $city['city_name'];
+                                                                                                $name = $city['name'];
                                                                                                 echo ("<li><span id=" . $id . ">" . $name . "</span></li>");
                                                                                         }
                                                                                         ?>
@@ -37,11 +39,11 @@
 
                                                                                 <?php
 
-                                                                                $sql_listTheater = mysqli_query($mysqli, 'Select * from theaters');
+                                                                                $sql_listTheater = mysqli_query($mysqli, 'Select * from cinemas');
                                                                                 while ($row_listTheater = mysqli_fetch_array($sql_listTheater)) {
-                                                                                        $id = $row_listTheater['theaters_id'];
-                                                                                        $city = $row_listTheater['theaters_city'];
-                                                                                        $name = $row_listTheater['theaters_name'];
+                                                                                        $id = $row_listTheater['id'];
+                                                                                        $name = $row_listTheater['name'];
+                                                                                        $city = $row_listTheater['id_location'];
 
                                                                                         echo '<li class="nav-item ' . $city . ' cgv_theater" style="display: none;"><span class="nav-link" id="' . $id . '" >' . $name . '</span></li>';
                                                                                 }
@@ -103,16 +105,13 @@
 
 <div class="tab-content">
         <?php
-        $sql_listTheater = mysqli_query($mysqli, 'Select * from theaters');
+        $sql_listTheater = mysqli_query($mysqli, 'Select * from cinemas');
         while ($row_listTheater = mysqli_fetch_array($sql_listTheater)) {
-                $id = $row_listTheater['theaters_id'];
-                $city = $row_listTheater['theaters_city'];
-                $name = $row_listTheater['theaters_name'];
-                $img1 = $row_listTheater['theater_img1'];
-                $img2 = $row_listTheater['theater_img2'];
-                $img3 = $row_listTheater['theater_img3'];
-                $img4 = $row_listTheater['theater_img4'];
-                $info = $row_listTheater['theater_info'];
+                $id = $row_listTheater['id'];
+                $city = $row_listTheater['id_location'];
+                $name = $row_listTheater['name'];
+                $imgs = $row_listTheater['img'];
+                $info = $row_listTheater['address_info'];
                 echo ' <div class="theater-container product-view" id="show-theater-' . $id . '" style=" display: none;">
                         <div class="heater-head">
                                 <div class="theatertitle" style="text-align: center;">
@@ -124,25 +123,21 @@
                                 </div>
                         </div>
                         <div id="myCarousel-' . $id . '" class="carousel carousel-fade slide border" data-ride="carousel" style="width: 80%; margin-left: 10%;">
-                                <div class="carousel-inner">
-                                        <div class="carousel-item active">
-                                                <img class="d-block w-100" src="' . $img1 . '">
+                                <div class="carousel-inner">';
+                echo gettype(json_encode($imgs));
+                $trimmedString = trim($imgs, '[]');
+                $arrayOfStrings = explode(', ', $trimmedString);
+                $arrayOfStrings = array_map('trim', $arrayOfStrings);
 
-                                        </div>
-                                        <div class="carousel-item">
-                                                <img class="d-block w-100" src="' . $img2 . '">
-
-                                        </div>
-                                        <div class="carousel-item">
-                                                <img class="d-block w-100" src="' . $img3 . '">
-
-                                        </div>
-                                        <div class="carousel-item">
-                                                <img class="d-block w-100" src="' . $img4 . '">
+                foreach ($arrayOfStrings as $index => $img) {
+                        $activeClass = ($index === 0) ? "active" : "";
 
 
-                                        </div>
-                                        <div class="carousel-caption">
+                        echo ' <div class="carousel-item ' . $activeClass . '">
+                                <img class="d-block w-100" src=' . $img . '>
+                        </div>';
+                }
+                echo '<div class="carousel-caption">
                                                 <div class=" theater-address">' . $info . '</div>
                                                 <div class="fax"><label style="font-weight: bold;font-family:';
                 echo " 'Arial'";
@@ -181,7 +176,6 @@
         console.log("nameTheater: " + nameTheater);
         Array.from(nameTheater).forEach(function(element) {
                 element.addEventListener('click', function() {
-                        // Xử lý sự kiện tại đây
                         for (var i = 0; i < show.length; i++) {
                                 show[i].style.display = "none";
                         }

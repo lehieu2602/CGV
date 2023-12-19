@@ -16,7 +16,7 @@ $sql_listMovie = mysqli_query($mysqli, 'Select * from movies order by movie_id d
                 while ($row_listMovie = mysqli_fetch_array($sql_listMovie)) {
                 ?>
                     <a href="?controller=phim&id=<?php echo $row_listMovie['id'] ?>">
-                        <img src="<?php echo $row_listMovie['image'] ?>" alt="" style="height: 500px;">
+                        <img src="<?php echo $row_listMovie['image'] ?>" alt="" style="height: 450px;">
                     </a>
                 <?php
                 }
