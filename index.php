@@ -21,10 +21,11 @@ session_start();
     <!-- <link rel="stylesheet" href="css\stylesignin.css" /> -->
     <link rel="stylesheet" href="css\stylelogin.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+    <script src="js/index.js"></script>
+    <script src="js/react.js"></script>
+    <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-
     <title>CGV</title>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
@@ -32,61 +33,14 @@ session_start();
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick-theme.min.css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
-
-
-
-
     <link rel="shortcut icon" href="img\cgvcinemas-vietnam-favicon.ico" type="image/x-icon" />
     <script>
         var $j = jQuery.noConflict();
     </script>
-
 </head>
 
 <body>
     <?php
-<<<<<<< HEAD
-    include("view/header.html");
-    include("view/login-signup.php");
-    // include("view/allTheater.php");
-    // include("view/slider.php");
-    // include("view/home.php");
-
-    // include("view/myAccount.php");
-    // include("view/membership.php");
-    // include("view/special_cinema1.php");
-
-    // if (isset($_GET['controller'])) {
-    //     $controller = $_GET['controller'];
-    // } else {
-    //     $controller = '';
-    // }
-
-    // if ($controller == 'phim') {
-    //     include('view/movieDetail.php');
-    // } else if ($controller == 'listnews') {
-    //     include('view/listNew.php');
-    // } else if ($controller == 'listmovies') {
-    //     include('view/listMovie.php');
-    // } else if ($controller == 'commingsoon') {
-    //     include('view/commingSoon.php');
-    // } else if ($controller == 'userInfo') {
-    //     if (isset($_SESSION['user']) && $_SESSION['user'] != '') {
-    //         include('view/userInfo.php');
-    //     } else {
-    //         include("view/slider.php");
-    //         include('view/home.php');
-    //     }
-    // } else if ($controller == 'newsDetail') {
-    //     include('view/newsDetail.php');
-    // } else if ($controller == 'allTheater') {
-    //     include('view/allTheater.php');
-    // } else {
-    //     include("view/slider.php");
-    //     include("view/home.php");
-    // }
-
-=======
     include("view/header.php");
     if (isset($_GET['controller'])) {
         $controller = $_GET['controller'];
@@ -119,14 +73,9 @@ session_start();
         // include("view/slider.php");
         include('view/home.php');
     }
->>>>>>> 4f5495718aad8f799d5761e30a60db560128338c
 
     include("view/footer.html");
-
-
     ?>
-
-
     <script type="text/javascript" src="js/header.js"></script>
     <script type="text/javascript" src="js/footer.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
@@ -137,7 +86,4 @@ session_start();
     <script src="./js/index.js"></script>
     <script type="text/javascript" src="js\special_cinema.js"></script>
 </body>
-
-
-
 </html>
