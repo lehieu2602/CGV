@@ -42,16 +42,47 @@ session_start();
 </head>
 
 <body>
-
-
     <?php
     include("view/header.html");
+<<<<<<< HEAD
     // include("view/allTheater.php");
     // include("view/slider.php");
     // include("view/home.php");
     // include("view/myAccount.php");
     // include("view/membership.php");
     include("view/special_cinema1.php");
+=======
+    if (isset($_GET['controller'])) {
+        $controller = $_GET['controller'];
+    } else {
+        $controller = '';
+    }
+
+    if ($controller == 'phim') {
+        include('view/movieDetail.php');
+    } else if ($controller == 'listnews') {
+        include('view/listNew.php');
+    } else if ($controller == 'listmovies') {
+        include('view/listMovie.php');
+    } else if ($controller == 'commingsoon') {
+        include('view/commingSoon.php');
+    } else if ($controller == 'userInfo') {
+        if (isset($_SESSION['user']) && $_SESSION['user'] != '') {
+            include('view/userInfo.php');
+        } else {
+            include("view/slider.php");
+            include('view/home.php');
+        }
+    } else if ($controller == 'newsDetail') {
+        include('view/newsDetail.php');
+    } else if ($controller == 'allTheater') {
+        include('view/allTheater.php');
+    } else {
+        // include("view/slider.php");
+        include('view/home.php');
+    }
+
+>>>>>>> 704d74178cb1ae5db6eaed805505e661db3e572a
     include("view/footer.html");
 
 
