@@ -2,6 +2,24 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.login {
+  text-transform: uppercase;
+}
+.login ul {
+  text-align: right;
+  margin: 0;
+}
+
+.login ul a {
+  margin-left: 70px;
+  color: #666;
+  font-weight: 700;
+}
+.login ul a:hover {
+  text-decoration: none;
+  color: #666;
+}
+
 .header {
   height: 120px;
   width: 100%;

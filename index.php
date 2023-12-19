@@ -37,13 +37,13 @@ session_start();
     <link rel="shortcut icon" href="img\cgvcinemas-vietnam-favicon.ico" type="image/x-icon" />
     <script>
         var $j = jQuery.noConflict();
-    </script>">
+    </script>
 
 </head>
 
 <body>
     <?php
-    include("view/header.html");
+    include("view/header.php");
     if (isset($_GET['controller'])) {
         $controller = $_GET['controller'];
     } else {
@@ -69,6 +69,8 @@ session_start();
         include('view/newsDetail.php');
     } else if ($controller == 'allTheater') {
         include('view/allTheater.php');
+    } else if ($controller == 'specialTheater') {
+        include('view/special_cinema.html');
     } else {
         // include("view/slider.php");
         include('view/home.php');
@@ -81,6 +83,7 @@ session_start();
 
 
     <script type="text/javascript" src="js/header.js"></script>
+    <script type="text/javascript" src="js/footer.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -88,7 +91,7 @@ session_start();
     <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
     <script src="./js/index.js"></script>
 </body>
-<!-- <script type="text/javascript" src="js/footer.js"></script> -->
+
 
 
 </html>

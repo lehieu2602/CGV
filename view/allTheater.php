@@ -126,15 +126,9 @@
                                 <div class="carousel-inner">';
                 echo gettype(json_encode($imgs));
                 $trimmedString = trim($imgs, '[]');
-
-                // Split the string into an array using the comma as a delimiter
                 $arrayOfStrings = explode(', ', $trimmedString);
-
-                // Trim each element in the array to remove any extra spaces
                 $arrayOfStrings = array_map('trim', $arrayOfStrings);
 
-                // Print the resulting array
-                // print_r($arrayOfStrings);
                 foreach ($arrayOfStrings as $index => $img) {
                         $activeClass = ($index === 0) ? "active" : "";
 
@@ -182,7 +176,6 @@
         console.log("nameTheater: " + nameTheater);
         Array.from(nameTheater).forEach(function(element) {
                 element.addEventListener('click', function() {
-                        // Xử lý sự kiện tại đây
                         for (var i = 0; i < show.length; i++) {
                                 show[i].style.display = "none";
                         }
