@@ -151,7 +151,7 @@ while ($detail = mysqli_fetch_array($sql_detail)) {
                                             <label for="showings" style="font-weight: bold;">Xuất Chiếu:</label>
                                             <select id="showings" class="form-control" name="showings">
                                                 <?php
-                                                $sql_show = mysqli_query($mysqli, "SELECT * FROM showings,theaters, room,movies WHERE showings_room = room_id and showings_name_movie = movie_id and room_theater = theaters_id and movie_id = '$id'");
+                                                $sql_show = mysqli_query($mysqli, "SELECT * FROM schedule,theaters, rooms,movies WHERE showings_room = room_id and showings_name_movie = movie_id and room_theater = theaters_id and movie_id = '$id'");
                                                 while ($row_show = mysqli_fetch_array($sql_show)) {
                                                     ?>
                                                     <option

@@ -56,7 +56,7 @@ session_start();
         include('view/commingSoon.php');
     } else if ($controller == 'userInfo') {
         if (isset($_SESSION['user']) && $_SESSION['user'] != '') {
-            include('view/userInfo.php');
+            include('view/myAccount.php');
         } else {
             include("view/slider.php");
             include('view/home.php');

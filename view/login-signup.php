@@ -1,7 +1,7 @@
 <?php
 if (isset($_POST['login'])) {
     $username = $_POST['emailUser'];
-    $password = md5($_POST['password']);
+    $password = ($_POST['password']);
     $sql_login = mysqli_query($mysqli, "SELECT * FROM `users` WHERE `user_email` = '$username' and `user_password` = '$password'");
     $count = mysqli_num_rows($sql_login);
     if ($count > 0) {
@@ -9,18 +9,19 @@ if (isset($_POST['login'])) {
             $_SESSION['idUser'] = $getId['user_id'];
         }
         $_SESSION['user'] = $username;
-        echo "<script type='text/javascript'>alert('Hello " . $_SESSION['user'] . "');</script>";
+        echo "<script type='text/javascript'>alert('Hello " . $_SESSION['user'] . "'); window.location.href = 'index.php';</script>";
+       
     } else {
         echo "<script type='text/javascript'>alert('Sai Tài Khoản Hoặc Mật Khẩu');</script>";
     }
 }
 if (isset($_POST['register'])) {
     $username = $_POST['emailReg'];
-    $password = md5($_POST['passwordReg']);
+    $password = ($_POST['passwordReg']);
     $sql_checkName = mysqli_query($mysqli, "SELECT * FROM `users` WHERE `user_email` = '$username'");
     $countName = mysqli_num_rows($sql_checkName);
     if ($countName == 0) {
-        $sql_register = mysqli_query($mysqli, "INSERT INTO `users` (`user_id`, `user_email`, `user_password`) VALUES (NULL, '$username', '$password');");
+        $sql_register = mysqli_query($mysqli, "INSERT INTO `users` (`user_email`, `user_password`) VALUES ('$username', '$password');");
         $sql_checkreg = mysqli_query($mysqli, "SELECT * FROM `users` WHERE `user_email` = '$username'");
         $count = mysqli_num_rows($sql_checkreg);
         if ($count > 0) {
@@ -30,15 +31,7 @@ if (isset($_POST['register'])) {
         echo "<script type='text/javascript'>alert('Tên Đăng Nhập Đã Tồn Tại');</script>";
     }
 }
-if (isset($_GET['signout'])) {
-    $signout = $_GET['signout'];
-} else {
-    $signout = '';
-}
-if ($signout == 'true') {
-    session_destroy();
-    header('location: index.php');
-}
+
 ?>
 <!-- login -->
 <div class="login container">
@@ -79,7 +72,7 @@ if ($signout == 'true') {
                         <label for="lname">Mật khẩu</label>
                         <input type="password" id="password" name="password" class="input-text required-entry" placeholder="Mật khẩu" autocomplete="off">
 
-                        <input type="submit" id="cgv-btnlogin" value="Đăng nhập">
+                        <button type="submit" name ="login" class="btn btn-primary">Đăng Nhập</button>
                         <div class="cgv-login-forgotp-link">
                             <a href="" class="forgot-pwd required-entry">Bạn muốn tìm lại mật khẩu?</a>
                         </div>

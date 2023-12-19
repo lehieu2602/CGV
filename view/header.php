@@ -14,6 +14,15 @@
           <a href="?controller=login">đăng nhập/đăng ký</a>
       </ul>';
     }
+    if (isset($_GET['signout'])) {
+        $signout = $_GET['signout'];
+    } else {
+        $signout = '';
+    }
+    if ($signout == 'true') {
+        session_destroy();
+        header('location: index.php');
+    }
     ?>
 </div>
 

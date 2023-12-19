@@ -27,7 +27,7 @@ $user = "annv@gmail.com";
         <?php
         $stt = 0;
         $sql_bookingH = mysqli_query($mysqli, "SELECT 
-    movies.title,
+    movies.movie_name,
     booking.booking_seat,
     booking.booking_ticket,
     booking.booking_time,
@@ -38,15 +38,15 @@ FROM
     movies,
     cinemas
 WHERE 
-    booking.booking_user = users.id 
-    AND booking.booking_movie = movies.id 
+    booking.booking_user = users.user_id 
+    AND booking.booking_movie = movies.movie_id 
     AND booking.booking_theater = cinemas.id 
     AND users.email = '$user'; ");
         while ($row_bookingH = mysqli_fetch_array($sql_bookingH)) {
         ?>
             <tr>
                 <th scope="row"><?php echo $stt += 1; ?></th>
-                <td><?php echo $row_bookingH['title']; ?></td>
+                <td><?php echo $row_bookingH['movie_name']; ?></td>
                 <td><?php echo $row_bookingH['booking_seat']; ?></td>
                 <td><?php echo $row_bookingH['name']; ?></td>
                 <td><?php echo $row_bookingH['booking_ticket']; ?></td>

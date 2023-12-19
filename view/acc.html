@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>An Nguyễn Văn</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .header {
+            text-align: center;
+            background-color: black;
+            color: white;
+            font-size: 80%;
+        }
+
+        .info {
+            margin: 20px;
+        }
+
+        .contact {
+            margin: 20px;
+        }
+
+        .btn {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
+        .info-center {
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>THÔNG TIN CHUNG</h1>
+    </div>
+    <form action="https://www.cgv.vn/default/customer/account/changeavatar/" method="post"
+        enctype="multipart/form-data">
+        <input name="form_key" type="hidden" value="9oLPaEGCo7Exw3CP">
+        <input name="usersatus" type="hidden" value="1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2 col-sm-4">
+                    <div class="info-center">
+                        <label id="fileToUpload" for="fileToUpload">
+                            <img src="https://www.cgv.vn/skin/frontend/cgv/default/images/bg-cgv/icon-profile-cgv.png"
+                                width="120" height="120" alt="Avatar Profile">
+                        </label>
+                    </div>
+                    <div class="info-center">
+                        <button style="color: white; background-color: gray; border-radius: 12%;" type="button"
+                            id="btnchange">
+                            Thay đổi
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-8 col-sm-4">
+                    <br>
+                </div>
+                <div class="col-md-2 col-sm-4">
+                    <div class="info-center">
+                        <strong>Thẻ thành viên</strong>
+                    </div>
+                    <div class="info-center">
+                        <img src="https://www.webarcode.com/barcode/image.php?code=9992311666546264&amp;style=196&amp;type=C128B&amp;width=220&amp;height=80&amp;xres=1&amp;font=3"
+                            alt="Barcode.">
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </form>
+    <div class="info">
+        <h5 style="font-weight: bolder;">Xin chào bro</h5>
+        <h5 style="color: gray;">Với trang này, bạn sẽ quản lý được tất cả thông tin tài khoản của mình.</h5>
+    </div>
+    <div class="info">
+        <div class="container-fluid">
+            <div class="row">
+                <div style="color: gray;">
+                    Cấp độ thẻ
+                </div>
+                <br>
+                <div style="color: gray;">
+                    Tổng chi tiêu
+                </div>
+                <br>
+                <div style="color: gray;">
+                    Điểm CGV
+                </div>
+            </div>
+
+
+        </div>
+        
+    </div>
+    <div class="contact">
+        <h4 style="font-weight: bolder;">Thông tin tài khoản</h4>
+        <hr style="border: none;border-top: 1px solid #ccc;">
+        <span>
+            <h5>LIÊN HỆ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre><button>Thay đổi</button></h5>
+        </span>
+        <div style="color: gray;">
+            <p>Tên: An Nguyễn Văn</p>
+            <p>Email: vanan22022002@gmail.com</p>
+            <p>Điện thoại: 0865447197</p>
+        </div>
+        <!-- <a href="#" class="btn">Thay đổi thông tin tài khoản</a>
+        <a href="#" class="btn">Xem voucher</a>
+        <a href="#" class="btn">Xem coupon</a>
+        <a href="#" class="btn">Xem thẻ thành viên</a> -->
+    </div>
+</body>
+
+</html>
