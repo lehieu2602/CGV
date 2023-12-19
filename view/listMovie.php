@@ -1,6 +1,7 @@
 <!-- Content -->
 <?php
 $sql_listMovie = mysqli_query($mysqli, 'Select * from movies order by movie_id desc');
+$sql_react = mysqli_query($mysqli,'Select * from react order by movie_id desc');
 ?>
 <div class="listMovie-content container">
     <div class="d-flex justify-content-between">
@@ -18,6 +19,18 @@ $sql_listMovie = mysqli_query($mysqli, 'Select * from movies order by movie_id d
         <div class="row">
             <?php
             while ($row_listMovie = mysqli_fetch_array($sql_listMovie)) {
+                //
+                $movie_id = $row_listMovie['movie_id'];
+                $sql_react = mysqli_query($mysqli,"SELECT COUNT(*) AS count_records FROM react WHERE movie_id = '$movie_id'");
+                $row = mysqli_fetch_assoc($sql_react);
+                $count = $row['count_records'];
+                if(isset($_SESSION['user']) && $_SESSION['user'] != '') {
+                    $sql_user_react = mysqli_query($mysqli, "SELECT COUNT(*) AS count_user_records FROM react WHERE movie_id = '$movie_id' AND user_id = '" . $_SESSION['idUser'] . "'");
+                    $row_user_react = mysqli_fetch_assoc($sql_user_react);
+                    $count_user = $row_user_react['count_user_records'];
+                }
+
+                //
                 $myinput = $row_listMovie['movie_date'];
                 $sqldate = date('d/m/Y', strtotime($myinput));
                 $movieTimestamp = strtotime($myinput);
@@ -48,8 +61,26 @@ $sql_listMovie = mysqli_query($mysqli, 'Select * from movies order by movie_id d
 
                         </div>
                         <div class="movie-btn">
-                            <button type="button" class="btn btn-danger">Mua Vé </button>
-                            <button type="button" class="btn btn-outline-danger">Xem Chi Tiết</button>
+                            <button type="button" class="btn btn-danger" onclick='window.location.href="?controller=phim&id=<?php echo $row_listMovie["movie_id"] ?> "'>Mua vé</button>                     
+                            <?php 
+                                if (isset($_SESSION['user']) && $_SESSION['user'] != '') {
+                                    if($count_user == 1) {
+                                        ?>
+                                            <button type="button" class="btn btn-light" onclick="unlike(<?php echo $movie_id; ?>, <?php echo $_SESSION['idUser']; ?>)">Like: <?php echo $count?> </button>
+                                        <?php
+                                            
+                                    } 
+                                    if($count_user == 0) {
+                                        ?>
+                                            <button type="button" class="btn btn-primary" onclick="like(<?php echo $movie_id; ?>, <?php echo $_SESSION['idUser']; ?>)">Like: <?php echo $count ?> </button>
+                                        <?php
+                                    }
+                                } else {
+                                    ?>
+                                        <button type="button" class="btn btn-primary" onclick="showAlert()">Like: <?php echo $count ?> </button>
+                                    <?php
+                                }  
+                            ?>
                         </div>
                     </div>
                     <?php
@@ -59,6 +90,5 @@ $sql_listMovie = mysqli_query($mysqli, 'Select * from movies order by movie_id d
         </div>
     </div>
 </div>
-
 
 <!-- End Content -->

@@ -14,6 +14,8 @@ session_start();
     <link rel="stylesheet" href="../css/listMovies.css" />
     <link rel="stylesheet" href="../css/movieD.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+    <script src="js/index.js"></script>
+    <script src="js/react.js"></script>
     <title>Document</title>
 </head>
 
