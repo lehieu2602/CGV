@@ -116,29 +116,6 @@
   background-color: white;
 }
 
-/* End CSS Header */
-
-/* CSS MENUBAR */
-.menubar {
-  margin-top: 20px;
-}
-
-.menubar ul {
-  padding: 0 10px;
-  display: table;
-  width: 100%;
-  table-layout: fixed;
-  box-sizing: border-box;
-}
-
-.menubar ul a {
-  display: table-cell;
-  vertical-align: middle;
-  text-align: center;
-  border-left: 1px solid #666;
-  border-right: 1px solid #666;
-}
-
 /* END CSS MENUBAR */
 
 /* SlideShow */
