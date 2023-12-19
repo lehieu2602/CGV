@@ -36,3 +36,17 @@
     bottom: 19%;
     width: 100%;
 }
+
+.nav-item button {
+    width: 100%;
+    margin-top: 2%;
+    color: dimgray;
+    background-color: lightgray;
+    border: none;
+}
+
+.nav-link.active {
+    background-color: red;
+    color: white;
+
+}

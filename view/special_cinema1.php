@@ -17,7 +17,7 @@
 <div id="textAndSlideStructure" class="text-and-slide-structure">
     <h2>Cấu trúc chữ và slide</h2>
     <!-- Thêm mã HTML cho cấu trúc chữ và slide tại đây -->
-    <div class="my-slider-container" id="cinema-slider" style="display: none;">
+    <div class="my-slider-container" id="cinema-slider" style="display: none; width: 70%; margin-left: 15%;">
         <?php
         $sql_listCinema = mysqli_query($mysqli, 'Select * from special_cinema');
         while ($row_listCinema = mysqli_fetch_array($sql_listCinema)) {
@@ -26,7 +26,7 @@
             $name = $row_listCinema['name'];
             $imgs = $row_listCinema['img'];
             $captions = $row_listCinema['captions'];
-            echo '<div id="myCarousel-' . $id . '" class="carousel slide border" data-ride="carousel" style = "display:none">
+            echo '<div id="myCarousel-' . $id . '" class="carousel slide border" data-ride="carousel" data-interval="2500" style = "display:none">
         <div class="carousel-inner">
         ';
             echo gettype(json_encode($imgs));
@@ -44,14 +44,13 @@
                 $activeClass = ($index === 0) ? "active" : "";
 
 
-                echo ' <div class="carousel-item ' . $activeClass . '">
+                echo '  <div class="carousel-item ' . $activeClass . '">
                                 <img class="d-block w-100" src=' . $img . '>
-                                <div class="carousel-caption">' . $arrayOfStringsCaption[$index] .
-
-                    '</div>
+                                <div class="carousel-caption">' . $arrayOfStringsCaption[$index] . '</div>
                         </div>';
             };
-            echo ' </div>
+            echo
+            '</div>
         <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="sr-only">Previous</span>

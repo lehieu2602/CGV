@@ -17,7 +17,9 @@ session_start();
     <link rel="stylesheet" href="../css/home.css" />
     <link rel="stylesheet" href="../css/slider.css" />
     <link rel="stylesheet" href="../css/myAccount.css" />
-    <link rel="stylesheet" href="../css/membership.css" />
+    <!-- <link rel="stylesheet" href="../css/membership.css" /> -->
+    <!-- <link rel="stylesheet" href="css\stylesignin.css" /> -->
+    <link rel="stylesheet" href="css\stylelogin.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
@@ -44,45 +46,46 @@ session_start();
 <body>
     <?php
     include("view/header.html");
-<<<<<<< HEAD
+    include("view/login-signup.php");
     // include("view/allTheater.php");
     // include("view/slider.php");
     // include("view/home.php");
+
     // include("view/myAccount.php");
     // include("view/membership.php");
-    include("view/special_cinema1.php");
-=======
-    if (isset($_GET['controller'])) {
-        $controller = $_GET['controller'];
-    } else {
-        $controller = '';
-    }
+    // include("view/special_cinema1.php");
 
-    if ($controller == 'phim') {
-        include('view/movieDetail.php');
-    } else if ($controller == 'listnews') {
-        include('view/listNew.php');
-    } else if ($controller == 'listmovies') {
-        include('view/listMovie.php');
-    } else if ($controller == 'commingsoon') {
-        include('view/commingSoon.php');
-    } else if ($controller == 'userInfo') {
-        if (isset($_SESSION['user']) && $_SESSION['user'] != '') {
-            include('view/userInfo.php');
-        } else {
-            include("view/slider.php");
-            include('view/home.php');
-        }
-    } else if ($controller == 'newsDetail') {
-        include('view/newsDetail.php');
-    } else if ($controller == 'allTheater') {
-        include('view/allTheater.php');
-    } else {
-        // include("view/slider.php");
-        include('view/home.php');
-    }
+    // if (isset($_GET['controller'])) {
+    //     $controller = $_GET['controller'];
+    // } else {
+    //     $controller = '';
+    // }
 
->>>>>>> 704d74178cb1ae5db6eaed805505e661db3e572a
+    // if ($controller == 'phim') {
+    //     include('view/movieDetail.php');
+    // } else if ($controller == 'listnews') {
+    //     include('view/listNew.php');
+    // } else if ($controller == 'listmovies') {
+    //     include('view/listMovie.php');
+    // } else if ($controller == 'commingsoon') {
+    //     include('view/commingSoon.php');
+    // } else if ($controller == 'userInfo') {
+    //     if (isset($_SESSION['user']) && $_SESSION['user'] != '') {
+    //         include('view/userInfo.php');
+    //     } else {
+    //         include("view/slider.php");
+    //         include('view/home.php');
+    //     }
+    // } else if ($controller == 'newsDetail') {
+    //     include('view/newsDetail.php');
+    // } else if ($controller == 'allTheater') {
+    //     include('view/allTheater.php');
+    // } else {
+    //     include("view/slider.php");
+    //     include("view/home.php");
+    // }
+
+
     include("view/footer.html");
 
 
