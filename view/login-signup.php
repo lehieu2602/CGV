@@ -15,13 +15,21 @@ if (isset($_POST['login'])) {
     }
 }
 if (isset($_POST['register'])) {
-    $username = $_POST['emailReg'];
+    $username = $_POST['register_fullname'];
     $password = md5($_POST['passwordReg']);
-    $sql_checkName = mysqli_query($mysqli, "SELECT * FROM `users` WHERE `user_email` = '$username'");
+    $email = $_POST['emailReg'];
+    $phone = $_POST['phone'];
+    $birth = $_POST['birthday'];
+    $gender = $_POST['r-gender'];
+    $city = $_POST['selectedCity'];
+    $theater = $_POST['selectedTheater'];
+    $sql_checkName = mysqli_query($mysqli, "SELECT * FROM `users` WHERE `user_email` = '$email' AND `phone_number` = '$phone'");
     $countName = mysqli_num_rows($sql_checkName);
     if ($countName == 0) {
-        $sql_register = mysqli_query($mysqli, "INSERT INTO `users` (`user_id`, `user_email`, `user_password`) VALUES (NULL, '$username', '$password');");
-        $sql_checkreg = mysqli_query($mysqli, "SELECT * FROM `users` WHERE `user_email` = '$username'");
+        $sql_register = mysqli_query($mysqli, "INSERT INTO cinema.users
+        (username, user_password, phone_number, user_email, date_of_birth, gender, location, favorite_theater)
+        VALUES('$username', '$password', '$phone', '$email', '$birth', $gender, '$city', '$theater');");
+        $sql_checkreg = mysqli_query($mysqli, "SELECT * FROM `users` WHERE `user_email` = '$email' AND `phone_number` = '$phone'");
         $count = mysqli_num_rows($sql_checkreg);
         if ($count > 0) {
             echo "<script type='text/javascript'>alert('Đăng Ký Tài Khoản Thành Công');</script>";
@@ -105,18 +113,18 @@ if ($signout == 'true') {
                         <label for="r-fname" class="gender-title">
                             <span class="sp-gender">Giới tính</span>
                             <span>*</span>
-                            <input type="radio" name="r-gender" id="male-gender" value="1" onclick="validateForm(this.id,'gender','female-gender')">
+                            <input type="radio" name="r-gender" id="male-gender" value="1">
                             Nam
-                            <input type="radio" name="r-gender" id="female-gender" value="0" onclick="validateForm(this.id,'gender','male-gender')">
+                            <input type="radio" name="r-gender" id="female-gender" value="0">
                             Nữ
                         </label><br>
                         <!-- checked tu ktra input de de xuat san gioi tinh nma nguoi dung van co the thay doi dc -->
                         <label for="city">Khu vực <span>*</span></label><br>
-                        <select name="" id="mySelect">
+                        <select name="selectedCity" id="mySelect">
                         </select>
                         <script>
                             // Mảng dữ liệu các tùy chọn
-                            var options = ["Khu vực", "Hà Nội", "Hồ Chí Minh", "An Giang", "Bà Rịa -Vũng Tàu", "Bắc Giang", "Bắc Kạn", "Bạc Liêu", "Bắc Ninh", "Bến Tre", "Bình Định", "Bình Dương", "Bình Phước", "Bình Thuận", "Cà Mau", "Cao Bằng", "Đắk Lắk",
+                            var options = ["Khu vực", "Hà Nội", "Hồ Chí Minh", "An Giang", "Bà Rịa - Vũng Tàu", "Bắc Giang", "Bắc Kạn", "Bạc Liêu", "Bắc Ninh", "Bến Tre", "Bình Định", "Bình Dương", "Bình Phước", "Bình Thuận", "Cà Mau", "Cao Bằng", "Đắk Lắk",
                                 "Đắk Nông", "Điện Biên", "Đồng Nai", "Đồng Tháp", "Gia Lai", "Hà Giang", "Hà Nam", "Hà Tĩnh", "Hải Dương", "Hậu Giang", "Hòa Bình", "Hưng Yên", "Khánh Hòa",
                                 "Kiên Giang", "Kon Tum", "Lai Châu", "Lâm Đồng", "Lạng Sơn", "Lào Cai", "Long An", "Nam Định", "Nghệ An", "Ninh Bình", "Ninh Thuận", "Phú Thọ",
                                 "Quảng Bình", "Quảng Nam", "Quảng Ngãi", "Quảng Ninh", "Quảng Trị", "Sóc Trăng", "Sơn La", "Tây Ninh", "Thái Bình", "Thái Nguyên", "Thanh Hóa", "Thừa Thiên Huế", "Tiền Giang",
@@ -132,7 +140,7 @@ if ($signout == 'true') {
                             }
                         </script>
                         <label for="cinema">Rạp yêu thích</label><br>
-                        <select name="" id="Select">
+                        <select name="selectedTheater" id="Select">
                         </select>
                         <script>
                             // Mảng dữ liệu các tùy chọn
@@ -163,7 +171,7 @@ if ($signout == 'true') {
                             Tôi đồng ý với
                             <a href="">Điều khoản Sử dụng của CGV</a>
                         </label>
-                        <button type="submit" name ="register" class="btn btn-primary">Đăng Ký</button>
+                        <button type="submit" name="register" class="btn btn-primary">Đăng Ký</button>
                     </div>
                     <div class="cgv-register-requirement"></div>
                 </form>
