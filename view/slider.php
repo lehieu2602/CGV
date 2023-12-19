@@ -1,5 +1,5 @@
 <div class="slideshow">
-    <div id="demo" class="slideshow-content carousel slide border" data-ride="carousel" style="width: 80%; height: 10%; margin-left: 10%;">
+    <div id="demo" class="slideshow-content carousel slide border" data-ride="carousel" data-interval="2500" style="width: 80%; height: 10%; margin-left: 10%;">
         <!-- Indicators -->
 
 

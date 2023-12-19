@@ -21,3 +21,7 @@ $('.slider-nav').slick({
         },
       ]
 });
+
+function showAlert() {
+  alert('Đăng nhập để tiếp tục!');
+}

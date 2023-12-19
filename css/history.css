@@ -1,0 +1,13 @@
+.title-info {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.note {
+    font-size: small;
+    font-style: italic;
+}
+
+label {
+    font-weight: bold;
+}

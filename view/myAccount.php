@@ -7,26 +7,26 @@
 
             <ul class="nav nav-pills flex-column" id="myPill" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link " id="tab-thong-tin" data-toggle="tab" href="#thong-tin-chung" role="tab">
+                    <button class="nav-link " id="tab-thong-tin" data-toggle="tab" href="#thong-tin-chung" role="tab">
                         <strong>THÔNG TIN CHUNG</strong>
-                    </a>
+                    </button>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="tab-chi-tiet" data-toggle="tab" href="#chi-tiet-tai-khoan" role="tab">
+                    <button class="nav-link" id="tab-chi-tiet" data-toggle="tab" href="#chi-tiet-tai-khoan" role="tab">
                         <strong>CHI TIẾT TÀI KHOẢN</strong>
-                    </a>
+                    </button>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " id="tab-lich-su" data-toggle="tab" href="#lich-su-giao-dich" role="tab">
+                    <button class="nav-link " id="tab-lich-su" data-toggle="tab" href="#lich-su-giao-dich" role="tab">
                         <strong>LỊCH SỬ GIAO DỊCH</strong>
-                    </a>
+                    </button>
                 </li>
             </ul>
 
 
 
         </div>
-        <div class="right-col col">
+        <div class="right-col">
             <div class="tab-content" id="myPillContent">
                 <div class="tab-pane fade" id="thong-tin-chung" role="tabpanel" aria-labelledby="tab-thong-tin">
                     THÔNG TIN CHUNG
@@ -35,7 +35,7 @@
                     CHI TIẾT TÀI KHOẢN
                 </div>
                 <div class="tab-pane fade show active" id="lich-su-giao-dich" role="tabpanel" aria-labelledby="tab-lich-su">
-                    LỊCH SỬ GIAO DỊCH
+                    <?php include("view/history.php"); ?>
                 </div>
             </div>
         </div>

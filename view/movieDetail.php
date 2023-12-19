@@ -82,13 +82,15 @@ while ($detail = mysqli_fetch_array($sql_detail)) {
                         <span>
                             <?php echo $detail['movie_rate'] ?>
                         </span></div>
+                        <div id="notificationMessage">
                     <button type="button" class="btn btn-danger" data-toggle="modal" <?php if (isset($_SESSION['user']) && $_SESSION['user'] != '') {
                         echo 'data-target="#myModal"';
                     } else {
-                        echo 'onclick="notification(Đăng nhập đê)"';
+                        echo 'onclick="showAlert()"';
                     } ?>>
                         MUA VÉ
                     </button>
+                    </div>
                     <!-- The Modal -->
                     <div class="modal" id="myModal">
                         <div class="modal-dialog modal-lg">
