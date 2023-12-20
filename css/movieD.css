@@ -1,28 +1,33 @@
-.movie-detail{
-    margin-bottom: 20px;
-    border-bottom: 2px solid black;
+.movie-detail {
+  margin-bottom: 20px;
+  border-bottom: 2px solid black;
 }
-.movie-detail .title{
-    border-bottom: 2px solid black;
-    margin: 20px 0
+.movie-detail .title {
+  border-bottom: 2px solid black;
+  margin: 20px 0;
 }
-.movie-detail .movie-detail-content .row .col-md-3 img{
-    width: 100%;
+.movie-detail .movie-detail-content .row .col-md-3 img {
+  width: 100%;
 }
 .movie-detail .movie-detail-content .row .col-md-9 button {
-    margin-top: 15px
+  margin-top: 15px;
 }
-.movie-detail .movie-detail-content .row .col-md-9 .movie-detail-content-info .movie-detail-content-info-detail {
-    font-weight: bold
+.movie-detail
+  .movie-detail-content
+  .row
+  .col-md-9
+  .movie-detail-content-info
+  .movie-detail-content-info-detail {
+  font-weight: bold;
 }
 
 .ticket-booking .row .col-md-8 {
-    border-right: 1px dashed black ;
+  border-right: 1px dashed black;
 }
-.ticket-booking .row .theaterMap .theaterScreen{
-    background-color: rgb(240,240,240) ;
-    text-align: center;
+.ticket-booking .row .theaterMap .theaterScreen {
+  background-color: rgb(240, 240, 240);
+  text-align: center;
 }
-.movie-detail-content-summary{
-    margin-bottom: 20px;
+.movie-detail-content-summary {
+  margin-bottom: 20px;
 }

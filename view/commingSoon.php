@@ -1,53 +1,108 @@
 <!-- Content -->
 <?php
-        $sql_listMovie = mysqli_query($mysqli, 'Select * from movies order by movie_id desc');
+$sql_listMovie = mysqli_query($mysqli, 'Select * from movies order by movie_id desc');
 ?>
 <div class="listMovie-content container">
     <div class="d-flex justify-content-between">
-            <h2 class="listMovie-content-title">
-                Phim Sắp Chiếu
-            </h2>
-            <div class="d-flex justify-content-end">
-                <a class="text-secondary" href="?controller=listmovies"><h4 class="m-0 text-muted">Phim Đang Chiếu</h4></a>
-            </div>
+        <h2 class="listMovie-content-title">
+            Phim Sắp Chiếu
+        </h2>
+        <div class="d-flex justify-content-end">
+            <a class="text-secondary" href="?controller=listmovies">
+                <h4 class="m-0 text-muted">Phim Đang Chiếu</h4>
+            </a>
+        </div>
     </div>
-            <div class="borderBottom-title"></div>
-            <div class="listMovie-content-list">
-                <div class="row">
-                    <?php
-                        while($row_listMovie = mysqli_fetch_array($sql_listMovie)){
-                            $myinput= $row_listMovie['movie_date'];
-                            $currentTimestamp = time();
-                            if($myinput== null){
-                                $movieTimestamp = $currentTimestamp;
-                                $sqldate='';
-                            }else{
-                                $sqldate= date('d/m/Y',strtotime($myinput));
-                                $movieTimestamp = strtotime($myinput);
-                            }
-                            if($movieTimestamp > $currentTimestamp || $myinput == null){
+    <div class="borderBottom-title"></div>
+    <div class="listMovie-content-list">
+        <div class="row">
+            <?php
+            while ($row_listMovie = mysqli_fetch_array($sql_listMovie)) {
+                //
+                $movie_id = $row_listMovie['movie_id'];
+                $sql_react = mysqli_query($mysqli, "SELECT COUNT(*) AS count_records FROM react WHERE movie_id = '$movie_id'");
+                $row = mysqli_fetch_assoc($sql_react);
+                $count = $row['count_records'];
+                if (isset($_SESSION['user']) && $_SESSION['user'] != '') {
+                    $sql_user_react = mysqli_query($mysqli, "SELECT COUNT(*) AS count_user_records FROM react WHERE movie_id = '$movie_id' AND user_id = '" . $_SESSION['idUser'] . "'");
+                    $row_user_react = mysqli_fetch_assoc($sql_user_react);
+                    $count_user = $row_user_react['count_user_records'];
+                }
+
+                //
+                $myinput = $row_listMovie['movie_date'];
+                $currentTimestamp = time();
+                if ($myinput == null) {
+                    $movieTimestamp = $currentTimestamp;
+                    $sqldate = '';
+                } else {
+                    $sqldate = date('d/m/Y', strtotime($myinput));
+                    $movieTimestamp = strtotime($myinput);
+                }
+                if ($movieTimestamp > $currentTimestamp || $myinput == null) {
                     ?>
                     <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                        <a href="?controller=phim&id=<?php echo $row_listMovie['movie_id']?>">
-                            <img class="image-film" src="<?php echo $row_listMovie['movie_img']?>" alt="">
+                        <a href="?controller=phim&id=<?php echo $row_listMovie['movie_id'] ?>">
+                            <img class="image-film" src="<?php echo $row_listMovie['movie_img'] ?>" alt="">
                         </a>
                         <div class="movie-info">
-                            <h4><?php echo $row_listMovie['movie_name']?></h4>
-                        <div class="movie-detail-content-info"><span class="movie-detail-content-info-detail">Đạo Diễn:</span> <span class="d"><?php echo $row_listMovie['movie_directors']?></span></div>
-                        <div class="movie-detail-content-info"><span class="movie-detail-content-info-detail">Khởi Chiếu:</span> <span class="d"><?php echo $sqldate?></span></div>
-                        <div class="movie-detail-content-info"><span class="movie-detail-content-info-detail">Thời Lượng:</span> <span class="d"><?php echo $row_listMovie['movie_time']?></span></div>
+                            <h4>
+                                <?php echo $row_listMovie['movie_name'] ?>
+                            </h4>
+                            <div class="movie-detail-content-info"><span class="movie-detail-content-info-detail">Đạo
+                                    Diễn:</span> <span class="d">
+                                    <?php echo $row_listMovie['movie_directors'] ?>
+                                </span></div>
+                            <div class="movie-detail-content-info"><span class="movie-detail-content-info-detail">Khởi
+                                    Chiếu:</span> <span class="d">
+                                    <?php echo $sqldate ?>
+                                </span></div>
+                            <div class="movie-detail-content-info"><span class="movie-detail-content-info-detail">Thời
+                                    Lượng:</span> <span class="d">
+                                    <?php echo $row_listMovie['movie_time'] ?>
+                                </span></div>
                         </div>
                         <div class="movie-btn">
-                            <button type="button" class="btn btn-danger">Mua Vé </button>
-                            <button type="button" class="btn btn-outline-danger">Xem Chi Tiết</button>
+                            <button type="button" class="btn btn-danger"
+                                onclick='window.location.href="?controller=phim&id=<?php echo $row_listMovie["movie_id"] ?> "'>Mua
+                                vé</button>
+                            <?php
+                            if (isset($_SESSION['user']) && $_SESSION['user'] != '') {
+
+                                if ($count_user == 1) {
+                                    ?>
+                                    <button type="button" class="btn btn-light"
+                                        onclick="unlike('<?php echo $movie_id; ?>', '<?php echo $_SESSION['idUser']; ?>')">Like:
+                                        <?php echo $count ?>
+                                    </button>
+                                    <?php
+
+                                }
+                                if ($count_user == 0) {
+                                    ?>
+                                    <button type="button" class="btn btn-primary"
+                                        onclick="like('<?php echo $movie_id; ?>', '<?php echo $_SESSION['idUser']; ?>')">Like:
+                                        <?php echo $count ?>
+                                    </button>
+                                    <?php
+                                }
+                            } else {
+                                ?>
+                                <button type="button" class="btn btn-primary" onclick="showAlert()">Like:
+                                    <?php echo $count ?>
+                                </button>
+                                <?php
+                            }
+                            ?>
                         </div>
                     </div>
                     <?php
-                            }}
-                    ?>
-                </div>
-            </div>
+                }
+            }
+            ?>
         </div>
-        
+    </div>
+</div>
 
-    <!-- End Content -->
+
+<!-- End Content -->

@@ -1,8 +1,5 @@
 <?php
-include_once("db/connect.php");
-session_start();
-$user = $_GET['user'];
-// $user = "annv@gmail.com";
+$user = $_SESSION['user'];
 ?>
 
 
@@ -41,7 +38,7 @@ WHERE
     booking.booking_user = users.user_id 
     AND booking.booking_movie = movies.movie_id 
     AND booking.booking_theater = cinemas.id 
-    AND users.email = '$user'; ");
+    AND users.user_email = '$user'; ");
         while ($row_bookingH = mysqli_fetch_array($sql_bookingH)) {
         ?>
             <tr>

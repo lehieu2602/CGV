@@ -16,12 +16,10 @@ while ($detail = mysqli_fetch_array($sql_detail)) {
         </div>
         <div class="row">
             <div class="col-md-5 col-sm-5 col-5">
-                <img src="<?php echo $detail['news_img'] ?>" alt="">
+                <img src="<?php echo $detail['news_img_detail'] ?>" alt="">
             </div>
             <div class="col-md-7 col-sm-7 col-7">
-                <span>
-                    <?php echo $detail['new_content'] ?>
-                </span>
+                <?php echo $detail['news_content'] ?>
             </div>
         </div>
     </div>
