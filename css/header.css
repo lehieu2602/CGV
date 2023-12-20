@@ -149,6 +149,7 @@
   }
   .header .main .header-logo {
     content: url("/img/cgvlogo-small.png");
+    width: 90px;
     display: normal;
   }
   .menu {
@@ -177,21 +178,50 @@
 
   .menu-icon table td img {
     max-width: 100%;
-    height: auto;
+    top: 100%;
+    left: 0;
+    right: 0;
     display: block;
-    margin: 0 auto;
   }
 
   .ul-res {
     background-color: #e6e3dc;
     list-style: none;
-    padding: 0;
-    margin: 0;
+    padding-left: 20px;
+    padding-top: 5px;
+    z-index: 9998;
+    position: relative;
+    width: 100%;
+  }
+
+  .header .ul-res li {
+    padding-bottom: 5px;
+  }
+
+  .header .ul-res li ul {
+    position: relative;
+  }
+
+  .ul-level-1 {
     display: none;
   }
 
-  li {
-    padding: 5px;
-    margin-bottom: 5px;
+  .ul-level-1.active {
+    display: initial;
+    left: 10px;
+  }
+
+  .login {
+    display: none;
+  }
+
+  .ul-res > li {
+    margin-bottom: 10px; /* Khoảng cách giữa các danh sách chính */
+    border-bottom: 1px solid #ccc; /* Đường ngang giữa các danh sách chính */
+  }
+
+  .ul-level-1 > li {
+    margin-bottom: 5px; /* Khoảng cách giữa các mục trong danh sách con */
+    border-bottom: 1px solid #eee; /* Đường ngang giữa các mục trong danh sách con */
   }
 }

@@ -8,26 +8,8 @@
   scroll-snap-align: start;
 }
 
-#prevButton,
-#nextButton {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  cursor: pointer;
-  padding: 10px;
-  background-color: #ccc;
-  border: none;
-}
-
-#prevButton {
-  left: 0;
-}
-#nextButton {
-  right: 0;
-}
-
-.image-structure {
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+@media screen and (max-width: 720px) {
+  .img-content {
+    width: 100%;
+  }
 }

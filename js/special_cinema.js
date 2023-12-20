@@ -18,7 +18,10 @@ function changeImageColor(imageNumber, structure) {
 
 function changeStructure(imageNumber, structure) {
   if (structure === "structure1") {
-    document.getElementById("imageStructure").style.display = "flex";
+    imgs_lst = document.getElementById("imageStructure");
+    imgs_lst.style.display = "flex";
+    imgs_lst.style.flexDirection = "column";
+    imgs_lst.style.alignItems = "center";
     document.getElementById("textAndSlideStructure").style.display = "none";
     changeImages(imageNumber);
   } else if (structure === "structure2") {
@@ -28,7 +31,7 @@ function changeStructure(imageNumber, structure) {
 }
 
 var imageOptions = {
-  5: [
+  4: [
     "../img/000-gc.jpg",
     "../img/001-gc.jpg",
     "../img/002-gc.jpg",
@@ -37,23 +40,25 @@ var imageOptions = {
     "../img/005-gc.jpg",
     "../img/006-gc.jpg",
   ],
-  option2: ["image3.jpg", "image4.jpg" /* Add more images as needed */],
+  5: [
+    "../img/000-lm.jpg",
+    "../img/001-lm.jpg",
+    "../img/002-gc.jpg",
+    "../img/003-gc.jpg",
+    "../img/004-gc.jpg",
+    "../img/005-gc.jpg",
+    "../img/006-gc.jpg",
+  ],
+  9: [
+    "../img/000-fr.jpg",
+    "../img/001-fr.jpg",
+    "../img/002-gc.jpg",
+    "../img/003-fr.jpg",
+    "../img/004-gc.jpg",
+    "../img/005-gc.jpg",
+    "../img/006-gc.jpg",
+  ],
 };
-
-const img_theaters = [
-  "../img/cgv-cine-1.png",
-  "../img/cgv-cine-2.png",
-  "../img/cgv-cine-3.png",
-  "../img/cgv-cine-4.png",
-  "../img/cgv-cine-5.png",
-  "../img/cgv-cine-6.png",
-  "../img/cgv-cine-7.png",
-  "../img/cgv-cine-8.png",
-  "../img/cgv-cine-9.png",
-  "../img/cgv-cine-10.png",
-  "../img/cgv-cine-11.png",
-  "../img/cgv-cine-12.png",
-];
 
 function changeImages(option) {
   console.log(option);
@@ -72,5 +77,6 @@ function changeImages(option) {
 function addImage(src) {
   var image = document.createElement("img");
   image.src = src;
+  image.classList.add("img-content");
   document.getElementById("imageStructure").appendChild(image);
 }
