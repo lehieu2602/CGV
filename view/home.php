@@ -2,21 +2,12 @@
 <?php
 $sql_listMovie = mysqli_query($mysqli, 'Select * from movies order by movie_id desc');
 ?>
-<style>
-    .slick-prev {
-        background-image: url('/img/1.png');
-        /* Thay đổi đường dẫn đến hình ảnh theo đúng đường dẫn của bạn */
-        /* Bạn cũng có thể sử dụng thuộc tính background-position để điều chỉnh vị trí của hình ảnh */
-    }
-</style>
 <div class="content container">
     <div class="content-movie">
         <div class="content-movie-title" style="text-align: center;">
             <img src="img\h3_movie_selection.png" style="max-width: 100%; height: auto; display: inline-block;">
         </div>
-
         <div class="content-movie-list">
-
             <div class="slider slider-nav">
                 <button type="button" data-role="none" class="slick-prev slick-arrow" aria-label="Previous" role="button" style="display: block;">Previous</button>
                 <?php

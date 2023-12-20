@@ -16,6 +16,7 @@ session_start();
     <link rel="stylesheet" href="../css/home.css" />
     <link rel="stylesheet" href="../css/slider.css" />
     <link rel="stylesheet" href="../css/myAccount.css" />
+    <link rel="stylesheet" href="../css/special_cinema.css" />
     <!-- <link rel="stylesheet" href="../css/membership.css" /> -->
     <!-- <link rel="stylesheet" href="../css/stylesignin.css" /> -->
     <!-- <link rel="stylesheet" href="../css/stylelogin.css" /> -->

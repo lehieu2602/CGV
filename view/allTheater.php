@@ -164,7 +164,6 @@
 
 <script>
     var show = document.getElementsByClassName("theater-container");
-
     var nameTheater = document.getElementsByClassName("nav-link");
     console.log("nameTheater: " + nameTheater);
     Array.from(nameTheater).forEach(function(element) {

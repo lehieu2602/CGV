@@ -1,6 +1,6 @@
 <div class="menu container">
     <ul>
-        <a href="?controller=listTheater">
+        <a href="?controller=allTheater">
             <img src="../img/header-logo-1.png" alt="" />
         </a>
         <a href="?controller=listmovies">
