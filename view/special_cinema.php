@@ -7,7 +7,7 @@
     <a class="cinema" id="cinema6" href="#" onclick="changeImageColor(6,'structure2')"><img id="img6" src="../img/cgv-cine-6.png" alt="" /></a>
     <a class="cinema" id="cinema7" href="#" onclick="changeImageColor(7,'structure2')"><img id="img7" src="../img/cgv-cine-7.png" alt="" /></a>
     <a class="cinema" id="cinema8" href="#" onclick="changeImageColor(8,'structure2')"><img id="img8" src="../img/cgv-cine-8.png" alt="" /></a>
-    <a class="cinema" id="cinema9" href="#" onclick="changeImageColor(9,'structure2')"><img id="img9" src="../img/cgv-cine-9.png" alt="" /></a>
+    <a class="cinema" id="cinema9" href="#" onclick="changeImageColor(9,'structure1')"><img id="img9" src="../img/cgv-cine-9.png" alt="" /></a>
     <a class="cinema" id="cinema10" href="#" onclick="changeImageColor(10,'structure2')"><img id="img10" src="../img/cgv-cine-10.png" alt="" /></a>
     <a class="cinema" id="cinema11" href="#" onclick="changeImageColor(11,'structure2')"><img id="img11" src="../img/cgv-cine-11.png" alt="" /></a>
     <a class="cinema" id="cinema12" href="#" onclick="changeImageColor(12,'structure2')"><img id="img12" src="" alt="" /></a>
