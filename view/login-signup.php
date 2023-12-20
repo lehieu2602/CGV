@@ -27,7 +27,7 @@ if (isset($_POST['register'])) {
     $sql_checkName = mysqli_query($mysqli, "SELECT * FROM `users` WHERE `user_email` = '$email' AND `phone_number` = '$phone'");
     $countName = mysqli_num_rows($sql_checkName);
     if ($countName == 0) {
-        $sql_register = mysqli_query($mysqli, "INSERT INTO cinema.users
+        $sql_register = mysqli_query($mysqli, "INSERT INTO users
         (username, user_password, phone_number, user_email, date_of_birth, gender, location, favorite_theater)
         VALUES('$username', '$password', '$phone', '$email', '$birth', $gender, '$city', '$theater');");
         $sql_checkreg = mysqli_query($mysqli, "SELECT * FROM `users` WHERE `user_email` = '$email' AND `phone_number` = '$phone'");

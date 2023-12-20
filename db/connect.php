@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$db = "cinema";
+$db = "new_cgv_db";
 $mysqli = mysqli_connect($servername, $username, $password, $db);
 
 // Check connection
