@@ -6,7 +6,7 @@
         <a href="?controller=listmovies">
             <img src="../img/header-logo-2.png" alt="" />
         </a>
-        <a href="">
+        <a href="?controller=specialTheater">
             <img src="../img/header-logo-3.png" alt="" />
         </a>
         <a href="">
