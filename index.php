@@ -42,6 +42,8 @@ session_start();
 <body>
     <?php
     include("view/header.php");
+    // include("view/listNew.php");
+
     if (isset($_GET['controller'])) {
         $controller = $_GET['controller'];
     } else {
@@ -70,7 +72,7 @@ session_start();
     } else if ($controller == 'specialTheater') {
         include('view/special_cinema.html');
     } else {
-        // include("view/slider.php");
+        include("view/slider.php");
         include('view/home.php');
     }
 
@@ -86,4 +88,5 @@ session_start();
     <script src="./js/index.js"></script>
     <script type="text/javascript" src="js\special_cinema.js"></script>
 </body>
+
 </html>

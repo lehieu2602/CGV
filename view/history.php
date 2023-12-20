@@ -1,8 +1,8 @@
 <?php
 include_once("db/connect.php");
-// session_start();
-// $user = $_GET['user'];
-$user = "annv@gmail.com";
+session_start();
+$user = $_GET['user'];
+// $user = "annv@gmail.com";
 ?>
 
 
