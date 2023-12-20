@@ -58,21 +58,21 @@ $sql_react = mysqli_query($mysqli,'Select * from react order by movie_id desc');
                                     Lượng:</span> <span class="d">
                                     <?php echo $row_listMovie['movie_time'] ?>
                                 </span></div>
-
                         </div>
                         <div class="movie-btn">
                             <button type="button" class="btn btn-danger" onclick='window.location.href="?controller=phim&id=<?php echo $row_listMovie["movie_id"] ?> "'>Mua vé</button>                     
                             <?php 
                                 if (isset($_SESSION['user']) && $_SESSION['user'] != '') {
+                                    
                                     if($count_user == 1) {
                                         ?>
-                                            <button type="button" class="btn btn-light" onclick="unlike(<?php echo $movie_id; ?>, <?php echo $_SESSION['idUser']; ?>)">Like: <?php echo $count?> </button>
+                                            <button type="button" class="btn btn-light" onclick="unlike('<?php echo $movie_id; ?>', '<?php echo $_SESSION['idUser']; ?>')">Like: <?php echo $count?> </button>
                                         <?php
                                             
                                     } 
                                     if($count_user == 0) {
                                         ?>
-                                            <button type="button" class="btn btn-primary" onclick="like(<?php echo $movie_id; ?>, <?php echo $_SESSION['idUser']; ?>)">Like: <?php echo $count ?> </button>
+                                            <button type="button" class="btn btn-primary" onclick="like('<?php echo $movie_id; ?>', '<?php echo $_SESSION['idUser']; ?>')">Like: <?php echo $count ?> </button>
                                         <?php
                                     }
                                 } else {

@@ -10,20 +10,19 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/header.css" />
     <link rel="stylesheet" href="../css/footer.css" />
-
     <link rel="stylesheet" href="../css/listMovies.css" />
     <link rel="stylesheet" href="../css/movieD.css" />
     <link rel="stylesheet" href="../css/all-theater.css" />
     <link rel="stylesheet" href="../css/home.css" />
     <link rel="stylesheet" href="../css/slider.css" />
     <link rel="stylesheet" href="../css/myAccount.css" />
+    <link rel="stylesheet" href="../css/special_cinema.css" />
     <!-- <link rel="stylesheet" href="../css/membership.css" /> -->
-    <!-- <link rel="stylesheet" href="css\stylesignin.css" /> -->
-    <link rel="stylesheet" href="css\stylelogin.css" />
+    <!-- <link rel="stylesheet" href="../css/stylesignin.css" /> -->
+    <!-- <link rel="stylesheet" href="../css/stylelogin.css" /> -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
     <script src="js/index.js"></script>
     <script src="js/react.js"></script>
-    <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <title>CGV</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -39,7 +38,7 @@ session_start();
     </script>
 </head>
 
-<body>
+<body style="background-color: #fdfcf0">
     <?php
     include("view/header.php");
     // include("view/listNew.php");
@@ -60,7 +59,7 @@ session_start();
         include('view/commingSoon.php');
     } else if ($controller == 'userInfo') {
         if (isset($_SESSION['user']) && $_SESSION['user'] != '') {
-            include('view/userInfo.php');
+            include('view/myAccount.php');
         } else {
             include("view/slider.php");
             include('view/home.php');
@@ -70,12 +69,13 @@ session_start();
     } else if ($controller == 'allTheater') {
         include('view/allTheater.php');
     } else if ($controller == 'specialTheater') {
-        include('view/special_cinema.html');
+        include('view/special_cinema.php');
+    } else if ($controller == 'login') {
+        include('view/login-signup.php');
     } else {
         include("view/slider.php");
         include('view/home.php');
     }
-
     include("view/footer.html");
     ?>
     <script type="text/javascript" src="js/header.js"></script>

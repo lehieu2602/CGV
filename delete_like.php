@@ -1,5 +1,5 @@
 <?php
-include_once("db\connect.php");
+include_once("db/connect.php");
 // Kết nối đến cơ sở dữ liệu
 // ... (Thực hiện kết nối tới MySQL hoặc cơ sở dữ liệu khác)
 
@@ -8,8 +8,7 @@ $movieId = $_POST['movie_id'];
 $userId = $_POST['user_id'];
 
 // Thực hiện thêm bản ghi vào cơ sở dữ liệu
-$sql = mysqli_query($mysqli, "INSERT INTO react (movie_id, user_id) VALUES ('$movieId', '$userId')");
-$result = $mysqli->query($sql);
+$sql = mysqli_query($mysqli, "DELETE FROM react WHERE movie_id = '$movieId' AND user_id = '$userId'");
 
 $mysqli->close();
 ?>

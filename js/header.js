@@ -44,3 +44,22 @@ window.addEventListener("resize", function () {
     currentCell.style.backgroundColor = "";
   }
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  var submenuItems = document.querySelectorAll(".has-submenu");
+
+  submenuItems.forEach(function (item) {
+    var submenu = item.querySelector(".ul-level-1");
+    item.addEventListener("click", function () {
+      submenu.classList.toggle("active");
+    });
+  });
+  document.addEventListener("click", function (event) {
+    submenuItems.forEach(function (item) {
+      var submenu = item.querySelector(".ul-level-1");
+      if (!item.contains(event.target)) {
+        submenu.classList.remove("active");
+      }
+    });
+  });
+});
