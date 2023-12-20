@@ -12,6 +12,7 @@
     <a class="cinema" id="cinema11" href="#" onclick="changeImageColor(11,'structure2')"><img id="img11" src="../img/cgv-cine-11.png" alt="" /></a>
     <a class="cinema" id="cinema12" href="#" onclick="changeImageColor(12,'structure2')"><img id="img12" src="" alt="" /></a>
 </div>
+
 <div class="content-special-theater">
     <div class=" head-content container">
         <?php
@@ -23,14 +24,29 @@
             $img = $row_listCinema['thumb'];
             $des1 = $row_listCinema['description1'];
             $des2 = $row_listCinema['description2'];
+            $cinemas = $row_listCinema['theaters'];
             if ($count == 0) {
-                echo '<div class="content-theater" id="content-' . $id . '" style=" display: flex; flex-direction: column; align-items: center"><div class="thumbnail">
-                <img src=' . $img . ' alt= ' . $name . ' style =" width: 200px">
-            </div>
-            <div class="description">
-                <h3>' . $des1 . '</h3>
-                <p> ' . $des2 . '</p>
-            </div></div>';
+                echo '<div class="content-theater" id="content-' . $id . '" style="margin-top:3%;  display: flex; flex-direction: column; align-items: center">
+                            <div class="thumbnail" >
+                                <img src=' . $img . ' alt= ' . $name . ' style =" width: 200px">
+                            </div>
+                            <div class="description" style = "margin-top: 3%;">
+                                <p style = "font-size: 20px;">' . $des1 . '</p>
+                                <p> ' . $des2 . '</p>
+                            </div>
+                            <ul class = "list-cinema list-unstyled row" style = "margin-left:10% ; width:100%">'; ?>
+                <?php
+                $arrayOfCinemas = trim($cinemas, '[]');
+                $arrayOfStringCinemas = explode(', ', $arrayOfCinemas);
+                foreach ($arrayOfStringCinemas as $index => $cine) {
+
+                    echo '<li style = "flex: 0 0 33.333%;max-width: 33.333%; display:flex;">
+                                
+                                <div class = "name-special-cinema"><p style = "font-size:15px"><strong>' . trim($cine, "'") . '</strong></p></div>
+                                </li>';
+                };
+                echo '</ul>
+                    </div>';
             } else {
                 echo '<div class="content-theater" id="content-' . $id . '" style=" display: none; flex-direction: column; align-items: center"><div class="thumbnail">
                 <img src=' . $img . ' alt= ' . $name . ' style =" width: 200px">
@@ -38,7 +54,20 @@
             <div class="description">
                 <h3>' . $des1 . '</h3>
                 <p> ' . $des2 . '</p>
-            </div></div>';
+            </div>
+            <ul class = "list-cinema list-unstyled row" style = "margin-left:10%; width:100%">'; ?>
+        <?php
+                $arrayOfCinemas = trim($cinemas, '[]');
+                $arrayOfStringCinemas = explode(', ', $arrayOfCinemas);
+                foreach ($arrayOfStringCinemas as $index => $cine) {
+
+                    echo '<li style = "flex: 0 0 33.333%;max-width: 33.333%; display:flex;">
+                                
+                                <div class = "name-special-cinema"><p style = "font-size:15px"><strong>' . trim($cine, "'") . '</strong></p></div>
+                                </li>';
+                };
+                echo '</ul>
+            </div>';
             }
             $count++;
         }
@@ -58,6 +87,7 @@
                 $name = $row_listCinema['name'];
                 $imgs = $row_listCinema['img'];
                 $captions = $row_listCinema['des_img1'];
+                $captions2 = $row_listCinema['des_img2'];
                 if ($count == 0) {
                     echo '<div class="theater-container product-view" id="show-theater-' . $id . '" style=" display: flex; flex-direction: column; align-items: center;">
         
@@ -75,15 +105,20 @@
                 $arrayOfStrings = explode(', ', $trimmedString);
                 $arrayOfStringsCaption = explode(', ', $trimmedStringCaption);
                 $arrayOfStrings = array_map('trim', $arrayOfStrings);
+                $arrayOfImgDes = trim($captions2, '[]');
+                $arrayOfStringsDes2 = explode(', ', $arrayOfImgDes);
+                // echo $arrayOfStringsDes2;
+
                 foreach ($arrayOfStrings as $index => $img) {
                     $activeClass = ($index === 0) ? "active" : "";
 
 
                     echo ' <div class="carousel-item ' . $activeClass . '">
                                 <img class="d-block w-100" src=' . $img . '>
-                                <div class="carousel-caption">' . trim($arrayOfStringsCaption[$index], "'") .
+                                <div class="carousel-caption" style = "width: 30%; height:100%; background-color: rgba(0, 0, 0, 0.2); color: #fff; left:0%; top:2%">
+                                <h5>' . trim($arrayOfStringsCaption[$index], "'") .
 
-                        '</div>
+                        '</h5><br><div class = "des2"><small>' . trim($arrayOfStringsDes2[$index], "'") . '</small></div></div>
                         </div>';
                 };
                 echo ' </div>

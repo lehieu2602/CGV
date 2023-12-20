@@ -4,21 +4,22 @@ $sql_listCinema = mysqli_query($mysqli, 'Select name from cinemas order by id de
 ?>
 <?php
 if (isset($_POST['login'])) {
-    $username = $_POST['emailUser'];
-    $password = md5($_POST['password']);
-    $sql_login = mysqli_query($mysqli, "SELECT * FROM `users` WHERE `user_email` = '$username' and `user_password` = '$password'");
-    $count = mysqli_num_rows($sql_login);
-    if ($count > 0) {
-        while ($getId = mysqli_fetch_array($sql_login)) {
-            $_SESSION['idUser'] = $getId['user_id'];
-        }
-        $_SESSION['user'] = $username;
-        echo "<script type='text/javascript'>alert('Hello " . $_SESSION['user'] . "'); window.location.href = 'index.php';</script>";
-    } else {
-        echo "<script type='text/javascript'>alert('Sai Tài Khoản Hoặc Mật Khẩu');</script>";
+  $username = $_POST['emailUser'];
+  $password = md5($_POST['password']);
+  $sql_login = mysqli_query($mysqli, "SELECT * FROM `users` WHERE `user_email` = '$username' and `user_password` = '$password'");
+  $count = mysqli_num_rows($sql_login);
+  if ($count > 0) {
+    while ($getId = mysqli_fetch_array($sql_login)) {
+      $_SESSION['idUser'] = $getId['user_id'];
     }
+    $_SESSION['user'] = $username;
+    echo "<script type='text/javascript'>alert('Hello " . $_SESSION['user'] . "'); window.location.href = 'index.php';</script>";
+  } else {
+    echo "<script type='text/javascript'>alert('Sai Tài Khoản Hoặc Mật Khẩu');</script>";
+  }
 }
 if (isset($_POST['register'])) {
+
     $username = $_POST['register_fullname'];
     $password = md5($_POST['passwordReg']);
     $email = $_POST['emailReg'];
@@ -33,33 +34,34 @@ if (isset($_POST['register'])) {
         $sql_register = mysqli_query($mysqli, "INSERT INTO users
         (username, user_password, phone_number, user_email, date_of_birth, gender, location, favorite_theater)
         VALUES('$username', '$password', '$phone', '$email', '$birth', $gender, '$city', '$theater');");
-        $sql_checkreg = mysqli_query($mysqli, "SELECT * FROM `users` WHERE `user_email` = '$email' AND `phone_number` = '$phone'");
-        $count = mysqli_num_rows($sql_checkreg);
-        if ($count > 0) {
-            echo "<script type='text/javascript'>alert('Đăng Ký Tài Khoản Thành Công');</script>";
-        }
-    } else {
-        echo "<script type='text/javascript'>alert('Tên Đăng Nhập Đã Tồn Tại');</script>";
+    $sql_checkreg = mysqli_query($mysqli, "SELECT * FROM `users` WHERE `user_email` = '$email' AND `phone_number` = '$phone'");
+    $count = mysqli_num_rows($sql_checkreg);
+    if ($count > 0) {
+      echo "<script type='text/javascript'>alert('Đăng Ký Tài Khoản Thành Công');</script>";
     }
+  } else {
+    echo "<script type='text/javascript'>alert('Tên Đăng Nhập Đã Tồn Tại');</script>";
+  }
 }
 
 ?>
 <!-- login -->
 <div class="login container">
-    <?php
-    if (isset($_SESSION['user']) && $_SESSION['user'] != '') {
-        echo "<ul>
+  <?php
+  if (isset($_SESSION['user']) && $_SESSION['user'] != '') {
+    echo "<ul>
                 <a style ='text-transform: none' class='dropdown-toggle noselect' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' >Xin chào <span class='userEmail'>" . $_SESSION['user'] . "</span></a>
                   <div class='dropdown-menu noselect'aria-labelledby='dropdownMenuButton'style ='text-transform: none'>
                     <a class='dropdown-item'href='?controller=userInfo'style ='margin: 0'>Thông Tin Tài Khoản</a>
                     <a class='dropdown-item'href='?signout=true'style ='margin: 0'>Đăng Xuất</a>
                   </div>
                     </ul>";
-    } else {
-        echo '<ul>
+  } else {
+    echo '<ul>
             <a href="">vé của tôi</a>
             <a href="" data-toggle="modal" data-target="#login">đăng nhập/đăng ký</a>
         </ul>';
+
     }
     ?>
 
@@ -208,9 +210,10 @@ if (isset($_POST['register'])) {
 
                 </form>
             </div>
+          
         </div>
+      </div>
     </div>
-</div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
@@ -225,119 +228,120 @@ if (isset($_POST['register'])) {
     });
 </script> -->
 <script>
-    var nameInput = document.getElementById("register_fullname");
-    var phoneInput = document.getElementById("phone");
-    var emailInput = document.getElementById("emailReg");
-    var passwordInput = document.getElementById("passwordReg");
-    var birthInput = document.getElementById("birthday");
-    var cityInput = document.getElementById("mySelect");
-    var cinemaInput = document.getElementById("Select");
+  var nameInput = document.getElementById("register_fullname");
+  var phoneInput = document.getElementById("phone");
+  var emailInput = document.getElementById("emailReg");
+  var passwordInput = document.getElementById("passwordReg");
+  var birthInput = document.getElementById("birthday");
+  var cityInput = document.getElementById("mySelect");
+  var cinemaInput = document.getElementById("Select");
+  var emailLog = document.getElementById("");
 
 
-    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    var phoneRegex = /^0\d{9}$/;
+  var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  var phoneRegex = /^0\d{9}$/;
 
-    emailInput.addEventListener("input", function () {
-        var isValidEmail = emailRegex.test(emailInput.value);
-        if (!isValidEmail) {
-            emailError.innerHTML = "email không hợp lệ"; // Ẩn cảnh báo nếu trường không rỗng
-        } else {
-            emailError.innerHTML = "";
-        }
-    });
+  emailInput.addEventListener("input", function() {
+    var isValidEmail = emailRegex.test(emailInput.value);
+    if (!isValidEmail) {
+      emailError.innerHTML = "email không hợp lệ"; // Ẩn cảnh báo nếu trường không rỗng
+    } else {
+      emailError.innerHTML = "";
+    }
+  });
 
-    phoneInput.addEventListener("input", function () {
-        var isValidPhone = phoneRegex.test(phoneInput.value);
-        if (!isValidPhone) {
-            phoneError.innerHTML = "số điện thoại không hợp lệ"; // Ẩn cảnh báo nếu trường không rỗng
-        } else {
-            phoneError.innerHTML = "";
-        }
-    });
-
-
-
-    nameInput.addEventListener("input", function () {
-        if (nameInput.value !== "") {
-            nameError.innerHTML = ""; // Ẩn cảnh báo nếu trường không rỗng
-        }
-    });
-    birthInput.addEventListener("input", function () {
-        if (birthInput.value !== "") {
-            birthError.innerHTML = ""; // Ẩn cảnh báo nếu trường không rỗng
-        }
-    });
-    passwordInput.addEventListener("input", function () {
-        if (passwordInput.value !== "") {
-            pswError.innerHTML = ""; // Ẩn cảnh báo nếu trường không rỗng
-        }
-    });
-    cityInput.addEventListener("input", function () {
-        if (cityInput.value !== "") {
-            cityError.innerHTML = ""; // Ẩn cảnh báo nếu trường không rỗng
-        }
-    });
-    cinemaInput.addEventListener("input", function () {
-        if (cinemaInput.value !== "") {
-            cinemaError.innerHTML = ""; // Ẩn cảnh báo nếu trường không rỗng
-        }
-    });
+  phoneInput.addEventListener("input", function() {
+    var isValidPhone = phoneRegex.test(phoneInput.value);
+    if (!isValidPhone) {
+      phoneError.innerHTML = "số điện thoại không hợp lệ"; // Ẩn cảnh báo nếu trường không rỗng
+    } else {
+      phoneError.innerHTML = "";
+    }
+  });
 
 
 
-
+  nameInput.addEventListener("input", function() {
+    if (nameInput.value !== "") {
+      nameError.innerHTML = ""; // Ẩn cảnh báo nếu trường không rỗng
+    }
+  });
+  birthInput.addEventListener("input", function() {
+    if (birthInput.value !== "") {
+      birthError.innerHTML = ""; // Ẩn cảnh báo nếu trường không rỗng
+    }
+  });
+  passwordInput.addEventListener("input", function() {
+    if (passwordInput.value !== "") {
+      pswError.innerHTML = ""; // Ẩn cảnh báo nếu trường không rỗng
+    }
+  });
+  cityInput.addEventListener("input", function() {
+    if (cityInput.value !== "") {
+      cityError.innerHTML = ""; // Ẩn cảnh báo nếu trường không rỗng
+    }
+  });
+  cinemaInput.addEventListener("input", function() {
+    if (cinemaInput.value !== "") {
+      cinemaError.innerHTML = ""; // Ẩn cảnh báo nếu trường không rỗng
+    }
+  });
 
 
 
 
-    document.getElementById("cgv-signup-form").addEventListener("submit", function (event) {
-        // Lấy giá trị của các trường input
-        var nameValue = document.getElementById("register_fullname").value;
-        var pswValue = passwordInput.value;
-        var birthValue = birthInput.value;
-        var cinemaValue = cinemaInput.value;
-        var cityValue = cityInput.value;
-        var phoneValue = phoneInput.value;
-        var emailValue = emailInput.value;
 
 
 
-        // Kiểm tra trường tên
-        if (nameValue === "") {
-            document.getElementById("nameError").innerHTML = "Vui lòng nhập tên.";
-            event.preventDefault(); // Ngăn chặn form từ việc submit
-        } else {
-            document.getElementById("nameError").innerHTML = "";
-        }
-        if (pswValue === "") {
-            document.getElementById("pswError").innerHTML = "Vui lòng nhập mật khẩu.";
-            event.preventDefault();
-        } else {
-            document.getElementById("pswError").innerHTML = "";
-        }
-        if (emailValue === "") {
-            document.getElementById("emailError").innerHTML = "Vui lòng nhập Email.";
-            event.preventDefault();
-        } else {
-            document.getElementById("emailError").innerHTML = "";
-        }
-        if (phoneValue === "") {
-            document.getElementById("phoneError").innerHTML = "Vui lòng nhập số điện thoại.";
-            event.preventDefault();
-        } else {
-            document.getElementById("phoneError").innerHTML = "";
-        }
-        if (birthValue === "") {
-            document.getElementById("birthError").innerHTML = "Vui lòng nhập ngày sinh.";
-            event.preventDefault();
-        } else {
-            document.getElementById("birthError").innerHTML = "";
-        }
-        if (cityValue === "Khu vực") {
-            document.getElementById("cityError").innerHTML = "Vui lòng chọn khu vực.";
-            event.preventDefault();
-        } else {
-            document.getElementById("cityError").innerHTML = "";
-        }
-    });
+
+  document.getElementById("cgv-signup-form").addEventListener("submit", function(event) {
+    // Lấy giá trị của các trường input
+    var nameValue = document.getElementById("register_fullname").value;
+    var pswValue = passwordInput.value;
+    var birthValue = birthInput.value;
+    var cinemaValue = cinemaInput.value;
+    var cityValue = cityInput.value;
+    var phoneValue = phoneInput.value;
+    var emailValue = emailInput.value;
+
+
+
+    // Kiểm tra trường tên
+    if (nameValue === "") {
+      document.getElementById("nameError").innerHTML = "Họ tên chưa nhập.";
+      event.preventDefault(); // Ngăn chặn form từ việc submit
+    } else {
+      document.getElementById("nameError").innerHTML = "";
+    }
+    if (pswValue === "") {
+      document.getElementById("pswError").innerHTML = "Vui lòng nhập mật khẩu.";
+      event.preventDefault();
+    } else {
+      document.getElementById("pswError").innerHTML = "";
+    }
+    if (emailValue === "") {
+      document.getElementById("emailError").innerHTML = "Vui lòng nhập Email.";
+      event.preventDefault();
+    } else {
+      document.getElementById("emailError").innerHTML = "";
+    }
+    if (phoneValue === "") {
+      document.getElementById("phoneError").innerHTML = "Vui lòng nhập số điện thoại.";
+      event.preventDefault();
+    } else {
+      document.getElementById("phoneError").innerHTML = "";
+    }
+    if (birthValue === "") {
+      document.getElementById("birthError").innerHTML = "Vui lòng nhập ngày sinh.";
+      event.preventDefault();
+    } else {
+      document.getElementById("birthError").innerHTML = "";
+    }
+    if (cityValue === "Khu vực") {
+      document.getElementById("cityError").innerHTML = "Vui lòng chọn khu vực.";
+      event.preventDefault();
+    } else {
+      document.getElementById("cityError").innerHTML = "";
+    }
+  });
 </script>
