@@ -7,7 +7,7 @@
     <a class="cinema" id="cinema6" href="#" onclick="changeImageColor(6,'structure2')"><img id="img6" src="../img/cgv-cine-6.png" alt="" /></a>
     <a class="cinema" id="cinema7" href="#" onclick="changeImageColor(7,'structure2')"><img id="img7" src="../img/cgv-cine-7.png" alt="" /></a>
     <a class="cinema" id="cinema8" href="#" onclick="changeImageColor(8,'structure2')"><img id="img8" src="../img/cgv-cine-8.png" alt="" /></a>
-    <a class="cinema" id="cinema9" href="#" onclick="changeImageColor(9,'structure2')"><img id="img9" src="../img/cgv-cine-9.png" alt="" /></a>
+    <a class="cinema" id="cinema9" href="#" onclick="changeImageColor(9,'structure1')"><img id="img9" src="../img/cgv-cine-9.png" alt="" /></a>
     <a class="cinema" id="cinema10" href="#" onclick="changeImageColor(10,'structure2')"><img id="img10" src="../img/cgv-cine-10.png" alt="" /></a>
     <a class="cinema" id="cinema11" href="#" onclick="changeImageColor(11,'structure2')"><img id="img11" src="../img/cgv-cine-11.png" alt="" /></a>
     <a class="cinema" id="cinema12" href="#" onclick="changeImageColor(12,'structure2')"><img id="img12" src="" alt="" /></a>
@@ -34,7 +34,7 @@
                                 <p style = "font-size: 20px;">' . $des1 . '</p>
                                 <p> ' . $des2 . '</p>
                             </div>
-                            <ul class = "list-cinema list-unstyled row" style = "margin-left:10% ; width:100%">'; ?>
+                            <ul class = "list-cinema1 list-unstyled row" style = "margin-left:10% ; width:100%">'; ?>
                 <?php
                 $arrayOfCinemas = trim($cinemas, '[]');
                 $arrayOfStringCinemas = explode(', ', $arrayOfCinemas);
@@ -42,20 +42,20 @@
 
                     echo '<li style = "flex: 0 0 33.333%;max-width: 33.333%; display:flex;">
                                 
-                                <div class = "name-special-cinema"><p style = "font-size:15px"><strong>' . trim($cine, "'") . '</strong></p></div>
+                                <div class = "name-special-cinema"><p style = "font-size:15px">' . trim($cine, "'") . '</p></div>
                                 </li>';
                 };
                 echo '</ul>
                     </div>';
             } else {
-                echo '<div class="content-theater" id="content-' . $id . '" style=" display: none; flex-direction: column; align-items: center"><div class="thumbnail">
+                echo '<div class="content-theater" id="content-' . $id . '" style="margin-top:3%; display: none; flex-direction: column; align-items: center"><div class="thumbnail">
                 <img src=' . $img . ' alt= ' . $name . ' style =" width: 200px">
             </div>
-            <div class="description">
-                <h3>' . $des1 . '</h3>
+            <div class="description" style = "margin-top: 3%;">
+                <p style = "font-size: 20px;">' . $des1 . '</p>
                 <p> ' . $des2 . '</p>
             </div>
-            <ul class = "list-cinema list-unstyled row" style = "margin-left:10%; width:100%">'; ?>
+            <ul class = "list-cinema1 list-unstyled row" style = "margin-left:10%; width:100%">'; ?>
         <?php
                 $arrayOfCinemas = trim($cinemas, '[]');
                 $arrayOfStringCinemas = explode(', ', $arrayOfCinemas);
@@ -63,7 +63,7 @@
 
                     echo '<li style = "flex: 0 0 33.333%;max-width: 33.333%; display:flex;">
                                 
-                                <div class = "name-special-cinema"><p style = "font-size:15px"><strong>' . trim($cine, "'") . '</strong></p></div>
+                                <div class = "name-special-cinema"><p style = "font-size:15px">' . trim($cine, "'") . '</p></div>
                                 </li>';
                 };
                 echo '</ul>
@@ -91,12 +91,12 @@
                 if ($count == 0) {
                     echo '<div class="theater-container product-view" id="show-theater-' . $id . '" style=" display: flex; flex-direction: column; align-items: center;">
         
-                        <div id="myCarousel-' . $id . '" class="carousel slide border" data-ride="carousel" style="width: 60%;">
+                        <div id="myCarousel-' . $id . '" class="carousel slide border" data-ride="carousel" style="width: 80%;">
                             <div class="carousel-inner">';
                 } else {
                     echo '<div class="theater-container product-view" id="show-theater-' . $id . '" style=" display: none;">
         
-                        <div id="myCarousel-' . $id . '" class="carousel slide border" data-ride="carousel" style="width: 60%;">
+                        <div id="myCarousel-' . $id . '" class="carousel slide border" data-ride="carousel" style="width: 80%;">
                             <div class="carousel-inner">';
                 }
                 $count++;
@@ -115,11 +115,12 @@
 
                     echo ' <div class="carousel-item ' . $activeClass . '">
                                 <img class="d-block w-100" src=' . $img . '>
-                                <div class="carousel-caption" style = "width: 30%; height:100%; background-color: rgba(0, 0, 0, 0.2); color: #fff; left:0%; top:2%">
-                                <h5>' . trim($arrayOfStringsCaption[$index], "'") .
-
-                        '</h5><br><div class = "des2"><small>' . trim($arrayOfStringsDes2[$index], "'") . '</small></div></div>
-                        </div>';
+                                <div class="carousel-caption" style = "width: 30%; height:100%; background-color: rgba(0, 0, 0, 0.2); color: #fff; left:0%; top:2%">';
+                    if ($arrayOfStringsCaption[$index] !== "") {
+                        echo '<h5>' . trim($arrayOfStringsCaption[$index], "'") . '</h5><br><div class = "des2"><small>' . trim($arrayOfStringsDes2[$index], "'") . '</small></div>
+                        ';
+                    };
+                    echo '</div></div>';
                 };
                 echo ' </div>
                 <a class="carousel-control-prev" href="#myCarousel-' . $id . '" role="button" data-slide="prev">

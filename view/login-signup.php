@@ -115,67 +115,9 @@ if (isset($_POST['register'])) {
 
           </div>
           <div class="form-group col-sm-12">
-            <label for="birthday" style="font-size: 13px; font-family: Verdana, Arial, sans-serif; font-weight: 600;text-transform: none;">Ngày sinh <span style="color:#EE2C2C; font-weight: 600;">*</span></label>
-            <br>
-            <select name="rbirth_day" id="rbirth_day" style="width: 20%;">
-              <script>
-                var select = document.getElementById('rbirth_day');
-                var defaultOption = document.createElement('option');
-                defaultOption.value = "";
-                defaultOption.innerHTML = "Ngày";
-                select.appendChild(defaultOption);
-
-                var min = 1,
-                  max = 31;
-
-                for (var i = min; i <= max; i++) {
-                  var opt = document.createElement('option');
-                  opt.value = i;
-                  opt.innerHTML = i;
-                  select.appendChild(opt);
-                }
-              </script>
-            </select>
-            <select name="rbirth_month" id="rbirth_month" style="width: 20%;">
-              <script>
-                var select = document.getElementById('rbirth_month');
-                var defaultOption = document.createElement('option');
-                defaultOption.value = "";
-                defaultOption.innerHTML = "Tháng";
-                select.appendChild(defaultOption);
-
-                var min = 1,
-                  max = 12;
-
-                for (var i = min; i <= max; i++) {
-                  var opt = document.createElement('option');
-                  opt.value = i;
-                  opt.innerHTML = i;
-                  select.appendChild(opt);
-                }
-              </script>
-            </select>
-            <select name="rbirth_year" id="rbirth_year" style="width: 20%;">
-              <script>
-                var select = document.getElementById('rbirth_year');
-                var defaultOption = document.createElement('option');
-                defaultOption.value = "";
-                defaultOption.innerHTML = "Năm";
-                select.appendChild(defaultOption);
-
-                var min = 1900,
-                  max = 2015,
-                  select = document.getElementById('rbirth_year');
-
-                for (var i = min; i <= max; i++) {
-                  var opt = document.createElement('option');
-                  opt.value = i;
-                  opt.innerHTML = i;
-                  select.appendChild(opt);
-                }
-              </script>
-            </select>
-            <span id="birthError" class="error" style="color: red;font-size: 14px;text-transform: none;font-family: verdana,Arial,sans-serif; "></span>
+            <label for="birthday" style="font-size: 13px; font-family: Verdana, Arial, sans-serif; font-weight: 600;text-transform: none;">Ngày Sinh <span style="color:#EE2C2C; font-weight: 600;">*</span></label>
+            <input type="date" name="birthday" id="birthday" required>
+            <span id="birthError" class="error" style="color: red" ;></span>
 
           </div>
           <div class="form-group col-sm-12" style="margin: 4px 0 12px;display: inline-block;font-size: 13px;font-family: Verdana, Arial, sans-serif;font-weight: 600;text-transform: none;">

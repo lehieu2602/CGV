@@ -71,7 +71,7 @@ session_start();
     } else if ($controller == 'specialTheater') {
         include('view/special_cinema.php');
     } else if ($controller == 'login') {
-        include('view/login-signup.php');
+        include('view/login-signup-2.php');
     } else {
         include("view/slider.php");
         include('view/home.php');
