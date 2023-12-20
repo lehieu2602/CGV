@@ -154,11 +154,15 @@ while ($detail = mysqli_fetch_array($sql_detail)) {
                                             <label for="city" style="font-weight: bold;">Thành Phố:</label>
                                             <select id="city" class="form-control" name="city">
                                                 <?php
-                                                $sql_listCity = mysqli_query($mysqli, 'SELECT DISTINCT `theaters_city` FROM `theaters` ');
+                                                $sql_listCity = mysqli_query($mysqli, 'SELECT `name`, `id` from `location`');
                                                 while ($row_listCity = mysqli_fetch_array($sql_listCity)) {
                                                     ?>
-                                                    <option>
-                                                        <?php echo $row_listCity['theaters_city']; ?>
+                                                    <option id="<?php $string = $row_listCity['id'] ?>">
+                                                        <?php 
+                                                            
+                                                            echo $row_listCity['name']; 
+                                                        
+                                                        ?>
                                                     </option>
                                                     <?php
                                                 }
@@ -171,21 +175,21 @@ while ($detail = mysqli_fetch_array($sql_detail)) {
                                                 <?php
                                                 $firstArr = true;
                                                 $lastValue = "";
-                                                $sql_listTheater = mysqli_query($mysqli, 'SELECT `theaters_name`, `theaters_city`,`theaters_id` FROM `theaters`');
+                                                $sql_listTheater = mysqli_query($mysqli, "SELECT `name`, `id_location`,`id` FROM `cinemas`");
                                                 while ($row_listTheater = mysqli_fetch_array($sql_listTheater)) {
-                                                    if ($lastValue != $row_listTheater['theaters_city']) {
+                                                    if ($lastValue != $row_listTheater['id_location']) {
                                                         $firstArr = true;
                                                     } else {
                                                         $firstArr = false;
                                                     }
                                                     ?>
-                                                    <option class="<?php $string = $row_listTheater['theaters_city'];
+                                                    <option class="<?php $string = $row_listTheater['id_location'];
                                                     if ($firstArr == true) {
                                                         echo preg_replace('/\s+/', '', $string);
                                                     } ?>" disabled selected>Chọn Rạp</option>
-                                                    <option value="<?php echo $row_listTheater['theaters_id'] ?>" class=<?php $string = $row_listTheater['theaters_city'];
-                                                       echo preg_replace('/\s+/', '', $string);
-                                                       $lastValue = $row_listTheater['theaters_city']; ?>><?php echo $row_listTheater['theaters_name'] ?></option>
+                                                    <option value="<?php echo $row_listTheater['id'] ?>" class=<?php $string = $row_listTheater['id_location'];
+                                                       echo preg_replace('/\s+/', '', $string)." theater";
+                                                       $lastValue = $row_listTheater['id_location']; ?>><?php echo $row_listTheater['name'] ?></option>
                                                     <?php
                                                 }
                                                 ?>
@@ -195,11 +199,11 @@ while ($detail = mysqli_fetch_array($sql_detail)) {
                                             <label for="showings" style="font-weight: bold;">Xuất Chiếu:</label>
                                             <select id="showings" class="form-control" name="showings">
                                                 <?php
-                                                $sql_show = mysqli_query($mysqli, "SELECT * FROM schedule,theaters, rooms,movies WHERE showings_room = room_id and showings_name_movie = movie_id and room_theater = theaters_id and movie_id = '$id'");
+                                                $sql_show = mysqli_query($mysqli, "SELECT * FROM `schedule`, `cinemas`, `rooms`,`movies` WHERE showings_room = room_id and showings_name_movie = movie_id and room_theater = cinemas.id and movie_id = '$id'");
                                                 while ($row_show = mysqli_fetch_array($sql_show)) {
                                                     ?>
-                                                    <option class="<?php $theater = preg_replace('/\s+/', '', $row_show['theaters_name']);
-                                                    $city = preg_replace('/\s+/', '', $row_show['theaters_city']);
+                                                    <option class="<?php $theater = preg_replace('/\s+/', '', $row_show['name']);
+                                                    $city = preg_replace('/\s+/', '', $row_show['id_location']);
                                                     echo "$theater $city"; ?>"
                                                         value="<?php echo $row_show['showings_room'] ?>">
                                                         <?php echo $row_show['showings_time'] ?>
@@ -242,3 +246,27 @@ while ($detail = mysqli_fetch_array($sql_detail)) {
     <?php
 }
 ?>
+
+
+<script>
+  // Lấy reference đến select element
+  var selectElement = document.getElementById('city');
+
+  // Thêm event listener cho sự kiện change
+  selectElement.addEventListener('change', function() {
+    // Lấy giá trị của option được chọn
+    var selectedValue = selectElement.value;
+
+    // Hiển thị thông báo với giá trị được chọn
+    var listTheater =document.getElementsByClassName("theater");
+  
+    for(int i=0; i<listTheater.length;i++) {
+        listTheater[i].style.display = "none";
+    }
+    var listTheaterShow =document.getElementsByClassName(selectElement.id);
+    for(int i=0; i<listTheaterShow.length;i++) {
+        listTheaterShow[i].style.display = "block";
+    }
+
+  });
+</script>
