@@ -1,6 +1,3 @@
-
-
-
 <div class="my-main-container">
     <div class="my-container">
 
@@ -36,8 +33,7 @@
                     <div class="title-header">
                         <h1>THÔNG TIN CHUNG</h1>
                     </div>
-                    <form action="https://www.cgv.vn/default/customer/account/changeavatar/" method="post"
-                        enctype="multipart/form-data">
+                    <form action="" method="post" enctype="multipart/form-data">
                         <input name="form_key" type="hidden" value="9oLPaEGCo7Exw3CP">
                         <input name="usersatus" type="hidden" value="1">
                         <div class="container">
@@ -50,10 +46,13 @@
                                         </label>
                                     </div>
                                     <div class="info-center">
-                                        <button style="color: white; background-color: gray; border-radius: 12%;"
+                                        
+                                        <!-- <input id="fileInput" type="file" name="file" title="NO" style="width: 100%;color: white; background-color: gray; border-radius: 12%;"/> -->
+                                        
+                                        <!-- <button style="color: white; background-color: gray; border-radius: 12%;"
                                             type="button" id="btnchange">
                                             Thay đổi
-                                        </button>
+                                        </button> -->
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-sm-4">
@@ -74,11 +73,13 @@
                         </div>
                     </form>
                     <div class="info">
-                        <h5 style="font-weight: bolder;">Xin chào bro</h5>
+                        <h5 style="font-weight: bolder;">Xin chào
+                            <?php echo $_SESSION['name'] ?>
+                        </h5>
                         <h5 style="color: gray;">Với trang này, bạn sẽ quản lý được tất cả thông tin tài khoản của mình.
                         </h5>
                     </div>
-                    <div class="info">
+                    <!-- <div class="info">
                         <div class="container-fluid">
                             <div class="row">
                                 <div style="color: gray;">
@@ -97,17 +98,26 @@
 
                         </div>
 
-                    </div>
+                    </div> -->
                     <div class="contact">
                         <h4 style="font-weight: bolder;">Thông tin tài khoản</h4>
                         <hr style="border: none;border-top: 1px solid #ccc;">
                         <span>
-                            <h5>LIÊN HỆ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre><button>Thay đổi</button></h5>
+                            <h5>LIÊN HỆ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre><button type="button"
+                                    class="btn btn-outline-secondary" onclick="openTab('tab-chi-tiet')">
+                                    Thay đổi
+                                </button></h5>
                         </span>
                         <div style="color: gray;">
-                            <p>Tên: An Nguyễn Văn</p>
-                            <p>Email: vanan22022002@gmail.com</p>
-                            <p>Điện thoại: 0865447197</p>
+                            <p>Tên:
+                                <?php echo $_SESSION['name'] ?>
+                            </p>
+                            <p>Email:
+                                <?php echo $_SESSION['user'] ?>
+                            </p>
+                            <p>Điện thoại:
+                                <?php echo $_SESSION['phone'] ?>
+                            </p>
                         </div>
                         <!-- <a href="#" class="btn">Thay đổi thông tin tài khoản</a>
         <a href="#" class="btn">Xem voucher</a>
@@ -140,4 +150,11 @@
     navItem.addEventListener("click", function () {
         navItem.style.backgroundColor = "red";
     });
+
+    function openTab(tabId) {
+        var tab = document.getElementById(tabId);
+        if (tab) {
+            tab.click();
+        }
+    }
 </script>
