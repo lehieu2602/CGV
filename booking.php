@@ -3,6 +3,7 @@ include_once("db/connect.php");
 session_start();
 $showingRoom = $_GET['showing'];
 
+
 $_SESSION['idRoom'] = $showingRoom;
 $idMovies = $_SESSION['IDMovie'];
 echo "ID MOVIES: " . $idMovies;
@@ -456,7 +457,7 @@ $sql_ticketInfo = mysqli_query($mysqli, "SELECT * FROM `schedule`,cinemas,rooms,
                 <div>Suất Chiếu: <span><?php echo $row_ticketInfo['showings_time']; ?></span></div>
                 <div>Rạp: <span><?php echo $row_ticketInfo['name']; ?></span></div>
                 <div>Phòng: <span><?php echo $row_ticketInfo['room_name']; ?></span></div>
-                <div>Ghế: <span id="seatN"></span></div>
+                <div>Ghế: <span id="seatN"><?php echo $row_ticketInfo['room_name']; ?></span></div>
             </div>
             <form action="" method="post" id="booking">
                 <input type="hidden" name="listTicket" id="listTicket" value="" />

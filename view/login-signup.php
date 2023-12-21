@@ -56,25 +56,22 @@ if (isset($_POST['register'])) {
                     <a class='dropdown-item'href='?signout=true'style ='margin: 0'>Đăng Xuất</a>
                   </div>
                     </ul>";
-    } else {
-        echo '<ul>
-            <a href="">vé của tôi</a>
-            <a href="" data-toggle="modal" data-target="#login">đăng nhập/đăng ký</a>
-        </ul>';
-
-    }
+    };
+    // } else {
+    //     echo '<ul>
+    //         <a href="">vé của tôi</a>
+    //         <a href="" data-toggle="modal" data-target="#login">đăng nhập/đăng ký</a>
+    //     </ul>';
+    // }
     ?>
 
     <div class="login-signup" style="width: 50%; margin-left: 25%; background-color: white;">
-        <ul class="nav nav-tabs nav-fill" id="myTab" role="tablist"
-            style=" margin-bottom: 2%; background-color: #EE2C2C">
+        <ul class="nav nav-tabs nav-fill" id="myTab" role="tablist" style=" margin-bottom: 2%; background-color: #EE2C2C">
             <li class="nav-item" role="presentation">
-                <div class="nav-link active" id="emailUser" data-toggle="tab" href="#login" role="tab"
-                    aria-controls="login" aria-selected="true" style="border-radius: 5px;">Đăng Nhập</div>
+                <div class="nav-link active" id="emailUser" data-toggle="tab" href="#login" role="tab" aria-controls="login" aria-selected="true" style="border-bottom: 3px solid #fff;color: #fff;background-color: red;font-weight: 700;font-size: 17px;">Đăng Nhập</div>
             </li>
             <li class="nav-item" role="presentation">
-                <div class="nav-link" id="signup-tab" data-toggle="tab" href="#signup" role="tab" aria-controls="signup"
-                    aria-selected="false" style="border-radius: 5px; ">Đăng Kí</div>
+                <div class="nav-link" id="signup-tab" data-toggle="tab" href="#signup" role="tab" aria-controls="signup" aria-selected="false" style="border-bottom: 3px solid #fff;color: #fff;background-color: red;font-weight: 700;font-size: 17px;">Đăng Kí</div>
             </li>
 
         </ul>
@@ -83,22 +80,19 @@ if (isset($_POST['register'])) {
                 <div class="cgvfc form-login-content">
                     <form action="" class="cgv-login-form" method="post" id="cgv-login-form">
                         <div class="form-group" style="margin-left: 5%;">
-                            <label for="emailUser"
-                                style="font-size: 13px; font-family: Verdana, Arial, sans-serif; font-weight: 600;text-transform: none;">Email
+                            <label for="emailUser" style="font-size: 13px; font-family: Verdana, Arial, sans-serif; font-weight: 600;text-transform: none;">Email
                                 hoặc số điện thoại</label>
-                            <input type="email" id="emailUser" name="emailUser" class="form-control"
-                                placeholder="Email hoặc số điện thoại">
-                            <label for="password"
-                                style="font-size: 13px; font-family: Verdana, Arial, sans-serif; font-weight: 600;text-transform: none;">Mật
+                            <input type="email" id="emailUser" name="emailUser" class="form-control" placeholder="Email hoặc số điện thoại">
+                            <span id="myEmailValue" class="error" style="color: red;font-size: 14px;text-transform: none;font-family: verdana,Arial,sans-serif; "></span>
+                            <label for="password" style="font-size: 13px; font-family: Verdana, Arial, sans-serif; font-weight: 600;text-transform: none;">Mật
                                 khẩu</label>
                             <input type="password" id="password" name="password" class="form-control" placeholder="Mật khẩu">
+                            <span id="myPasswordValue" class="error" style="color: red;font-size: 14px;text-transform: none;font-family: verdana,Arial,sans-serif; "></span>
 
-                            <button type="submit" name="login" class="btn btn-danger"
-                                style="width: 100%;background-color: #e71a0f;color: white;padding: 14px 20px;margin: 8px 0;border: none;border-radius: 4px;cursor: pointer;text-transform: uppercase;">Đăng
+                            <button type="submit" name="login" class="btn btn-danger" style="width: 100%;background-color: #e71a0f;color: white;padding: 14px 20px;margin: 8px 0;border: none;border-radius: 4px;cursor: pointer;text-transform: uppercase;">Đăng
                                 Nhập</button>
                             <div class="cgv-login-forgotp-link" style="text-align:center;">
-                                <a href="" class="forgot-pwd required-entry" style=" text-decoration:none;"><small
-                                        style="font-weight: 600;text-transform: none;font-size: 12px;">Bạn muốn tìm lại
+                                <a href="" class="forgot-pwd required-entry" style=" text-decoration:none;"><small style="font-weight: 600;text-transform: none;font-size: 12px;">Bạn muốn tìm lại
                                         mật khẩu?</small></a>
                             </div>
                         </div>
@@ -110,45 +104,43 @@ if (isset($_POST['register'])) {
 
 
                     <div class="form-group col-sm-12">
-                        <label for="register_fullname">Tên</label>
-                        <input type="text" class="form-control" name="register_fullname" id="register_fullname"
-                            placeholder="Tên">
-                        <span id="nameError" class="error" style="color: red" ;></span>
+                        <label for="register_fullname" style="font-size: 13px; font-family: Verdana, Arial, sans-serif; font-weight: 600;text-transform: none;">Tên <span style="color:#EE2C2C; font-weight: 600;">*</label>
+                        <input type="text" class="form-control" name="register_fullname" id="register_fullname" placeholder="Tên">
+                        <span id="nameError" class="error" style="color: red;font-size: 14px;text-transform: none;font-family: verdana,Arial,sans-serif; " ;></span>
                     </div>
                     <div class="form-group col-sm-12">
-                        <label for="phone">Số điện thoại</label>
+                        <label for="phone" style="font-size: 13px; font-family: Verdana, Arial, sans-serif; font-weight: 600;text-transform: none;">Số điện thoại <span style="color:#EE2C2C; font-weight: 600;">*</span></label>
                         <input type="text" class="form-control" name="phone" id="phone" placeholder="Số Điện Thoại">
-                        <span id="phoneError" class="error" style="color: red" ;></span>
+                        <span id="phoneError" class="error" style="color: red;font-size: 14px;text-transform: none;font-family: verdana,Arial,sans-serif; " ;></span>
 
                     </div>
                     <div class="form-group col-sm-12">
-                        <label for="emailReg">Email</label>
+                        <label for="emailReg" style="font-size: 13px; font-family: Verdana, Arial, sans-serif; font-weight: 600;text-transform: none;">Email <span style="color:#EE2C2C; font-weight: 600;">*</span></label>
                         <input type="email" class="form-control" name="emailReg" id="emailReg" placeholder="Email">
-                        <span id="emailError" class="error" style="color: red" ;></span>
+                        <span id="emailError" class="error" style="color: red;font-size: 14px;text-transform: none;font-family: verdana,Arial,sans-serif; " ;></span>
 
                     </div>
                     <div class="form-group col-sm-12">
-                        <label for="passwordReg">Password</label>
-                        <input type="password" class="form-control" name="passwordReg" id="passwordReg"
-                            placeholder="Password">
-                        <span id="pswError" class="error" style="color: red" ;></span>
+                        <label for="passwordReg" style="font-size: 13px; font-family: Verdana, Arial, sans-serif; font-weight: 600;text-transform: none;">Password <span style="color:#EE2C2C; font-weight: 600;">*</span></label>
+                        <input type="password" class="form-control" name="passwordReg" id="passwordReg" placeholder="Password">
+                        <span id="pswError" class="error" style="color: red;font-size: 14px;text-transform: none;font-family: verdana,Arial,sans-serif; " ;></span>
 
                     </div>
                     <div class="form-group col-sm-12">
-                        <label for="birthday">Ngày Sinh</label>
+                        <label for="birthday" style="font-size: 13px; font-family: Verdana, Arial, sans-serif; font-weight: 600;text-transform: none;">Ngày Sinh <span style="color:#EE2C2C; font-weight: 600;">*</span></label>
                         <input type="date" name="birthday" id="birthday" required>
                         <span id="birthError" class="error" style="color: red" ;></span>
 
                     </div>
-                    <div class="form-group col-sm-12">
-                        <label for="">Giới tính</label>
-                        <input type="radio" name="r-gender" id="male-gender" value="1">
+                    <div class="form-group col-sm-12" style="text-transform: none;">
+                        <label for="" style=" font-size: 13px; font-family: Verdana, Arial, sans-serif; font-weight: 600;text-transform: none;"><span style="color:#EE2C2C; font-weight: 600;">*</span></label>
+                        <input type="radio" name="r-gender" id="male-gender" value="1" required>
                         Nam
-                        <input type="radio" name="r-gender" id="female-gender" value="0">
+                        <input type="radio" name="r-gender" id="female-gender" value="0" required>
                         Nữ
                     </div>
-                    <div class="form-group col-sm-12">
-                        <label for="mySelect">Thành Phố</label>
+                    <div class=" form-group col-sm-12">
+                        <label for="mySelect" style="font-size: 13px; font-family: Verdana, Arial, sans-serif; font-weight: 600;text-transform: none;">Khu vực <span style="color:#EE2C2C; font-weight: 600;">*</span></label>
                         <?php
                         $list_city = array();
                         while ($row = mysqli_fetch_assoc($sql_listCity)) {
@@ -170,12 +162,11 @@ if (isset($_POST['register'])) {
                                 option.text = options[i];
                                 select.add(option);
                             }
-
                         </script>
                     </div>
 
                     <div class="form-group col-sm-12">
-                        <label for="Select">Rạp Yêu Thích</label>
+                        <label for="Select" style="font-size: 13px; font-family: Verdana, Arial, sans-serif; font-weight: 600;text-transform: none;">Rạp Yêu Thích <span style="color:#EE2C2C; font-weight: 600;">*</span></label>
                         <?php
                         $list_cinema = array();
                         while ($row = mysqli_fetch_assoc($sql_listCinema)) {
@@ -199,130 +190,24 @@ if (isset($_POST['register'])) {
                     </div>
 
                     <div class="terms-register">
-                        <label class="r-terms">
-                            <input type="checkbox" checked="checked" name="cgv-termsdob" id="cgv-termsdob" value="ok"
-                                onchange="validateForm(this.id,termsdob)">
+                        <label class="r-terms" style="font-size: 13px;font-family: Verdana, Arial, sans-serif;font-weight: 600; text-transform: none;">
+                            <input type="checkbox" checked="checked" name="cgv-termsdob" id="cgv-termsdob" value="ok" onchange="validateForm(this.id,termsdob)">
                             Xác nhận email chính xác và ngày sinh khớp với thông tin trên CMND/CCCD. Nếu không trùng
                             khớp, các thông tin này sẽ không được hỗ trợ cập nhật thay đổi và có thể không được hưởng
                             các Quyền lợi thành viên
-                            <a href="">Quyền lợi thành viên</a>
+                            <a href style="color: #e71a0f;text-decoration: none; font-family: Verdana, Arial, sans-serif; font-size:13px;">Quyền lợi thành viên</a>
                             <br>
-                            <input type="checkbox" checked="checked" name="cgv-terms" id="cgv-terms" value="ok"
-                                onchange="validateForm(this.id,termsdob)">
+                            <input type="checkbox" checked="checked" name="cgv-terms" id="cgv-terms" value="ok" onchange="validateForm(this.id,termsdob)">
                             Tôi đồng ý với
-                            <a href="">Điều khoản Sử dụng của CGV</a>
+                            <a href style="color: #e71a0f;text-decoration: none; font-family: Verdana, Arial, sans-serif; font-size:13px;">Điều khoản Sử dụng của CGV</a>
                         </label>
-                        <button type="submit" name="register" id="register" class="btn btn-danger"
-                            style="width: 97%;">Đăng Ký</button>
+                        <button type="submit" name="register" id="register" class="btn btn-danger" style="width: 100%;background-color: #e71a0f;color: white;padding: 14px 20px;margin: 8px 0;border: none;border-radius: 4px;cursor: pointer;text-transform: uppercase;">Đăng Ký</button>
                     </div>
 
                 </form>
             </div>
 
         </div>
-<<<<<<< HEAD
-      </div>
-      <div class="tab-pane fade show" id="signup" role="tabpanel" aria-labelledby="signup-tab">
-        <form action="" class="cgv-signup-form" method="post" id="cgv-signup-form">
-
-
-          <div class="form-group col-sm-12">
-            <label for="register_fullname" style="font-size: 13px; font-family: Verdana, Arial, sans-serif; font-weight: 600;text-transform: none;">Tên <span style="color:#EE2C2C; font-weight: 600;">*</span></label>
-            <input type="text" class="form-control" name="register_fullname" id="register_fullname" placeholder="Tên">
-            <span id="nameError" class="error" style="color: red;font-size: 14px;text-transform: none;font-family: verdana,Arial,sans-serif; "></span>
-          </div>
-          <div class="form-group col-sm-12">
-            <label for="phone" style="font-size: 13px; font-family: Verdana, Arial, sans-serif; font-weight: 600;text-transform: none;">Số điện thoại <span style="color:#EE2C2C; font-weight: 600;">*</span></label>
-            <input type="text" class="form-control" name="phone" id="phone" placeholder="Số Điện Thoại">
-            <span id="phoneError" class="error" style="color: red;font-size: 14px;text-transform: none;font-family: verdana,Arial,sans-serif; "></span>
-
-          </div>
-          <div class="form-group col-sm-12">
-            <label for="emailReg" style="font-size: 13px; font-family: Verdana, Arial, sans-serif; font-weight: 600;text-transform: none;">Email <span style="color:#EE2C2C; font-weight: 600;">*</span></label>
-            <input type="email" class="form-control" name="emailReg" id="emailReg" placeholder="Email">
-            <span id="emailError" class="error" style="color: red;font-size: 14px;text-transform: none;font-family: verdana,Arial,sans-serif; "></span>
-
-          </div>
-          <div class="form-group col-sm-12">
-            <label for="passwordReg" style="font-size: 13px; font-family: Verdana, Arial, sans-serif; font-weight: 600;text-transform: none;">Password <span style="color:#EE2C2C; font-weight: 600;">*</span></label>
-            <input type="password" class="form-control" name="passwordReg" id="passwordReg" placeholder="Password">
-            <span id="pswError" class="error" style="color: red;font-size: 14px;text-transform: none;font-family: verdana,Arial,sans-serif; "></span>
-
-          </div>
-          <div class="form-group col-sm-12">
-            <label for="birthday" style="font-size: 13px; font-family: Verdana, Arial, sans-serif; font-weight: 600;text-transform: none;">Ngày Sinh <span style="color:#EE2C2C; font-weight: 600;">*</span></label>
-            <input type="date" name="birthday" id="birthday" required>
-            <span id="birthError" class="error" style="color: red" ;></span>
-
-          </div>
-          <div class="form-group col-sm-12" style="margin: 4px 0 12px;display: inline-block;font-size: 13px;font-family: Verdana, Arial, sans-serif;font-weight: 600;text-transform: none;">
-            <label for="" style="font-size: 13px; font-family: Verdana, Arial, sans-serif; font-weight: 600;text-transform: none;"><span style="color:#EE2C2C; font-weight: 600;">*</span></label>
-            <input type="radio" name="r-gender" id="male-gender" value="1" required>
-            Nam
-            <input type="radio" name="r-gender" id="female-gender" value="0" required>
-            Nữ
-          </div>
-          <div class="form-group col-sm-12">
-            <label for="mySelect" style="font-size: 13px; font-family: Verdana, Arial, sans-serif; font-weight: 600;text-transform: none;">Khu vực <span style="color:#EE2C2C; font-weight: 600;">*</span></label> <br>
-            <select name="selectedCity" id="mySelect" style="width: 100%;padding: 5px 5px;margin: 8px 0;display: inline-block;border: 1px solid #ccc;border-radius: 2px;box-sizing: border-box;">
-            </select>
-            <span id="cityError" class="error" style="color: red;font-size: 14px;text-transform: none;font-family: verdana,Arial,sans-serif; "></span>
-            <script>
-              var options = ["Khu vực", "Hà Nội", "Hồ Chí Minh", "An Giang", "Bà Rịa - Vũng Tàu", "Bắc Giang", "Bắc Kạn", "Bạc Liêu", "Bắc Ninh", "Bến Tre", "Bình Định", "Bình Dương", "Bình Phước", "Bình Thuận", "Cà Mau", "Cao Bằng", "Đắk Lắk",
-                "Đắk Nông", "Điện Biên", "Đồng Nai", "Đồng Tháp", "Gia Lai", "Hà Giang", "Hà Nam", "Hà Tĩnh", "Hải Dương", "Hậu Giang", "Hòa Bình", "Hưng Yên", "Khánh Hòa",
-                "Kiên Giang", "Kon Tum", "Lai Châu", "Lâm Đồng", "Lạng Sơn", "Lào Cai", "Long An", "Nam Định", "Nghệ An", "Ninh Bình", "Ninh Thuận", "Phú Thọ",
-                "Quảng Bình", "Quảng Nam", "Quảng Ngãi", "Quảng Ninh", "Quảng Trị", "Sóc Trăng", "Sơn La", "Tây Ninh", "Thái Bình", "Thái Nguyên", "Thanh Hóa", "Thừa Thiên Huế", "Tiền Giang",
-                "Trà Vinh", "Tuyên Quang", "Vĩnh Long", "Vĩnh Phúc", "Yên Bái", "Phú Yên", "Cần Thơ", "Đà Nẵng", "Hải Phòng"
-              ];
-
-
-              var select = document.getElementById("mySelect");
-              for (var i = 0; i < options.length; i++) {
-                var option = document.createElement("option");
-                option.text = options[i];
-                select.add(option);
-              }
-            </script>
-          </div>
-          <div class="form-group col-sm-12">
-            <label for="Select" style="font-size: 13px; font-family: Verdana, Arial, sans-serif; font-weight: 600;text-transform: none;">Rạp yêu thích <span style="color:#EE2C2C; font-weight: 600;">*</span></label> <br>
-            <select name="selectedTheater" id="Select" style="width: 100%;padding: 5px 5px;margin: 8px 0;display: inline-block;border: 1px solid #ccc;border-radius: 2px;box-sizing: border-box;">
-              <span id="cinemaError" class="error" style="color: red" style="font-size:14px" ;></span>
-
-            </select>
-            <script>
-              var options = ["CGV Vincom Center Bà Triệu - Hà Nội", "CGV Vincom Mega Mall Royal City - Hà Nội", "CGV Vincom Times City - Hà Nội", "CGV Vincom Long Biên - Hà Nội",
-                "CGV Vincom Nguyễn Chí Thanh - Hà Nội", "CGV Vincom Phạm Ngọc Thạch - Hà Nội", "CGV Vincom Mega Mall Thảo Điền - TP. Hồ Chí Minh", "CGV Vincom Landmark 81 - TP. Hồ Chí Minh",
-                "CGV Vincom Quang Trung - TP. Hồ Chí Minh", "CGV Vincom 3/2 - TP. Hồ Chí Minh", "CGV Vincom Thủ Đức - TP. Hồ Chí Minh", "CGV Vincom Lê Văn Việt - TP. Hồ Chí Minh",
-                "CGV Vincom Plaza Biên Hòa - Đồng Nai", "CGV Vincom Plaza Bà Rịa - Vũng Tàu", "CGV Vincom Plaza Cần Thơ - Cần Thơ",
-              ];
-
-              var select = document.getElementById("Select");
-              for (var i = 0; i < options.length; i++) {
-                var option = document.createElement("option");
-                option.text = options[i];
-                select.add(option);
-              }
-            </script>
-          </div>
-
-          <div class="terms-register">
-            <label class="r-terms" style="font-size: 13px;font-family: Verdana, Arial, sans-serif;font-weight: 600; text-transform: none;">
-              <input type="checkbox" checked="checked" name="cgv-termsdob" id="cgv-termsdob" value="ok" onchange="validateForm(this.id,termsdob)">
-              Xác nhận email chính xác và ngày sinh khớp với thông tin trên CMND/CCCD. Nếu không trùng khớp, các thông tin này sẽ không được hỗ trợ cập nhật thay đổi và có thể không được hưởng các Quyền lợi thành viên
-              <a href style="color: #e71a0f;text-decoration: none; font-family: Verdana, Arial, sans-serif; font-size:13px;">Quyền lợi thành viên</a>
-              <br>
-              <input type="checkbox" checked="checked" name="cgv-terms" id="cgv-terms" value="ok" onchange="validateForm(this.id,termsdob)">
-              Tôi đồng ý với
-              <a href style="color: #e71a0f;text-decoration: none; font-family: Verdana, Arial, sans-serif; font-size:13px;">Điều khoản Sử dụng của CGV</a>
-            </label>
-            <button type="submit" name="register" id="register" class="btn btn-danger" style="width: 100%;background-color: #e71a0f;color: white;padding: 14px 20px;margin: 8px 0;border: none;border-radius: 4px;cursor: pointer;text-transform: uppercase;">Đăng Ký</button>
-          </div>
-
-        </form>
-      </div>
-=======
->>>>>>> fb40537428518f243ab7f2eb3b3df4ac41110ee6
     </div>
 </div>
 
@@ -352,7 +237,7 @@ if (isset($_POST['register'])) {
     var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     var phoneRegex = /^0\d{9}$/;
 
-    emailInput.addEventListener("input", function () {
+    emailInput.addEventListener("input", function() {
         var isValidEmail = emailRegex.test(emailInput.value);
         if (!isValidEmail) {
             emailError.innerHTML = "email không hợp lệ"; // Ẩn cảnh báo nếu trường không rỗng
@@ -361,7 +246,7 @@ if (isset($_POST['register'])) {
         }
     });
 
-    phoneInput.addEventListener("input", function () {
+    phoneInput.addEventListener("input", function() {
         var isValidPhone = phoneRegex.test(phoneInput.value);
         if (!isValidPhone) {
             phoneError.innerHTML = "số điện thoại không hợp lệ"; // Ẩn cảnh báo nếu trường không rỗng
@@ -372,27 +257,27 @@ if (isset($_POST['register'])) {
 
 
 
-    nameInput.addEventListener("input", function () {
+    nameInput.addEventListener("input", function() {
         if (nameInput.value !== "") {
             nameError.innerHTML = ""; // Ẩn cảnh báo nếu trường không rỗng
         }
     });
-    birthInput.addEventListener("input", function () {
+    birthInput.addEventListener("input", function() {
         if (birthInput.value !== "") {
             birthError.innerHTML = ""; // Ẩn cảnh báo nếu trường không rỗng
         }
     });
-    passwordInput.addEventListener("input", function () {
+    passwordInput.addEventListener("input", function() {
         if (passwordInput.value !== "") {
             pswError.innerHTML = ""; // Ẩn cảnh báo nếu trường không rỗng
         }
     });
-    cityInput.addEventListener("input", function () {
+    cityInput.addEventListener("input", function() {
         if (cityInput.value !== "") {
             cityError.innerHTML = ""; // Ẩn cảnh báo nếu trường không rỗng
         }
     });
-    cinemaInput.addEventListener("input", function () {
+    cinemaInput.addEventListener("input", function() {
         if (cinemaInput.value !== "") {
             cinemaError.innerHTML = ""; // Ẩn cảnh báo nếu trường không rỗng
         }
@@ -405,7 +290,7 @@ if (isset($_POST['register'])) {
 
 
 
-    document.getElementById("cgv-signup-form").addEventListener("submit", function (event) {
+    document.getElementById("cgv-signup-form").addEventListener("submit", function(event) {
         // Lấy giá trị của các trường input
         var nameValue = document.getElementById("register_fullname").value;
         var pswValue = passwordInput.value;

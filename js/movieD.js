@@ -70,7 +70,7 @@ $('#form2').submit(function () {
                                             $('input[name=listTicket]').val(newS);
                                         }
                                     };
-                                    xmlhttp.open("POST", "view\seatSelect.php", true);
+                                    xmlhttp.open("POST", "seatSelect.php", true);
                                     xmlhttp.send();
                                 }
                             });
