@@ -55,11 +55,17 @@
 
 
 
-body {
+/* body {
     font-family: Arial, sans-serif;
+} */
+.title-header1 {
+    text-align: center;
+    background-color: black;
+    color: white;
+    font-size: 80%;
+    
 }
-
-.title-header {
+.title-header2 {
     text-align: center;
     background-color: black;
     color: white;

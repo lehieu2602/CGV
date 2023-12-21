@@ -27,7 +27,6 @@ if (isset($_POST['booking'])) {
     } else {
         $reservedString = implode(", ", $reserved);
         echo "<script type='text/javascript'>alert('Ghế $reservedString. đã có người đặt');</script>";
-
     }
 }
 
@@ -49,7 +48,7 @@ while ($detail = mysqli_fetch_array($sql_detail)) {
     //
     $myinput = $detail['movie_date'];
     $sqldate = date('d/m/Y', strtotime($myinput))
-        ?>
+?>
     <!-- Content -->
     <div class="movie-detail container">
         <div class="title">
@@ -102,40 +101,38 @@ while ($detail = mysqli_fetch_array($sql_detail)) {
                     </div>
                     <div id="notificationMessage">
                         <button type="button" class="btn btn-danger" data-toggle="modal" <?php if (isset($_SESSION['user']) && $_SESSION['user'] != '') {
-                            echo 'data-target="#myModal"';
-                        } else {
-                            echo 'onclick="showAlert()"';
-                        } ?>>
+                                                                                                echo 'data-target="#myModal"';
+                                                                                            } else {
+                                                                                                echo 'onclick="showAlert()"';
+                                                                                            } ?>>
                             MUA VÉ
                         </button>
                         <?php
-                            if (isset($_SESSION['user']) && $_SESSION['user'] != '') {
+                        if (isset($_SESSION['user']) && $_SESSION['user'] != '') {
 
-                                if ($count_user == 1) {
-                                    ?>
-                                    <button type="button" class="btn btn-light"
-                                        onclick="unlike('<?php echo $movie_id; ?>', '<?php echo $_SESSION['idUser']; ?>')">Like:
-                                        <?php echo $count ?>
-                                    </button>
-                                    <?php
-
-                                }
-                                if ($count_user == 0) {
-                                    ?>
-                                    <button type="button" class="btn btn-primary"
-                                        onclick="like('<?php echo $movie_id; ?>', '<?php echo $_SESSION['idUser']; ?>')">Like:
-                                        <?php echo $count ?>
-                                    </button>
-                                    <?php
-                                }
-                            } else {
-                                ?>
-                                <button type="button" class="btn btn-primary" onclick="showAlert()">Like:
+                            if ($count_user == 1) {
+                        ?>
+                                <button type="button" class="btn btn-light" onclick="unlike('<?php echo $movie_id; ?>', '<?php echo $_SESSION['idUser']; ?>')">Like:
                                     <?php echo $count ?>
                                 </button>
-                                <?php
+                            <?php
+
                             }
+                            if ($count_user == 0) {
                             ?>
+                                <button type="button" class="btn btn-primary" onclick="like('<?php echo $movie_id; ?>', '<?php echo $_SESSION['idUser']; ?>')">Like:
+                                    <?php echo $count ?>
+                                </button>
+                            <?php
+                            }
+                        } else {
+                            ?>
+                            <button type="button" class="btn btn-primary" onclick="showAlert()">Like:
+                                <?php echo $count ?>
+                            </button>
+                        <?php
+                        }
+                        ?>
                     </div>
                     <!-- The Modal -->
                     <div class="modal" id="myModal">
@@ -153,25 +150,36 @@ while ($detail = mysqli_fetch_array($sql_detail)) {
                                         <div class="form-group">
                                             <label for="city" style="font-weight: bold;">Thành Phố:</label>
                                             <select id="city" class="form-control" name="city">
+                                                <option class="">Chọn Thành Phố</option>
                                                 <?php
                                                 $sql_listCity = mysqli_query($mysqli, 'SELECT `name`, `id` from `location`');
                                                 while ($row_listCity = mysqli_fetch_array($sql_listCity)) {
-                                                    ?>
-                                                    <option id="<?php $string = $row_listCity['id'] ?>">
-                                                        <?php 
-                                                            
-                                                            echo $row_listCity['name']; 
-                                                        
+                                                ?>
+                                                    <option id="<?php $string = $row_listCity['id'];
+                                                                echo $string ?>" value="<?php echo $row_listCity['id'] ?>">
+                                                        <?php
+
+                                                        echo $row_listCity['name'];
+
                                                         ?>
                                                     </option>
-                                                    <?php
+                                                <?php
                                                 }
                                                 ?>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label for="theater " style="font-weight: bold;">Danh Sách Rạp:</label>
+
                                             <select id="theater" class="form-control" name="theaterName">
+
+                                                <option class="theater <?php
+                                                                        $sql_listCityId = mysqli_query($mysqli, 'SELECT`id` from `location`');
+                                                                        while ($row_listCityId = mysqli_fetch_array($sql_listCityId)) {
+                                                                            echo $row_listCityId['id'] . " ";
+                                                                        }
+
+                                                                        ?>">Chọn Rạp</option>
                                                 <?php
                                                 $firstArr = true;
                                                 $lastValue = "";
@@ -182,15 +190,12 @@ while ($detail = mysqli_fetch_array($sql_detail)) {
                                                     } else {
                                                         $firstArr = false;
                                                     }
-                                                    ?>
-                                                    <option class="<?php $string = $row_listTheater['id_location'];
-                                                    if ($firstArr == true) {
-                                                        echo preg_replace('/\s+/', '', $string);
-                                                    } ?>" disabled selected>Chọn Rạp</option>
+                                                ?>
+
                                                     <option value="<?php echo $row_listTheater['id'] ?>" class=<?php $string = $row_listTheater['id_location'];
-                                                       echo preg_replace('/\s+/', '', $string)." theater";
-                                                       $lastValue = $row_listTheater['id_location']; ?>><?php echo $row_listTheater['name'] ?></option>
-                                                    <?php
+                                                                                                                echo '"theater ' . $string . '"';
+                                                                                                                $lastValue = $row_listTheater['id_location']; ?>><?php echo $row_listTheater['name'] ?></option>
+                                                <?php
                                                 }
                                                 ?>
                                             </select>
@@ -201,18 +206,18 @@ while ($detail = mysqli_fetch_array($sql_detail)) {
                                                 <?php
                                                 $sql_show = mysqli_query($mysqli, "SELECT * FROM `schedule`, `cinemas`, `rooms`,`movies` WHERE showings_room = room_id and showings_name_movie = movie_id and room_theater = cinemas.id and movie_id = '$id'");
                                                 while ($row_show = mysqli_fetch_array($sql_show)) {
-                                                    ?>
+                                                ?>
                                                     <option class="<?php $theater = preg_replace('/\s+/', '', $row_show['name']);
-                                                    $city = preg_replace('/\s+/', '', $row_show['id_location']);
-                                                    echo "$theater $city"; ?>"
-                                                        value="<?php echo $row_show['showings_room'] ?>">
+                                                                    $city = preg_replace('/\s+/', '', $row_show['id_location']);
+                                                                    echo "$theater $city"; ?>" value="<?php echo $row_show['showings_room'] ?>">
                                                         <?php echo $row_show['showings_time'] ?>
                                                     </option>
-                                                    <?php
+                                                <?php
                                                 }
                                                 ?>
                                             </select>
                                         </div>
+                                        <div class="id-movies"></div>
                                         <button type="submit" class="btn btn-primary">Đăng ký giữ ghế</button>
                                     </form>
                                     <div class="mapTheater" id="mapTheater" style="padding: 0; margin-top: 15px"></div>
@@ -235,38 +240,43 @@ while ($detail = mysqli_fetch_array($sql_detail)) {
                 <div class="trailer" style="text-align: center">
                     <h4>Trailer</h4>
                     <div class="embed-responsive embed-responsive-16by9">
-                        <iframe src="<?php echo $detail['movie_trailer'] ?>" frameborder="0" allowfullscreen
-                            class="embed-responsive-item"></iframe>
+                        <iframe src="<?php echo $detail['movie_trailer'] ?>" frameborder="0" allowfullscreen class="embed-responsive-item"></iframe>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- End Content -->
-    <?php
+<?php
 }
 ?>
 
 
-<script>
-  // Lấy reference đến select element
-  var selectElement = document.getElementById('city');
+<!-- <script>
+    // Lấy reference đến select element
+    var selectElement = document.getElementById('city');
+    var selectTheater = document.getElementById('theater')
+    // Thêm event listener cho sự kiện change
+    selectElement.addEventListener('change', function() {
+        // Lấy giá trị của option được chọn
+        var selectedValue = selectElement.value;
+        console.log("Select: " + selectedValue);
 
-  // Thêm event listener cho sự kiện change
-  selectElement.addEventListener('change', function() {
-    // Lấy giá trị của option được chọn
-    var selectedValue = selectElement.value;
+        // Hiển thị thông báo với giá trị được chọn
+        var listTheater = document.getElementsByClassName("theater");
+        for (var i = 0; i < listTheater.length; i++) {
+            listTheater[i].style.display = "none";
+        }
+        selectTheater.value = "Chọn Rạp";
 
-    // Hiển thị thông báo với giá trị được chọn
-    var listTheater =document.getElementsByClassName("theater");
-  
-    for(int i=0; i<listTheater.length;i++) {
-        listTheater[i].style.display = "none";
-    }
-    var listTheaterShow =document.getElementsByClassName(selectElement.id);
-    for(int i=0; i<listTheaterShow.length;i++) {
-        listTheaterShow[i].style.display = "block";
-    }
+        // for(int i=0; i<listTheater.length;i++) {
+        //     listTheater[i].style.display = "none";
+        // };
+        var listTheaterShow = document.getElementsByClassName("theater " + selectedValue);
+        for (var i = 0; i < listTheaterShow.length; i++) {
+            listTheaterShow[i].style.display = "block";
+        };
 
-  });
-</script>
+    });
+    selectTheater.addEventListener('click')
+</script> -->

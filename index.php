@@ -88,6 +88,7 @@ session_start();
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
     <script src="./js/index.js"></script>
+    <script src="./js/movieD.js"></script>
     <script type="text/javascript" src="js\special_cinema.js"></script>
 </body>
 

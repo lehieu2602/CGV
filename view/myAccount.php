@@ -1,3 +1,26 @@
+<style>
+    .nav-link {
+        border-radius: 0 !important;
+        /* background: url(img/ribon_left-ccc.png) no-repeat scroll left 0 #e71a0f; */
+
+
+        cursor: pointer;
+    }
+
+    .nav-link:active,
+    .nav-link.active {
+        color: #fff;
+        background-color: #007bff;
+        background-color: RED !important;
+        border-color: white;
+        outline: none;
+        /* background: url(img/ribon_left_menu.gif) no-repeat scroll left 0 #e71a0f; */
+
+
+    }
+</style>
+
+
 <div class="my-main-container">
     <div class="my-container">
 
@@ -22,15 +45,12 @@
                     </button>
                 </li>
             </ul>
-
-
-
         </div>
         <div class="right-col">
             <div class="tab-content" id="myPillContent">
                 <div class="tab-pane fade" id="thong-tin-chung" role="tabpanel" aria-labelledby="tab-thong-tin">
                     <br>
-                    <div class="title-header">
+                    <div class="title-header1">
                         <h1>THÔNG TIN CHUNG</h1>
                     </div>
                     <form action="" method="post" enctype="multipart/form-data">
@@ -46,9 +66,10 @@
                                         </label>
                                     </div>
                                     <div class="info-center">
-                                        
+
+
                                         <!-- <input id="fileInput" type="file" name="file" title="NO" style="width: 100%;color: white; background-color: gray; border-radius: 12%;"/> -->
-                                        
+
                                         <!-- <button style="color: white; background-color: gray; border-radius: 12%;"
                                             type="button" id="btnchange">
                                             Thay đổi
@@ -76,7 +97,8 @@
                         <h5 style="font-weight: bolder;">Xin chào
                             <?php echo $_SESSION['name'] ?>
                         </h5>
-                        <h5 style="color: gray;">Với trang này, bạn sẽ quản lý được tất cả thông tin tài khoản của mình.
+                        <h5 style="color: gray;">Với trang này, bạn sẽ quản lý được tất cả thông tin tài khoản của
+                            mình.
                         </h5>
                     </div>
                     <!-- <div class="info">
@@ -126,7 +148,97 @@
                     </div>
                 </div>
                 <div class="tab-pane fade" id="chi-tiet-tai-khoan" role="tabpanel" aria-labelledby="tab-chi-tiet">
-                    CHI TIẾT TÀI KHOẢN
+                <br>    
+                <div class="title-header2">
+                        <h1>THAY ĐỔI THÔNG TIN</h1>
+                    </div>
+
+                    <form action="" class="cgv-signup-form" method="post" id="cgv-signup-form">
+
+
+                        <div class="form-group col-sm-12">
+                            <label for="register_fullname"
+                                style="font-size: 13px; font-family: Verdana, Arial, sans-serif; font-weight: 600;text-transform: none;">Tên
+                                <span style="color:#EE2C2C; font-weight: 600;">*</label>
+                            <input type="text" class="form-control" name="register_fullname" id="register_fullname"
+                                placeholder="Tên">
+                            <span id="nameError" class="error"
+                                style="color: red;font-size: 14px;text-transform: none;font-family: verdana,Arial,sans-serif; "
+                                ;></span>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label for="phone"
+                                style="font-size: 13px; font-family: Verdana, Arial, sans-serif; font-weight: 600;text-transform: none;">Số
+                                điện thoại <span style="color:#EE2C2C; font-weight: 600;">*</span></label>
+                            <input type="text" class="form-control" name="phone" id="phone" placeholder="Số Điện Thoại">
+                            <span id="phoneError" class="error"
+                                style="color: red;font-size: 14px;text-transform: none;font-family: verdana,Arial,sans-serif; "
+                                ;></span>
+
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label for="emailReg"
+                                style="font-size: 13px; font-family: Verdana, Arial, sans-serif; font-weight: 600;text-transform: none;">Email
+                                <span style="color:#EE2C2C; font-weight: 600;">*</span></label>
+                            <input type="email" class="form-control" name="emailReg" id="emailReg" placeholder="Email">
+                            <span id="emailError" class="error"
+                                style="color: red;font-size: 14px;text-transform: none;font-family: verdana,Arial,sans-serif; "
+                                ;></span>
+
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label for="passwordReg"
+                                style="font-size: 13px; font-family: Verdana, Arial, sans-serif; font-weight: 600;text-transform: none;">Password
+                                <span style="color:#EE2C2C; font-weight: 600;">*</span></label>
+                            <input type="password" class="form-control" name="passwordReg" id="passwordReg"
+                                placeholder="Password">
+                            <span id="pswError" class="error"
+                                style="color: red;font-size: 14px;text-transform: none;font-family: verdana,Arial,sans-serif; "
+                                ;></span>
+
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label for="birthday"
+                                style="font-size: 13px; font-family: Verdana, Arial, sans-serif; font-weight: 600;text-transform: none;">Ngày
+                                Sinh <span style="color:#EE2C2C; font-weight: 600;">*</span></label>
+                            <input type="date" name="birthday" id="birthday" required>
+                            <span id="birthError" class="error" style="color: red" ;></span>
+
+                        </div>
+                        <div class="form-group col-sm-12" style="text-transform: none;">
+                            <label for=""
+                                style=" font-size: 13px; font-family: Verdana, Arial, sans-serif; font-weight: 600;text-transform: none;"><span
+                                    style="color:#EE2C2C; font-weight: 600;">*</span></label>
+                            <input type="radio" name="r-gender" id="male-gender" value="1" required>
+                            Nam
+                            <input type="radio" name="r-gender" id="female-gender" value="0" required>
+                            Nữ
+                        </div>
+                        <div class=" form-group col-sm-12">
+                            <label for="mySelect"
+                                style="font-size: 13px; font-family: Verdana, Arial, sans-serif; font-weight: 600;text-transform: none;">Khu
+                                vực <span style="color:#EE2C2C; font-weight: 600;">*</span></label>
+
+                            <select name="selectedCity" id="mySelect">
+
+                            </select>
+                            <span id="cityError" class="error" style="color: red" ;></span>
+
+                        </div>
+
+                        <div class="form-group col-sm-12">
+                            <label for="Select"
+                                style="font-size: 13px; font-family: Verdana, Arial, sans-serif; font-weight: 600;text-transform: none;">Rạp
+                                Yêu Thích <span style="color:#EE2C2C; font-weight: 600;">*</span></label>
+
+                            <select name="selectedTheater" id="Select">
+                                <span id="cinemaError" class="error" style="color: red" ;></span>
+
+                            </select>
+
+                        </div>
+                    </form>
+
                 </div>
                 <div class="tab-pane fade show active" id="lich-su-giao-dich" role="tabpanel"
                     aria-labelledby="tab-lich-su">
