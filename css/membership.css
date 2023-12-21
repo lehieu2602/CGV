@@ -1,52 +1,45 @@
- .btn,
- .nav {
-     color: dark rgb(255, 0, 0);
-     font-family: Arial, Helvetica, sans-serif;
-     font-weight: bold;
-     /* background-color: silver; */
+.btn,
+.nav {
+  color: dark rgb(255, 0, 0);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  /* background-color: silver; */
+}
 
- }
+#myTab {
+  margin-left: 0%;
+  border-radius: 5px;
+  box-sizing: border-box;
+  background-color: silver;
+  width: 100%;
+}
 
- #myTab {
-     margin-left: 0%;
-     border-radius: 5px;
-     box-sizing: border-box;
-     background-color: silver;
-     width: 100%;
+.nav a {
+  /* color: gray; */
+  margin: 0;
+  /* Xóa margin mặc định của body */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
- }
+.lyt-heading {
+  font-size: x-large;
+  font-weight: bold;
+  margin: 0;
+  /* Xóa margin mặc định của body */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3%;
+}
 
- .nav a {
-     /* color: gray; */
-     margin: 0;
-     /* Xóa margin mặc định của body */
-     display: flex;
-     align-items: center;
-     justify-content: center;
- }
+.nav-fill .nav-item,
+.card button {
+  background-color: red;
+}
 
- .lyt-heading {
-     font-size: x-large;
-     font-weight: bold;
-     margin: 0;
-     /* Xóa margin mặc định của body */
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     margin-bottom: 3%;
- }
-
-
-
- .nav-fill .nav-item,
- .card button {
-     background-color: red;
-
- }
-
-
-
- .nav-fill .nav-item a,
- .card button {
-     color: gold;
- }
+.nav-fill .nav-item a,
+.card button {
+  color: gold;
+}

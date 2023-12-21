@@ -51,7 +51,7 @@
                     </ul>
                 </div>
             </li>
-            <li>THÀNH VIÊN</li>
+            <li><a href="?controller=membership">THÀNH VIÊN</a></li>
             <li>
                 CULTUREPLEX
                 <div class="menu-ul">

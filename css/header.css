@@ -8,6 +8,7 @@
 .login ul {
   text-align: right;
   margin: 0;
+  z-index: 9999;
 }
 
 .login ul a {
@@ -24,6 +25,7 @@
   height: 120px;
   width: 100%;
   background: url(../img/bg-top.png);
+  margin-bottom: 70px;
 }
 
 .main {
@@ -53,8 +55,17 @@
   padding-left: 20px;
 }
 
+.header .main li a {
+  list-style: none;
+  font-weight: bold;
+  line-height: 30px;
+  color: black;
+  text-decoration: none;
+}
+
 .menu-ul {
   display: none;
+  z-index: 9999;
 }
 
 .header .main ul li:hover .menu-ul {

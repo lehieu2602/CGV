@@ -19,7 +19,7 @@ session_start();
     <link rel="stylesheet" href="../css/special_cinema.css" />
     <link rel="stylesheet" href="../css/listEvent.css" />
     <link rel="stylesheet" href="../css/newsD.css" />
-    <!-- <link rel="stylesheet" href="../css/membership.css" /> -->
+    <link rel="stylesheet" href="../css/membership.css" />
     <!-- <link rel="stylesheet" href="../css/stylesignin.css" /> -->
     <!-- <link rel="stylesheet" href="../css/stylelogin.css" /> -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
@@ -73,6 +73,8 @@ session_start();
         include('view/special_cinema.php');
     } else if ($controller == 'login') {
         include('view/login-signup.php');
+    } else if ($controller == 'membership') {
+        include('view/membership.php');
     } else {
         include("view/slider.php");
         include('view/home.php');
