@@ -216,12 +216,12 @@
   }
 
   .ul-res > li {
-    margin-bottom: 10px; /* Khoảng cách giữa các danh sách chính */
-    border-bottom: 1px solid #ccc; /* Đường ngang giữa các danh sách chính */
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
   }
 
   .ul-level-1 > li {
-    margin-bottom: 5px; /* Khoảng cách giữa các mục trong danh sách con */
-    border-bottom: 1px solid #eee; /* Đường ngang giữa các mục trong danh sách con */
+    margin-bottom: 5px;
+    border-bottom: 1px solid #eee;
   }
 }
