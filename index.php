@@ -43,7 +43,6 @@ session_start();
 <body style="background-color: #fdfcf0">
     <?php
     include("view/header.php");
-    // include("view/listNew.php");
 
     if (isset($_GET['controller'])) {
         $controller = $_GET['controller'];

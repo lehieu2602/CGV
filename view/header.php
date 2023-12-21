@@ -103,7 +103,7 @@
     <ul class="ul-res" id="userList">
         <li id="menuList">TÀI KHOẢN</li>
         <li id="menuList">ĐĂNG KÝ</li>
-        <li id="menuList">ĐĂNG NHẬP</li>
+        <li id="menuList"><a href="?controller=login">ĐĂNG NHẬP</a></li>
     </ul>
 </div>
 <!-- Only for home screen -->

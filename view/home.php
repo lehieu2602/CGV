@@ -48,4 +48,3 @@ $sql_listMovie = mysqli_query($mysqli, 'Select * from movies order by movie_id d
         </div>
     </div>
 </div>
-<!-- End Content -->

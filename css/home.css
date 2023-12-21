@@ -137,7 +137,8 @@
 }
 
 .content .content-movie .content-movie-title h2 {
-  background: url(../img/h3_movie_selection.png) no-repeat scroll center center / 406px 41px;
+  background: url(../img/h3_movie_selection.png) no-repeat scroll center center /
+    406px 41px;
   text-indent: -99999px;
   height: 41px;
 }
@@ -228,7 +229,8 @@
 
 .footer .footer-end {
   margin-top: 10px;
-  background: url(../img/bg-bottom-footer.jpg) repeat-x scroll center bottom rgba(0, 0, 0, 0);
+  background: url(../img/bg-bottom-footer.jpg) repeat-x scroll center bottom
+    rgba(0, 0, 0, 0);
   height: 120px;
 }
 
@@ -248,7 +250,6 @@
 }
 
 @media screen and (max-width: 1000px) {
-
   /* Header */
   .header .header-content .header-content-menu {
     display: none;
@@ -293,9 +294,11 @@
   }
 }
 
-@media only screen and (max-width: 1198px) {}
+@media only screen and (max-width: 1198px) {
+}
 
-@media only screen and (max-width: 991px) {}
+@media only screen and (max-width: 991px) {
+}
 
 @media only screen and (max-width: 767px) {
   * {
