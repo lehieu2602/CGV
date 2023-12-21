@@ -155,7 +155,7 @@ while ($detail = mysqli_fetch_array($sql_detail)) {
                                                 while ($row_listCity = mysqli_fetch_array($sql_listCity)) {
                                                 ?>
                                                     <option id="<?php $string = $row_listCity['id'];
-                                                                echo $string ?>">
+                                                                echo $string ?>" value="<?php echo $row_listCity['id'] ?>">
                                                         <?php
 
                                                         echo $row_listCity['name'];
@@ -170,6 +170,7 @@ while ($detail = mysqli_fetch_array($sql_detail)) {
                                         <div class="form-group">
                                             <label for="theater " style="font-weight: bold;">Danh Sách Rạp:</label>
                                             <select id="theater" class="form-control" name="theaterName">
+                                                <option class="" disabled selected>Chọn Rạp</option>
                                                 <?php
                                                 $firstArr = true;
                                                 $lastValue = "";
@@ -181,12 +182,9 @@ while ($detail = mysqli_fetch_array($sql_detail)) {
                                                         $firstArr = false;
                                                     }
                                                 ?>
-                                                    <option class="<?php $string = $row_listTheater['id_location'];
-                                                                    if ($firstArr == true) {
-                                                                        echo preg_replace('/\s+/', '', $string);
-                                                                    } ?>" disabled selected>Chọn Rạp</option>
+
                                                     <option value="<?php echo $row_listTheater['id'] ?>" class=<?php $string = $row_listTheater['id_location'];
-                                                                                                                echo preg_replace('/\s+/', '', $string) . " theater";
+                                                                                                                echo '"theater ' . $string . '"';
                                                                                                                 $lastValue = $row_listTheater['id_location']; ?>><?php echo $row_listTheater['name'] ?></option>
                                                 <?php
                                                 }
@@ -244,25 +242,31 @@ while ($detail = mysqli_fetch_array($sql_detail)) {
 ?>
 
 
-<script>
+<!-- <script>
     // Lấy reference đến select element
     var selectElement = document.getElementById('city');
-
+    var selectTheater = document.getElementById('theater')
     // Thêm event listener cho sự kiện change
     selectElement.addEventListener('change', function() {
         // Lấy giá trị của option được chọn
         var selectedValue = selectElement.value;
+        console.log("Select: " + selectedValue);
 
         // Hiển thị thông báo với giá trị được chọn
         var listTheater = document.getElementsByClassName("theater");
         for (var i = 0; i < listTheater.length; i++) {
             listTheater[i].style.display = "none";
         }
+        selectTheater.value = "Chọn Rạp";
 
-        var listTheaterShow = document.getElementsByClassName(selectElement.id);
+        // for(int i=0; i<listTheater.length;i++) {
+        //     listTheater[i].style.display = "none";
+        // };
+        var listTheaterShow = document.getElementsByClassName("theater " + selectedValue);
         for (var i = 0; i < listTheaterShow.length; i++) {
             listTheaterShow[i].style.display = "block";
         };
 
     });
-</script>
+    selectTheater.addEventListener('click')
+</script> -->

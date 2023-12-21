@@ -1,8 +1,8 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "";
-$db = "new_cgv_db";
+$password = "anhan123";
+$db = "cgv_db_new1";
 $mysqli = mysqli_connect($servername, $username, $password, $db);
 
 // Check connection
