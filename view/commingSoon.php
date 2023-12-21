@@ -63,7 +63,7 @@ $sql_listMovie = mysqli_query($mysqli, 'Select * from movies order by movie_id d
                                 </span></div>
                         </div>
                         <div class="movie-btn">
-                            <button type="button" class="btn btn-danger"
+                            <button type="button" class="btn btn-primary"
                                 onclick='window.location.href="?controller=phim&id=<?php echo $row_listMovie["movie_id"] ?> "'>Mua
                                 vé</button>
                             <?php
@@ -71,8 +71,8 @@ $sql_listMovie = mysqli_query($mysqli, 'Select * from movies order by movie_id d
 
                                 if ($count_user == 1) {
                                     ?>
-                                    <button type="button" class="btn btn-light"
-                                        onclick="unlike('<?php echo $movie_id; ?>', '<?php echo $_SESSION['idUser']; ?>')">Like:
+                                    <button type="button" class="btn btn-outline-danger"
+                                        onclick="unlike('<?php echo $movie_id; ?>', '<?php echo $_SESSION['idUser']; ?>')"><span>&#10084;</span>
                                         <?php echo $count ?>
                                     </button>
                                     <?php
@@ -80,15 +80,15 @@ $sql_listMovie = mysqli_query($mysqli, 'Select * from movies order by movie_id d
                                 }
                                 if ($count_user == 0) {
                                     ?>
-                                    <button type="button" class="btn btn-primary"
-                                        onclick="like('<?php echo $movie_id; ?>', '<?php echo $_SESSION['idUser']; ?>')">Like:
+                                    <button type="button" class="btn btn-danger"
+                                        onclick="like('<?php echo $movie_id; ?>', '<?php echo $_SESSION['idUser']; ?>')"><span>&#10084;</span>
                                         <?php echo $count ?>
                                     </button>
                                     <?php
                                 }
                             } else {
                                 ?>
-                                <button type="button" class="btn btn-primary" onclick="showAlert()">Like:
+                                <button type="button" class="btn btn-primary" onclick="showAlert()"><span>&#10084;</span>
                                     <?php echo $count ?>
                                 </button>
                                 <?php

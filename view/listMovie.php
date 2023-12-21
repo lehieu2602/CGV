@@ -41,6 +41,7 @@ $sql_react = mysqli_query($mysqli,'Select * from react order by movie_id desc');
                         <a href="?controller=phim&id=<?php echo $row_listMovie['movie_id'] ?>">
                             <img class="image-film" src="<?php echo $row_listMovie['movie_img'] ?>" alt="">
                         </a>
+                        <!-- <div class="ribon" style="right: -27px;top: -17px;height: 65px;width: 50px;background: url(../img/ribbon-film-final.png) no-repeat scroll 0px 0px transparent;"></div> -->
                         <div class="movie-info">
                             <h5>
                                 <?php echo $row_listMovie['movie_name'] ?>
@@ -59,25 +60,25 @@ $sql_react = mysqli_query($mysqli,'Select * from react order by movie_id desc');
                                     <?php echo $row_listMovie['movie_time'] ?>
                                 </span></div>
                         </div>
-                        <div class="movie-btn">
-                            <button type="button" class="btn btn-danger" onclick='window.location.href="?controller=phim&id=<?php echo $row_listMovie["movie_id"] ?> "'>Mua vé</button>                     
+                        <div class="movie-btn" >
+                            <button type="button" class="btn btn-primary" onclick='window.location.href="?controller=phim&id=<?php echo $row_listMovie["movie_id"] ?> "'>Mua vé</button>                     
                             <?php 
                                 if (isset($_SESSION['user']) && $_SESSION['user'] != '') {
                                     
                                     if($count_user == 1) {
                                         ?>
-                                            <button type="button" class="btn btn-light" onclick="unlike('<?php echo $movie_id; ?>', '<?php echo $_SESSION['idUser']; ?>')">Like: <?php echo $count?> </button>
+                                            <button type="button" class="btn btn-outline-danger" onclick="unlike('<?php echo $movie_id; ?>', '<?php echo $_SESSION['idUser']; ?>')"> <span>&#10084;</span> <?php echo $count?> </button>
                                         <?php
                                             
                                     } 
                                     if($count_user == 0) {
                                         ?>
-                                            <button type="button" class="btn btn-primary" onclick="like('<?php echo $movie_id; ?>', '<?php echo $_SESSION['idUser']; ?>')">Like: <?php echo $count ?> </button>
+                                            <button type="button" class="btn btn-danger" onclick="like('<?php echo $movie_id; ?>', '<?php echo $_SESSION['idUser']; ?>')"><span>&#10084;</span> <?php echo $count ?> </button>
                                         <?php
                                     }
                                 } else {
                                     ?>
-                                        <button type="button" class="btn btn-primary" onclick="showAlert()">Like: <?php echo $count ?> </button>
+                                        <button type="button" class="btn btn-primary" onclick="showAlert()"><span>&#10084;</span> <?php echo $count ?> </button>
                                     <?php
                                 }  
                             ?>

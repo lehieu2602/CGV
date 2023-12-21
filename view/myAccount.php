@@ -18,6 +18,47 @@
 
 
     }
+
+    .nav-pills {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nav-pills .nav-item {
+        width: 100%;
+    }
+
+
+    @media (max-width: 767px) {
+        .nav-pills {
+            position: relative;
+        }
+
+        .nav-pills .nav-item {
+            width: 100%;
+        }
+
+        .nav-pills .nav-link {
+            padding: 10px;
+            text-align: left;
+        }
+
+        .nav-pills .nav-item.dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .nav-pills .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .nav-pills .dropdown-menu .nav-item {
+            width: 100%;
+        }
+    }
 </style>
 
 
@@ -25,35 +66,35 @@
     <div class="my-container">
 
         <div class="left-col col-3">
-            <div class="head-left" Style="color: red; font-size: x-large;"><strong>TÀI KHOẢN CGV</strong></div>
+            <div class="head-left" Style="color: red; text-align: center;"><strong>TÀI KHOẢN CGV</strong></div>
 
 
             <ul class="nav nav-pills flex-column" id="myPill" role="tablist">
                 <li class="nav-item">
-                    <button class="nav-link " id="tab-thong-tin" data-toggle="tab" href="#thong-tin-chung" role="tab">
-                        <strong>THÔNG TIN CHUNG</strong>
+                    <button class="nav-link active" id="tab-thong-tin" data-toggle="tab" href="#thong-tin-chung" role="tab">
+                        THÔNG TIN CHUNG
                     </button>
                 </li>
                 <li class="nav-item">
                     <button class="nav-link" id="tab-chi-tiet" data-toggle="tab" href="#chi-tiet-tai-khoan" role="tab">
-                        <strong>CHI TIẾT TÀI KHOẢN</strong>
+                        CHI TIẾT TÀI KHOẢN
                     </button>
                 </li>
                 <li class="nav-item">
                     <button class="nav-link " id="tab-lich-su" data-toggle="tab" href="#lich-su-giao-dich" role="tab">
-                        <strong>LỊCH SỬ GIAO DỊCH</strong>
+                        LỊCH SỬ GIAO DỊCH
                     </button>
                 </li>
             </ul>
         </div>
-        <div class="right-col">
+        <div class="right-col col-9">
             <div class="tab-content" id="myPillContent">
-                <div class="tab-pane fade" id="thong-tin-chung" role="tabpanel" aria-labelledby="tab-thong-tin">
+                <div class="tab-pane fade show active" id="thong-tin-chung" role="tabpanel" aria-labelledby="tab-thong-tin">
                     <br>
-                    <div class="title-header">
+                    <div class="title-header1">
                         <h1>THÔNG TIN CHUNG</h1>
                     </div>
-                    <form action="https://www.cgv.vn/default/customer/account/changeavatar/" method="post" enctype="multipart/form-data">
+                    <form action="" method="post" enctype="multipart/form-data">
                         <input name="form_key" type="hidden" value="9oLPaEGCo7Exw3CP">
                         <input name="usersatus" type="hidden" value="1">
                         <div class="container">
@@ -65,9 +106,6 @@
                                         </label>
                                     </div>
                                     <div class="info-center">
-                                        <button style="color: white; background-color: gray; border-radius: 12%;" type="button" id="btnchange">
-                                            Thay đổi
-                                        </button>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-sm-4">
@@ -87,51 +125,40 @@
                         </div>
                     </form>
                     <div class="info">
-                        <h5 style="font-weight: bolder;">Xin chào bro</h5>
-                        <h5 style="color: gray;">Với trang này, bạn sẽ quản lý được tất cả thông tin tài khoản của mình.
+                        <h5 style="font-weight: bolder;">Xin chào
+                            <?php echo $_SESSION['name'] ?>
+                        </h5>
+                        <h5 style="color: gray;">Với trang này, bạn sẽ quản lý được tất cả thông tin tài khoản của
+                            mình.
                         </h5>
                     </div>
-                    <div class="info">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div style="color: gray;">
-                                    Cấp độ thẻ
-                                </div>
-                                <br>
-                                <div style="color: gray;">
-                                    Tổng chi tiêu
-                                </div>
-                                <br>
-                                <div style="color: gray;">
-                                    Điểm CGV
-                                </div>
-                            </div>
 
-
-                        </div>
-
-                    </div>
                     <div class="contact">
                         <h4 style="font-weight: bolder;">Thông tin tài khoản</h4>
                         <hr style="border: none;border-top: 1px solid #ccc;">
                         <span>
-                            <h5>LIÊN HỆ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre><button>Thay đổi</button></h5>
+                            <h5>LIÊN HỆ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre><button type="button" class="btn btn-outline-secondary" onclick="openTab('tab-chi-tiet')">
+                                    Thay đổi
+                                </button></h5>
                         </span>
                         <div style="color: gray;">
-                            <p>Tên: An Nguyễn Văn</p>
-                            <p>Email: vanan22022002@gmail.com</p>
-                            <p>Điện thoại: 0865447197</p>
+                            <p>Tên:
+                                <?php echo $_SESSION['name'] ?>
+                            </p>
+                            <p>Email:
+                                <?php echo $_SESSION['user'] ?>
+                            </p>
+                            <p>Điện thoại:
+                                <?php echo $_SESSION['phone'] ?>
+                            </p>
                         </div>
-                        <!-- <a href="#" class="btn">Thay đổi thông tin tài khoản</a>
-        <a href="#" class="btn">Xem voucher</a>
-        <a href="#" class="btn">Xem coupon</a>
-        <a href="#" class="btn">Xem thẻ thành viên</a> -->
+
                     </div>
                 </div>
                 <div class="tab-pane fade" id="chi-tiet-tai-khoan" role="tabpanel" aria-labelledby="tab-chi-tiet">
-                    CHI TIẾT TÀI KHOẢN
+                    <?php include("view/accountDetail.php") ?>
                 </div>
-                <div class="tab-pane fade show active" id="lich-su-giao-dich" role="tabpanel" aria-labelledby="tab-lich-su">
+                <div class="tab-pane fade " id="lich-su-giao-dich" role="tabpanel" aria-labelledby="tab-lich-su">
                     <?php include("view/history.php"); ?>
                 </div>
             </div>
@@ -148,4 +175,11 @@
     navItem.addEventListener("click", function() {
         navItem.style.backgroundColor = "red";
     });
+
+    function openTab(tabId) {
+        var tab = document.getElementById(tabId);
+        if (tab) {
+            tab.click();
+        }
+    }
 </script>

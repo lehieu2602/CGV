@@ -100,7 +100,7 @@ while ($detail = mysqli_fetch_array($sql_detail)) {
                         </span>
                     </div>
                     <div id="notificationMessage">
-                        <button type="button" class="btn btn-danger" data-toggle="modal" <?php if (isset($_SESSION['user']) && $_SESSION['user'] != '') {
+                        <button type="button" class="btn btn-primary" data-toggle="modal" <?php if (isset($_SESSION['user']) && $_SESSION['user'] != '') {
                                                                                                 echo 'data-target="#myModal"';
                                                                                             } else {
                                                                                                 echo 'onclick="showAlert()"';
@@ -112,7 +112,7 @@ while ($detail = mysqli_fetch_array($sql_detail)) {
 
                             if ($count_user == 1) {
                         ?>
-                                <button type="button" class="btn btn-light" onclick="unlike('<?php echo $movie_id; ?>', '<?php echo $_SESSION['idUser']; ?>')">Like:
+                                <button type="button" class="btn btn-outline-danger" onclick="unlike('<?php echo $movie_id; ?>', '<?php echo $_SESSION['idUser']; ?>')"><span>&#10084;</span>
                                     <?php echo $count ?>
                                 </button>
                             <?php
@@ -120,14 +120,14 @@ while ($detail = mysqli_fetch_array($sql_detail)) {
                             }
                             if ($count_user == 0) {
                             ?>
-                                <button type="button" class="btn btn-primary" onclick="like('<?php echo $movie_id; ?>', '<?php echo $_SESSION['idUser']; ?>')">Like:
+                                <button type="button" class="btn btn-danger" onclick="like('<?php echo $movie_id; ?>', '<?php echo $_SESSION['idUser']; ?>')"><span>&#10084;</span>
                                     <?php echo $count ?>
                                 </button>
                             <?php
                             }
                         } else {
                             ?>
-                            <button type="button" class="btn btn-primary" onclick="showAlert()">Like:
+                            <button type="button" class="btn btn-primary" onclick="showAlert()"><span>&#10084;</span>
                                 <?php echo $count ?>
                             </button>
                         <?php

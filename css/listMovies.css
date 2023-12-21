@@ -20,8 +20,13 @@
 .movie-btn{
     display: flex;
     justify-content: space-between;
+    position: absolute;
+    bottom: 0; left: 50%; 
+    transform: translateX(-50%);
+    float: left; 
+    width: 92%;
 }
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 480px) {
     *{
         font-size: 15px;
     }
@@ -32,5 +37,14 @@
         font-size: 15px;
         font-weight: bold;
 
+    }
+    .movie-btn{
+        bottom: -15px;
+        /* margin-top: ; */
+        font-size: 1rem;
+    }
+    .col-lg-3{
+        margin-bottom: initial;
+        border-bottom: 20px
     }
 }

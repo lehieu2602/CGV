@@ -11,6 +11,8 @@ if (isset($_POST['login'])) {
     if ($count > 0) {
         while ($getId = mysqli_fetch_array($sql_login)) {
             $_SESSION['idUser'] = $getId['user_id'];
+            $_SESSION['name'] = $getId['username'];
+            $_SESSION['phone'] = $getId['phone_number'];
         }
         $_SESSION['user'] = $username;
         echo "<script type='text/javascript'>alert('Hello " . $_SESSION['user'] . "'); window.location.href = 'index.php';</script>";

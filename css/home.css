@@ -1,15 +1,15 @@
 .content {
-  margin: 30px auto;
+  /* margin: 30px auto; */
   width: 100%;
 }
 
 .content .content-movie .content-movie-list {
-  margin: 20px auto;
+  /* margin: 20px auto; */
 }
 
 .content .content-movie .content-movie-list .slider a img {
   width: 100%;
-  padding: 2%;
+  /* padding: 2%; */
 }
 
 .content .content-event {
@@ -29,7 +29,7 @@
 }
 
 .content .content-event .content-event-list {
-  padding: 30px 0;
+  /* padding: 30px 0; */
   border-bottom: 2px solid #000;
 }
 
@@ -41,9 +41,9 @@
   outline: #000 solid 2px;
 }
 
-.content .content-movie .content-movie-list {
+/* .content .content-movie .content-movie-list {
   margin: 20px auto;
-}
+} */
 
 .content .content-movie .content-movie-list .slider a img {
   width: 100%;
@@ -66,9 +66,9 @@
 /* End SlideShow */
 
 /* Content */
-/* .content {
+.content {
   margin: 30px auto;
-} */
+}
 
 .content .content-movie .content-movie-title h2 {
   background: url(../img/h3_movie_selection.png) no-repeat scroll center center /
@@ -100,12 +100,6 @@
 
 .content .content-event .content-event-title {
   background: url(/img/h3_event.gif) no-repeat scroll center center / 130px 41px;
-  text-indent: -99999px;
-  height: 41px;
-}
-
-.content .content-event .content-event-title1 {
-  background: url(/img/theater.jpg) no-repeat scroll center center / 230px 41px;
   text-indent: -99999px;
   height: 41px;
 }
