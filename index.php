@@ -52,7 +52,7 @@ session_start();
     }
 
     if ($controller == 'phim') {
-        include('view/movieDetail.php');
+        include('view/movieDetail copy.php');
     } else if ($controller == 'listnews') {
         include('view/listNew.php');
     } else if ($controller == 'listmovies') {
@@ -73,7 +73,7 @@ session_start();
     } else if ($controller == 'specialTheater') {
         include('view/special_cinema.php');
     } else if ($controller == 'login') {
-        include('view/login-signup.php');
+        include('view/login-signup-2.php');
     } else {
         include("view/slider.php");
         include('view/home.php');
@@ -88,6 +88,7 @@ session_start();
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
     <script src="./js/index.js"></script>
+    <script src="./js/movieD.js"></script>
     <script type="text/javascript" src="js\special_cinema.js"></script>
 </body>
 
