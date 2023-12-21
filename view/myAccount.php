@@ -18,6 +18,47 @@
 
 
     }
+
+    .nav-pills {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nav-pills .nav-item {
+        width: 100%;
+    }
+
+
+    @media (max-width: 767px) {
+        .nav-pills {
+            position: relative;
+        }
+
+        .nav-pills .nav-item {
+            width: 100%;
+        }
+
+        .nav-pills .nav-link {
+            padding: 10px;
+            text-align: left;
+        }
+
+        .nav-pills .nav-item.dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .nav-pills .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .nav-pills .dropdown-menu .nav-item {
+            width: 100%;
+        }
+    }
 </style>
 
 
@@ -25,12 +66,12 @@
     <div class="my-container">
 
         <div class="left-col col-3">
-            <div class="head-left" Style="color: red;"><strong>TÀI KHOẢN CGV</strong></div>
+            <div class="head-left" Style="color: red; text-align: center;"><strong>TÀI KHOẢN CGV</strong></div>
 
 
             <ul class="nav nav-pills flex-column" id="myPill" role="tablist">
                 <li class="nav-item">
-                    <button class="nav-link " id="tab-thong-tin" data-toggle="tab" href="#thong-tin-chung" role="tab">
+                    <button class="nav-link active" id="tab-thong-tin" data-toggle="tab" href="#thong-tin-chung" role="tab">
                         THÔNG TIN CHUNG
                     </button>
                 </li>
@@ -48,7 +89,7 @@
         </div>
         <div class="right-col col-9">
             <div class="tab-content" id="myPillContent">
-                <div class="tab-pane fade" id="thong-tin-chung" role="tabpanel" aria-labelledby="tab-thong-tin">
+                <div class="tab-pane fade show active" id="thong-tin-chung" role="tabpanel" aria-labelledby="tab-thong-tin">
                     <br>
                     <div class="title-header1">
                         <h1>THÔNG TIN CHUNG</h1>
@@ -117,7 +158,7 @@
                 <div class="tab-pane fade" id="chi-tiet-tai-khoan" role="tabpanel" aria-labelledby="tab-chi-tiet">
                     <?php include("view/accountDetail.php") ?>
                 </div>
-                <div class="tab-pane fade show active" id="lich-su-giao-dich" role="tabpanel" aria-labelledby="tab-lich-su">
+                <div class="tab-pane fade " id="lich-su-giao-dich" role="tabpanel" aria-labelledby="tab-lich-su">
                     <?php include("view/history.php"); ?>
                 </div>
             </div>
