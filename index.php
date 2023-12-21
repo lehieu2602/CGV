@@ -51,7 +51,7 @@ session_start();
     }
 
     if ($controller == 'phim') {
-        include('view/movieDetail copy.php');
+        include('view/movieDetail.php');
     } else if ($controller == 'listnews') {
         include('view/listNew.php');
     } else if ($controller == 'listmovies') {
@@ -72,7 +72,7 @@ session_start();
     } else if ($controller == 'specialTheater') {
         include('view/special_cinema.php');
     } else if ($controller == 'login') {
-        include('view/login-signup-2.php');
+        include('view/login-signup.php');
     } else {
         include("view/slider.php");
         include('view/home.php');
