@@ -25,23 +25,23 @@
     <div class="my-container">
 
         <div class="left-col col-3">
-            <div class="head-left" Style="color: red; font-size: x-large;"><strong>TÀI KHOẢN CGV</strong></div>
+            <div class="head-left" Style="color: red;"><strong>TÀI KHOẢN CGV</strong></div>
 
 
             <ul class="nav nav-pills flex-column" id="myPill" role="tablist">
                 <li class="nav-item">
                     <button class="nav-link " id="tab-thong-tin" data-toggle="tab" href="#thong-tin-chung" role="tab">
-                        <strong>THÔNG TIN CHUNG</strong>
+                        THÔNG TIN CHUNG
                     </button>
                 </li>
                 <li class="nav-item">
                     <button class="nav-link" id="tab-chi-tiet" data-toggle="tab" href="#chi-tiet-tai-khoan" role="tab">
-                        <strong>CHI TIẾT TÀI KHOẢN</strong>
+                        CHI TIẾT TÀI KHOẢN
                     </button>
                 </li>
                 <li class="nav-item">
                     <button class="nav-link " id="tab-lich-su" data-toggle="tab" href="#lich-su-giao-dich" role="tab">
-                        <strong>LỊCH SỬ GIAO DỊCH</strong>
+                        LỊCH SỬ GIAO DỊCH
                     </button>
                 </li>
             </ul>

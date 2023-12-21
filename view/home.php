@@ -2,7 +2,7 @@
 <?php
 $sql_listMovie = mysqli_query($mysqli, 'Select * from movies order by movie_id desc');
 ?>
-<div class="content container">
+<div class="content container" style="width: 80%;">
     <div class="content-movie">
         <div class="content-movie-title" style="text-align: center;">
             <img src="img\h3_movie_selection.png" style="max-width: 100%; height: auto; display: inline-block;">
@@ -14,7 +14,7 @@ $sql_listMovie = mysqli_query($mysqli, 'Select * from movies order by movie_id d
                 while ($row_listMovie = mysqli_fetch_array($sql_listMovie)) {
                 ?>
                     <a href="?controller=phim&id=<?php echo $row_listMovie['movie_id'] ?>">
-                        <img src="<?php echo $row_listMovie['movie_img'] ?>" alt="" style="height: 450px;">
+                        <img src="<?php echo $row_listMovie['movie_img'] ?>" alt="" style="height: 400px; border-radius: 10px;">
                     </a>
                 <?php
                 }
