@@ -39,9 +39,9 @@ if ((isset($_POST['addNews']))) {
     $nameNewsAdd = $_POST['nameNewsAdd'];
     $decriptionNewsAdd = $_POST['decriptionNewsAdd'];
     $imgSNewsAdd = uploadImgToFolder($_FILES['imgSNewsAdd']['tmp_name']);
-    $imgLNewsAdd = uploadImgToFolder($_FILES['imgLNewsAdd']['tmp_name']);
+    $imgLNewsAdd = uploadImgToFolder($_FILES['imgLNewsAdd']['tmp_name']); #dùng khi lấy file từ folder và tạo ra link imgur
 
-    if ($imgSNewsAdd == './img/' || $imgLNewsAdd == './img/' || ($imgSNewsAdd == './img/' && $imgLNewsAdd == './img/')) {
+    if ($imgSNewsAdd == '../img/' || $imgLNewsAdd == '../img/' || ($imgSNewsAdd == '../img/' && $imgLNewsAdd == '../img/')) {
         echo "<script type='text/javascript'>alert('Vui lòng chọn ảnh cho sự kiện');</script>";
     } else {
         $sql_editEvent = mysqli_query($mysqli, "INSERT INTO `news`(`news_title`, `news_img`, `news_img_detail`, `news_content`) 
@@ -56,11 +56,12 @@ if (isset($_POST['eventEdit'])) {
     $decriptionNewsEdit = $_POST['decriptionNewsEdit'];
     $imgSNewsEdit = uploadImgToFolder($_FILES['imgSNewsEdit']['tmp_name']);
     $imgLNewsEdit = uploadImgToFolder($_FILES['imgLNewsEdit']['tmp_name']);
-    if ($imgSNewsEdit == './img/' || $imgLNewsEdit == './img/' || ($imgSNewsEdit == './img/' && $imgLNewsEdit == './img/')) {
+
+    if ($imgSNewsEdit == '' || $imgLNewsEdit == '' || ($imgSNewsEdit == '../img/' && $imgLNewsEdit == '../img/')) {
         echo "<script type='text/javascript'>alert('Vui lòng chọn ảnh cho sự kiện');</script>";
     } else {
         $sql_editEvent = mysqli_query($mysqli, "UPDATE `news` SET 
-            `news_title`='$nameNewsEdit',`news_img`='$imgSNewsEdit',`news_img_detail`='$imgLNewsEdit',`news_content`='$decriptionNewsEdit' WHERE `news_id` = $idNewsEdit ");
+            `news_title`='$nameNewsEdit',`news_img`='$imgSNewsEdit',`news_img_detail`='$imgLNewsEdit',`news_content`='$decriptionNewsEdit' WHERE `news_id` = '$idNewsEdit' ");
     }
 }
 if (isset($_POST['FilmEdit'])) {
@@ -107,19 +108,19 @@ if (isset($_POST['addShowing'])) {
     $sql_getLastInsertRoom = mysqli_query($mysqli, "SELECT LAST_INSERT_ID();");
     $row = $sql_getLastInsertRoom->fetch_row();
     $sql_createNewSeat = mysqli_query($mysqli, "CALL addNewSeat('$row[0]')");
-    $sql_addNewShowing = mysqli_query($mysqli, "INSERT INTO `showings`(`showings_name_movie`, `showings_room`, `showings_time`)
+    $sql_addNewShowing = mysqli_query($mysqli, "INSERT INTO `schedule`(`showings_name_movie`, `showings_room`, `showings_time`)
         VALUES ('$addShowMovieName','$row[0]','$addShowTime')");
 }
 
 if (isset($_POST['deleteRowShowings'])) {
     $idShowingDelete =  $_POST['idRowShowing'];
-    $sql_deleteShowing = mysqli_query($mysqli, "DELETE FROM `showings` WHERE `showings_id` = '$idShowingDelete'");
+    $sql_deleteShowing = mysqli_query($mysqli, "DELETE FROM `schedule` WHERE `showings_id` = '$idShowingDelete'");
     echo "<script type='text/javascript'>alert('Xóa suất chiếu thành công');</script>";
 }
 if (isset($_POST['updateShowing'])) {
     $time = $_POST['editTimeShow'];
     $idShowing = $_POST['idShowUpdate'];
-    $sql_updateShowing = mysqli_query($mysqli, "UPDATE `showings` SET `showings_time` = '$time' WHERE `showings`.`showings_id` = '$idShowing';");
+    $sql_updateShowing = mysqli_query($mysqli, "UPDATE `schedule` SET `showings_time` = '$time' WHERE `schedule`.`showings_id` = '$idShowing';");
     echo "<script type='text/javascript'>alert('Cập nhật suất chiếu thành công');</script>";
 }
 if (!isset($_SESSION['admin_name'])) {
@@ -321,15 +322,6 @@ if (isset($_POST['regAdmin'])) {
             </main>
         </div>
     </div>
-    <!-- <footer>
-        <div class="row">
-            <div class="col-md-2" style="background:rgb(78,115,223);">
-            </div>
-            <div class="col-md-10">
-                Copyright © DashBoard Admin 2023
-            </div>
-        </div>
-    </footer> -->
     <script src="admin.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
