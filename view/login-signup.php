@@ -52,7 +52,7 @@ if (isset($_POST['register'])) {
 
 
     <div class="login-signup" style="max-width: 500px;
-            margin: 50px auto; background-color: white;">
+            margin: 50px auto; background-color: white; height:500px">
         <ul class="nav nav-tabs nav-fill" id="myTab" role="tablist" style=" margin-bottom: 2%; background-color: #EE2C2C">
             <li class="nav-item" role="presentation">
                 <div class="nav-link active" id="emailUser" data-toggle="tab" href="#login" role="tab" aria-controls="login" aria-selected="true" style="border-bottom: 3px solid #fff;color: #fff;background-color: red;font-weight: 700;font-size: 17px;">Đăng Nhập</div>
