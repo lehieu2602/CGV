@@ -27,7 +27,7 @@
         font-weight: bolder;
     }
 
-    /* Khi màn hình có kích thước nhỏ hơn, chuyển thành dropdown */
+
     @media (max-width: 767px) {
         .nav-pills {
             position: relative;
@@ -55,8 +55,8 @@
         }
 
         .nav-item {
-            font-size: 8px;
-            width: 100px;
+            font-size: 6px;
+            width: 80px;
             margin-left: 0px;
         }
 

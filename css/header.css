@@ -14,7 +14,7 @@
 
 .login ul a {
   margin-left: 70px;
-  color: #666;
+  color: black;
   font-weight: 700;
 }
 
@@ -86,11 +86,14 @@
   padding: 0;
 }
 
+
+
 .header .main ul li:hover .menu-ul ul li {
   width: 170px;
   background-color: #666;
   padding: 5px;
 }
+
 
 .header .main ul li:hover .menu-ul ul li a {
   text-align: left;
@@ -99,6 +102,8 @@
   font-weight: bold;
   margin-left: 10px;
 }
+
+
 
 .menu-icon {
   display: none;

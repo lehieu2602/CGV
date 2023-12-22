@@ -127,7 +127,7 @@
 
 
             echo ' <div class="carousel-item ' . $activeClass . '">
-                                <img class="d-block w-100" src=' . $img . '>
+                                <img class="d-block w-100" style = "border-radius:10px" src=' . $img . '>
                         </div>';
         }
         echo '<div class="carousel-caption">
@@ -165,7 +165,7 @@
 <script>
     var show = document.getElementsByClassName("theater-container");
     var nameTheater = document.getElementsByClassName("nav-link");
-    console.log("nameTheater: " + nameTheater);
+
     Array.from(nameTheater).forEach(function(element) {
         element.addEventListener('click', function() {
             for (var i = 0; i < show.length; i++) {
@@ -173,7 +173,7 @@
             }
             var theater = document.getElementById("show-theater-" + element.id);
             theater.style.display = "block";
-            console.log("Đã click vào phần tử có id:", element.id);
+
         });
     });
 </script>
