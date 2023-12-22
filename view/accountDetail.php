@@ -36,7 +36,7 @@ if (isset($_POST['changeInfo'])) {
 
 <div class="account-content" style="width: 100%;">
     <br>
-    <div class="title-header2">
+    <div class="title-header2" style=" width: 100%;">
         <h1>THAY ĐỔI THÔNG TIN</h1>
     </div>
     <div>
@@ -136,24 +136,7 @@ if (isset($_POST['changeInfo'])) {
             <button type="submit" name="changeInfo" id="changeInfo" class="btn btn-danger" style="width: 100%;background-color: #e71a0f;color: white;padding: 14px 20px;margin: 8px 0;border: none;border-radius: 4px;cursor: pointer;text-transform: uppercase;">Thay Đổi Thông Tin</button>
 
         </form>
-        <!-- <script>
-            var submitchange = document.getElementById("changeInfo");
-            var name = document.getElementById("change_fullname");
-            
-            var phone = document.getElementById("change_phone");
-            var email = document.getElementById("change_email");
-            var password = document.getElementById("change_password");
-            var birthDay = document.getElementById("change_birthday");
 
-            submitchange.addEventListener('click', function() {
-                if (name !== null and ) {
-                    alert("Thay dổi thông tin thành công!")
-                } else {
-                    alert("Vui lòng điền đầy đủ thông tin!")
-                }
-
-            })
-        </script> -->
 
         <script>
             var nameInput = document.getElementById("change_fullname");

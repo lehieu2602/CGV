@@ -2,7 +2,7 @@
 <style>
     @media (max-width: 375px) {
         .my-img {
-            height: 200px;
+            max-height: 200px;
         }
     }
 

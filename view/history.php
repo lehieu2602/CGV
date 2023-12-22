@@ -6,8 +6,9 @@ $user = $_SESSION['user'];
 
 
 <div class="history-content" style="width: 100%">
+    <br>
     <div class="title-info" style="text-align: center;">
-        <h3>LỊCH SỬ ĐẶT VÉ</h3>
+        <h1>LỊCH SỬ ĐẶT VÉ</h1>
     </div>
     <table id="historyBooking" class="table table-striped table-bordered">
         <thead>
