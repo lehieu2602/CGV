@@ -70,7 +70,7 @@ $('#form2').submit(function () {
                                             $('input[name=listTicket]').val(newS);
                                         }
                                     };
-                                    xmlhttp.open("POST", "seatSelect.php", true);
+                                    xmlhttp.open("POST", "../action/seatSelect.php", true);
                                     xmlhttp.send();
                                 }
                             });
@@ -78,7 +78,7 @@ $('#form2').submit(function () {
                         });
                     }
                 };
-                xmlhttp.open("GET", "booking.php?showing=" + showing, true);
+                xmlhttp.open("GET", "../view/booking.php?showing=" + showing, true);
                 xmlhttp.send();
             }
         }

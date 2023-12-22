@@ -1,5 +1,5 @@
 <?php
-include_once("db/connect.php");
+include_once("../db/connect.php");
 session_start();
 $showingRoom = $_GET['showing'];
 
@@ -522,7 +522,7 @@ $sql_ticketInfo = mysqli_query($mysqli, "SELECT * FROM `schedule`,cinemas,rooms,
                             document.getElementById("seatN").innerHTML = newS;
                         }
                     };
-                    xmlhttp.open("POST", "seatSelect.php", true);
+                    xmlhttp.open("POST", "../action/seatSelect.php", true);
                     xmlhttp.send();
                 }
             });
