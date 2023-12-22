@@ -103,11 +103,6 @@ if (isset($_POST['addShowing'])) {
     $addShowRoom = $_POST['addShowingRoom'];
     $addShowTheaterName = $_POST['addShowingTheater'];
     $addShowTime = $_POST['addShowingTime'];
-    // $sql_addNewRoomShowing = mysqli_query($mysqli, "INSERT INTO `rooms`(`room_name`, `room_theater`) 
-    //     VALUES ('$addShowRoom','$addShowTheaterName');");
-    // $sql_getLastInsertRoom = mysqli_query($mysqli, "SELECT LAST_INSERT_ID();");
-    // $row = $sql_getLastInsertRoom->fetch_row();
-    // $sql_createNewSeat = mysqli_query($mysqli, "CALL addNewSeat('$row[0]')");
     $sql_roomShowing = mysqli_query($mysqli, "Select * from `rooms` where `room_name` = '$addShowRoom' and `room_theater`='$addShowTheaterName';");
     while ($row_room = mysqli_fetch_array($sql_roomShowing)) {
         $total_seat = $row_room['number_seat'];
