@@ -18,8 +18,8 @@ if (isset($_POST['booking'])) {
         } else {
             $sql_getSeat = mysqli_query($mysqli, "UPDATE `seat` SET `seat_status`= 1 
                 WHERE `seat_room`= '" . $_SESSION['idRoom'] . "' and seat_name = '$seat'");
-            $sql_insertBookingHis = mysqli_query($mysqli, "INSERT INTO `booking` (`booking_id`, `booking_user`, `booking_movie`, `booking_theater`, `booking_seat`, `booking_ticket`, `booking_time`) 
-                VALUES (NULL, '" . $_SESSION['idUser'] . "', '" . $_SESSION['IDMovie'] . "', '" . $_SESSION['theaterName'] . "', '$seat', '" . $_SESSION['ticketName'] . "', NOW())");
+            $sql_insertBookingHis = mysqli_query($mysqli, "INSERT INTO `booking` (`booking_user`, `booking_movie`, `booking_theater`, `booking_seat`, `booking_ticket`, `booking_time`) 
+                VALUES ('" . $_SESSION['idUser'] . "', '" . $_SESSION['IDMovie'] . "', '" . $_SESSION['theaterName'] . "', '$seat', '" . $_SESSION['ticketName'] . "', NOW())");
         }
     }
     if (empty($reserved)) {

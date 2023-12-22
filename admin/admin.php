@@ -103,13 +103,39 @@ if (isset($_POST['addShowing'])) {
     $addShowRoom = $_POST['addShowingRoom'];
     $addShowTheaterName = $_POST['addShowingTheater'];
     $addShowTime = $_POST['addShowingTime'];
-    $sql_addNewRoomShowing = mysqli_query($mysqli, "INSERT INTO `rooms`(`room_name`, `room_theater`) 
-        VALUES ('$addShowRoom','$addShowTheaterName');");
-    $sql_getLastInsertRoom = mysqli_query($mysqli, "SELECT LAST_INSERT_ID();");
-    $row = $sql_getLastInsertRoom->fetch_row();
-    $sql_createNewSeat = mysqli_query($mysqli, "CALL addNewSeat('$row[0]')");
-    $sql_addNewShowing = mysqli_query($mysqli, "INSERT INTO `schedule`(`showings_name_movie`, `showings_room`, `showings_time`)
-        VALUES ('$addShowMovieName','$row[0]','$addShowTime')");
+    // $sql_addNewRoomShowing = mysqli_query($mysqli, "INSERT INTO `rooms`(`room_name`, `room_theater`) 
+    //     VALUES ('$addShowRoom','$addShowTheaterName');");
+    // $sql_getLastInsertRoom = mysqli_query($mysqli, "SELECT LAST_INSERT_ID();");
+    // $row = $sql_getLastInsertRoom->fetch_row();
+    // $sql_createNewSeat = mysqli_query($mysqli, "CALL addNewSeat('$row[0]')");
+    $sql_roomShowing = mysqli_query($mysqli, "Select * from `rooms` where `room_name` = '$addShowRoom' and `room_theater`='$addShowTheaterName';");
+    while ($row_room = mysqli_fetch_array($sql_roomShowing)) {
+        $total_seat = $row_room['number_seat'];
+        $total_row_seat = ceil($total_seat / 10);
+        $remaining_seats = $total_seat;
+
+        $id_room = $row_room['room_id'];
+        for ($i = 1; $i <= $total_row_seat; $i++) {
+            $char = chr(ord('A') + $i - 1);
+
+            if ($remaining_seats >= 10) {
+                $total_row_seat = 10;
+                $remaining_seats -= 10;
+            } else {
+                $total_row_seat = $remaining_seats;
+            }
+
+            for ($j = 1; $j <= $total_row_seat; $j++) {
+                $seat_name = $char . $j;
+                $sql_addNewSeat = mysqli_query($mysqli, "INSERT INTO seat
+                (seat_row, seat_room, seat_name, seat_status, seat_movie_id)
+                VALUES('$i', '$id_room', '$seat_name', 0, '$addShowMovieName');");
+            }
+        }
+
+        $sql_addNewShowing = mysqli_query($mysqli, "INSERT INTO `schedule`(`showings_name_movie`, `showings_room`, `showings_time`)
+        VALUES ('$addShowMovieName','$id_room','$addShowTime')");
+    }
 }
 
 if (isset($_POST['deleteRowShowings'])) {

@@ -471,7 +471,8 @@ $sql_ticketInfo = mysqli_query($mysqli, "SELECT * FROM `schedule`,cinemas,rooms,
         ?>
             <div class="rowSeat">
                 <?php
-                $sql_seat = mysqli_query($mysqli, "SELECT * from seat where  seat_row = '" . $row_seatRow['seat_row'] . "' and seat_room = '$showingRoom'");
+                $id_movie = $_SESSION['IDMovie'];
+                $sql_seat = mysqli_query($mysqli, "SELECT * from seat where  seat_row = '" . $row_seatRow['seat_row'] . "' and seat_room = '$showingRoom' and seat_movie_id = '$id_movie'");
                 while ($row_seat = mysqli_fetch_array($sql_seat)) {
                 ?>
                     <form action="" method="post" class="seatName" style="display: inline;margin: 0">
