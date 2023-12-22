@@ -9,7 +9,7 @@ $user = $_SESSION['user'];
     <div class="title-info" style="text-align: center;">
         <h3>LỊCH SỬ ĐẶT VÉ</h3>
     </div>
-    <table id="historyBooking" class="table table-striped table-bordered" style="width:100%">
+    <table id="historyBooking" class="table table-striped table-bordered">
         <thead>
             <tr style="background-color: red;">
                 <th style="color: white;" scope="col">STT</th>

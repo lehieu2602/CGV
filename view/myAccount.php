@@ -19,44 +19,69 @@
 
     }
 
-    .nav-pills {
-        display: flex;
-        flex-direction: column;
+    .head-left {
+        color: red;
+        text-align: center;
+        font-size: 30px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bolder;
     }
 
-    .nav-pills .nav-item {
-        width: 100%;
-    }
-
-
+    /* Khi màn hình có kích thước nhỏ hơn, chuyển thành dropdown */
     @media (max-width: 767px) {
         .nav-pills {
             position: relative;
         }
 
-        .nav-pills .nav-item {
-            width: 100%;
-        }
-
         .nav-pills .nav-link {
             padding: 10px;
             text-align: left;
+            border: 1px solid #ddd;
+            /* Viền cho từng mục trong dropdown */
         }
 
         .nav-pills .nav-item.dropdown:hover .dropdown-menu {
             display: block;
         }
 
-        .nav-pills .dropdown-menu {
-            display: none;
+        .dropdown-menu {
             position: absolute;
             top: 100%;
             left: 0;
+            width: 100%;
             z-index: 1000;
+            background-color: #fff;
+            /* Màu nền của dropdown */
         }
 
-        .nav-pills .dropdown-menu .nav-item {
+        .nav-item {
+            font-size: 8px;
+            width: 100px;
+            margin-left: 0px;
+        }
+
+        .left-col,
+        .my-main-container,
+        .my-container {
+            margin-left: 0;
+        }
+
+        .my-container {
             width: 100%;
+        }
+
+        .head-left {
+
+            font-size: 9px;
+        }
+
+        #historyBooking th,
+        #historyBooking td {
+            font-size: 8px;
+        }
+
+        .title-info h3 {
+            font-size: 15px;
         }
     }
 </style>
@@ -66,9 +91,7 @@
     <div class="my-container">
 
         <div class="left-col col-3">
-            <div class="head-left" Style="color: red; text-align: center;"><strong>TÀI KHOẢN CGV</strong></div>
-
-
+            <div class="head-left">TÀI KHOẢN CGV</div>
             <ul class="nav nav-pills flex-column" id="myPill" role="tablist">
                 <li class="nav-item">
                     <button class="nav-link active" id="tab-thong-tin" data-toggle="tab" href="#thong-tin-chung" role="tab">

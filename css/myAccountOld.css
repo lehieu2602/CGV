@@ -96,9 +96,7 @@
     margin: 4px 2px;
     cursor: pointer;
 }
-.title-header2{
-    width: 678px;
-}
+
 .info-center {
     justify-content: center;
     align-items: center;
@@ -119,33 +117,3 @@
         /* Căn giữa nội dung của nav-item khi ở màn hình nhỏ hơn 600px */
     }
 }
-@media screen and (max-width: 700px) {
-    .tab-content{
-        font-size: 10px;
-        max-width: 109%;
-    }
-    .title-header2{
-        width: 200px;
-    }
-    .title-header2 h1{
-        font-size: 1rem;
-    }
-}
-/* @media screen and (max-width: 980px) {
-    .tab-content{
-        font-size: 10px;
-        max-width: 109%;
-    }
-    .title-header2{
-        width: 600px;
-    }
-    .title-header2 h1{
-        font-size: 3rem;
-    }
-} */
-
-/* @media only screen and (max-width: 548px)
-* {
-    font-size: 10px;
-    max-width: 109%;
-} */
