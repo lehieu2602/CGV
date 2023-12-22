@@ -101,7 +101,7 @@ include_once("../db/connect.php");
                 <tbody>
                     <?php
                     $stt = 0;
-                    $sql_listAdmin = mysqli_query($mysqli, "SELECT *, location.name as theaters_city FROM `schedule`,movies,rooms,cinemas, location  
+                    $sql_listAdmin = mysqli_query($mysqli, "SELECT *, location.name as theaters_city, cinemas.name as theater_name FROM `schedule`,movies,rooms,cinemas, location  
                     WHERE showings_name_movie = movie_id and showings_room = room_id and room_theater = cinemas.id and id_location = location.id;");
                     while ($row_listAdmin = mysqli_fetch_array($sql_listAdmin)) {
                         $stt += 1;
@@ -110,7 +110,7 @@ include_once("../db/connect.php");
                             <td><?php echo $stt ?></td>
                             <td><?php echo $row_listAdmin['movie_name']; ?></td>
                             <td><?php echo $row_listAdmin['room_name']; ?></td>
-                            <td><?php echo $row_listAdmin['name']; ?></td>
+                            <td><?php echo $row_listAdmin['theater_name']; ?></td>
                             <td><?php echo $row_listAdmin['theaters_city']; ?></td>
                             <td><?php echo $row_listAdmin['showings_time']; ?></td>
                             <td style="text-align: center">
@@ -143,7 +143,7 @@ include_once("../db/connect.php");
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="editTheaterShow">Rạp:</label>
-                                                            <input type="text" class="form-control" id="editTheaterShow" value="<?php echo $row_listAdmin['theaters_name']; ?>" readonly>
+                                                            <input type="text" class="form-control" id="editTheaterShow" value="<?php echo $row_listAdmin['theater_name']; ?>" readonly>
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="editCityShow">Thành Phố:</label>

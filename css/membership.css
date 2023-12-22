@@ -1,3 +1,11 @@
+.content-membership {
+  background-color: white;
+  margin-bottom: 5%;
+  box-shadow: 10px 10px 5px lightblue;
+  border: black 1px solid;
+  border-radius: 10px;
+}
+
 .btn,
 .nav {
   color: dark rgb(255, 0, 0);
@@ -36,10 +44,10 @@
 
 .nav-fill .nav-item,
 .card button {
-  background-color: red;
+  background-color: #f54242;
 }
 
 .nav-fill .nav-item a,
 .card button {
-  color: gold;
+  color: #f7e62a;
 }

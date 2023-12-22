@@ -2,10 +2,7 @@
     <img src="img\theaterimg\membership.jpg" style="max-width: 100%; height: auto; display: inline-block;">
 </div>
 <br>
-<div class="container" style="background-color: whitesmoke; margin-bottom: 5%;">
-
-    <!-- <div class="row">
-            <div class="col-md-12"> -->
+<div class="content-membership container">
     <ul class="nav nav-tabs nav-fill" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
             <a class="nav-link active" id="diemthuong-tab" data-toggle="tab" href="#diemthuong" role="tab" aria-controls="diemthuong" aria-selected="true">CHƯƠNG TRÌNH ĐIỂM THƯỞNG</a>
@@ -431,4 +428,4 @@
 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script> -->
