@@ -18,7 +18,7 @@
         <a href="?controller=listnews">
             <img src="../img/header-logo-6.png" alt="" />
         </a>
-        <a href="">
+        <a href="?controller=login">
             <img src="../img/header-logo-7.png" alt="" />
         </a>
     </ul>

@@ -71,6 +71,7 @@ include_once("../db/connect.php");
                     <tr>
                         <th>STT</th>
                         <th>Tài khoản</th>
+                        <th>Tên</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -83,6 +84,7 @@ include_once("../db/connect.php");
                         <tr>
                             <td><?php echo $stt ?></td>
                             <td><?php echo $row_listAdmin['user']; ?></td>
+                            <td><?php echo $row_listAdmin['admin_name'] ?></td>
                         </tr>
                     <?php
                     }
