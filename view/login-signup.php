@@ -48,26 +48,11 @@ if (isset($_POST['register'])) {
 
 ?>
 <!-- login -->
-<div class="login container">
-    <?php
-    if (isset($_SESSION['user']) && $_SESSION['user'] != '') {
-        echo "<ul>
-                <a style ='text-transform: none' class='dropdown-toggle noselect' id='dropdownMenuButton' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' >Xin chào <span class='userEmail'>" . $_SESSION['user'] . "</span></a>
-                  <div class='dropdown-menu noselect'aria-labelledby='dropdownMenuButton'style ='text-transform: none'>
-                    <a class='dropdown-item'href='?controller=userInfo'style ='margin: 0'>Thông Tin Tài Khoản</a>
-                    <a class='dropdown-item'href='?signout=true'style ='margin: 0'>Đăng Xuất</a>
-                  </div>
-                    </ul>";
-    };
-    // } else {
-    //     echo '<ul>
-    //         <a href="">vé của tôi</a>
-    //         <a href="" data-toggle="modal" data-target="#login">đăng nhập/đăng ký</a>
-    //     </ul>';
-    // }
-    ?>
+<div class="login-container">
 
-    <div class="login-signup" style="width: 50%; margin-left: 25%; background-color: white;">
+
+    <div class="login-signup" style="max-width: 500px;
+            margin: 50px auto; background-color: white; height:500px">
         <ul class="nav nav-tabs nav-fill" id="myTab" role="tablist" style=" margin-bottom: 2%; background-color: #EE2C2C">
             <li class="nav-item" role="presentation">
                 <div class="nav-link active" id="emailUser" data-toggle="tab" href="#login" role="tab" aria-controls="login" aria-selected="true" style="border-bottom: 3px solid #fff;color: #fff;background-color: red;font-weight: 700;font-size: 17px;">Đăng Nhập</div>

@@ -5,6 +5,7 @@
 .login {
   text-transform: uppercase;
 }
+
 .login ul {
   text-align: right;
   margin: 0;
@@ -13,9 +14,10 @@
 
 .login ul a {
   margin-left: 70px;
-  color: #666;
+  color: black;
   font-weight: 700;
 }
+
 .login ul a:hover {
   text-decoration: none;
   color: #666;
@@ -34,19 +36,24 @@
   flex-wrap: nowrap;
   justify-content: space-between;
 }
+
 .header .main .header-logo {
   margin: auto 0;
 }
+
 .header .main .header-logo:hover {
   opacity: 0.7;
 }
+
 .header .main .header-menu {
   display: flex;
   margin-top: 62px;
 }
+
 .header .main .header-buy {
   margin-top: 20px;
 }
+
 .header .main ul li {
   list-style: none;
   font-weight: bold;
@@ -79,11 +86,14 @@
   padding: 0;
 }
 
+
+
 .header .main ul li:hover .menu-ul ul li {
   width: 170px;
   background-color: #666;
   padding: 5px;
 }
+
 
 .header .main ul li:hover .menu-ul ul li a {
   text-align: left;
@@ -93,6 +103,8 @@
   margin-left: 10px;
 }
 
+
+
 .menu-icon {
   display: none;
 }
@@ -100,6 +112,7 @@
 .menu {
   margin-top: 20px;
 }
+
 .menu ul {
   padding: 0 10px;
   display: table;
@@ -107,6 +120,7 @@
   table-layout: fixed;
   box-sizing: border-box;
 }
+
 .menu ul a {
   display: table-cell;
   vertical-align: middle;
@@ -155,14 +169,17 @@
   .header .main .header-menu {
     display: none;
   }
+
   .header .main .header-buy {
     display: none;
   }
+
   .header .main .header-logo {
     content: url("/img/cgvlogo-small.png");
     width: 90px;
     display: normal;
   }
+
   .menu {
     display: none;
   }
@@ -226,12 +243,12 @@
     display: none;
   }
 
-  .ul-res > li {
+  .ul-res>li {
     margin-bottom: 10px;
     border-bottom: 1px solid #ccc;
   }
 
-  .ul-level-1 > li {
+  .ul-level-1>li {
     margin-bottom: 5px;
     border-bottom: 1px solid #eee;
   }

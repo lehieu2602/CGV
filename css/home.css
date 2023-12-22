@@ -71,8 +71,7 @@
 }
 
 .content .content-movie .content-movie-title h2 {
-  background: url(../img/h3_movie_selection.png) no-repeat scroll center center /
-    406px 41px;
+  background: url(../img/h3_movie_selection.png) no-repeat scroll center center / 406px 41px;
   text-indent: -99999px;
   height: 41px;
 }
@@ -123,6 +122,8 @@
   * {
     font-size: 15px;
   }
+
+
 }
 
 @media only screen and (max-width: 548px) {
@@ -135,4 +136,6 @@
   * {
     font-size: 10px;
   }
+
+
 }

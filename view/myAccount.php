@@ -1,74 +1,8 @@
-<style>
-    .nav-link {
-        border-radius: 0 !important;
-        /* background: url(img/ribon_left-ccc.png) no-repeat scroll left 0 #e71a0f; */
-
-
-        cursor: pointer;
-    }
-
-    .nav-link:active,
-    .nav-link.active {
-        color: #fff;
-        background-color: #007bff;
-        background-color: RED !important;
-        border-color: white;
-        outline: none;
-        /* background: url(img/ribon_left_menu.gif) no-repeat scroll left 0 #e71a0f; */
-
-
-    }
-
-    .nav-pills {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .nav-pills .nav-item {
-        width: 100%;
-    }
-
-
-    @media (max-width: 767px) {
-        .nav-pills {
-            position: relative;
-        }
-
-        .nav-pills .nav-item {
-            width: 100%;
-        }
-
-        .nav-pills .nav-link {
-            padding: 10px;
-            text-align: left;
-        }
-
-        .nav-pills .nav-item.dropdown:hover .dropdown-menu {
-            display: block;
-        }
-
-        .nav-pills .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            z-index: 1000;
-        }
-
-        .nav-pills .dropdown-menu .nav-item {
-            width: 100%;
-        }
-    }
-</style>
-
-
 <div class="my-main-container">
     <div class="my-container">
 
         <div class="left-col col-3">
-            <div class="head-left" Style="color: red; text-align: center;"><strong>TÀI KHOẢN CGV</strong></div>
-
-
+            <div class="head-left">TÀI KHOẢN CGV</div>
             <ul class="nav nav-pills flex-column" id="myPill" role="tablist">
                 <li class="nav-item">
                     <button class="nav-link active" id="tab-thong-tin" data-toggle="tab" href="#thong-tin-chung" role="tab">

@@ -67,9 +67,11 @@
     background-color: black;
     color: white;
     font-size: 80%;
-    
+
 }
-.title-header2 {
+
+.title-header2,
+.title-info {
     text-align: center;
     background-color: black;
     color: white;
@@ -97,6 +99,10 @@
     cursor: pointer;
 }
 
+.title-header2 {
+    width: 678px;
+}
+
 .info-center {
     justify-content: center;
     align-items: center;
@@ -115,5 +121,128 @@
         /* Đặt độ rộng của nav-item là 100% khi ở màn hình nhỏ hơn 600px */
         text-align: center;
         /* Căn giữa nội dung của nav-item khi ở màn hình nhỏ hơn 600px */
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .tab-content {
+        font-size: 10px;
+        max-width: 109%;
+    }
+
+    .title-header2 {
+        width: 200px;
+    }
+
+    .title-header2 h1 {
+        font-size: 1rem;
+    }
+}
+
+.nav-link {
+    border-radius: 0 !important;
+    /* background: url(img/ribon_left-ccc.png) no-repeat scroll left 0 #e71a0f; */
+
+
+    cursor: pointer;
+}
+
+.nav-link:active,
+.nav-link.active {
+    color: #fff;
+    background-color: #007bff;
+    background-color: RED !important;
+    border-color: white;
+    outline: none;
+    /* background: url(img/ribon_left_menu.gif) no-repeat scroll left 0 #e71a0f; */
+
+
+}
+
+.head-left {
+    color: red;
+    text-align: center;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+}
+
+
+@media (max-width: 767px) {
+    .nav-pills {
+        position: relative;
+    }
+
+    .nav-pills .nav-link {
+        padding: 10px;
+        text-align: left;
+        border: 1px solid #ddd;
+        /* Viền cho từng mục trong dropdown */
+    }
+
+    .nav-pills .nav-item.dropdown:hover .dropdown-menu {
+        display: block;
+    }
+
+    .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        background-color: #fff;
+        /* Màu nền của dropdown */
+    }
+
+    .nav-item {
+        font-size: 6px;
+        width: 80px;
+        margin-left: 0px;
+    }
+
+    .left-col,
+    .my-main-container,
+    .my-container {
+        margin-left: 0;
+    }
+
+    .my-container {
+        width: 100%;
+    }
+
+    .head-left {
+
+        font-size: 9px;
+    }
+
+    #historyBooking th,
+    #historyBooking td {
+        font-size: 8px;
+    }
+
+    .title-info h3 {
+        font-size: 15px;
+    }
+
+    .title-header1 h1,
+    .title-header2 h1,
+    .title-info h1 {
+        font-size: 2em;
+        /* Kích thước font mặc định */
+    }
+
+    @media screen and (max-width: 600px) {
+
+        .title-header1 h1,
+        .title-header2 h1,
+        .title-info h1 {
+            font-size: 1.5em;
+            /* Kích thước font khi màn hình nhỏ hơn 600px */
+        }
+
+        .title-header2,
+        .title-header1 {
+            width: 100%;
+        }
     }
 }
