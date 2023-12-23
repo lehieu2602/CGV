@@ -38,15 +38,19 @@ if (isset($_POST['deleteRowEvent'])) {
 if ((isset($_POST['addNews']))) {
     $nameNewsAdd = $_POST['nameNewsAdd'];
     $decriptionNewsAdd = $_POST['decriptionNewsAdd'];
-    $imgSNewsAdd = uploadImgToFolder($_FILES['imgSNewsAdd']['tmp_name']);
-    $imgLNewsAdd = uploadImgToFolder($_FILES['imgLNewsAdd']['tmp_name']); #dùng khi lấy file từ folder và tạo ra link imgur
 
-    if ($imgSNewsAdd == '../img/' || $imgLNewsAdd == '../img/' || ($imgSNewsAdd == '../img/' && $imgLNewsAdd == '../img/')) {
+    if ($_FILES['imgSNewsAdd']['tmp_name'] == '' || $_FILES['imgLNewsAdd']['tmp_name'] == '') {
         echo "<script type='text/javascript'>alert('Vui lòng chọn ảnh cho sự kiện');</script>";
     } else {
-        $sql_editEvent = mysqli_query($mysqli, "INSERT INTO `news`(`news_title`, `news_img`, `news_img_detail`, `news_content`) 
-            VALUES ('$nameNewsAdd','$imgSNewsAdd','$imgLNewsAdd','$decriptionNewsAdd')");
-        echo "<script type='text/javascript'>alert('Thêm mới tin tức/ sự kiện thành công');</script>";
+        $imgSNewsAdd = uploadImgToFolder($_FILES['imgSNewsAdd']['tmp_name']);
+        $imgLNewsAdd = uploadImgToFolder($_FILES['imgLNewsAdd']['tmp_name']);
+        if ($imgSNewsAdd == '../img/' || $imgLNewsAdd == '../img/' || ($imgSNewsAdd == '../img/' && $imgLNewsAdd == '../img/')) {
+            echo "<script type='text/javascript'>alert('Vui lòng chọn ảnh cho sự kiện');</script>";
+        } else {
+            $sql_editEvent = mysqli_query($mysqli, "INSERT INTO `news`(`news_title`, `news_img`, `news_img_detail`, `news_content`) 
+                VALUES ('$nameNewsAdd','$imgSNewsAdd','$imgLNewsAdd','$decriptionNewsAdd')");
+            echo "<script type='text/javascript'>alert('Thêm mới tin tức/ sự kiện thành công');</script>";
+        }
     }
 }
 
@@ -54,11 +58,26 @@ if (isset($_POST['eventEdit'])) {
     $idNewsEdit = $_POST['idNewsEdit'];
     $nameNewsEdit = $_POST['nameNewsEdit'];
     $decriptionNewsEdit = $_POST['decriptionNewsEdit'];
-    $imgSNewsEdit = uploadImgToFolder($_FILES['imgSNewsEdit']['tmp_name']);
-    $imgLNewsEdit = uploadImgToFolder($_FILES['imgLNewsEdit']['tmp_name']);
+    $imgSNewsEdit = '';
+    $imgLNewsEdit = '';
 
-    if ($imgSNewsEdit == '' || $imgLNewsEdit == '' || ($imgSNewsEdit == '../img/' && $imgLNewsEdit == '../img/')) {
-        echo "<script type='text/javascript'>alert('Vui lòng chọn ảnh cho sự kiện');</script>";
+    if ($_FILES['imgSNewsEdit']['tmp_name'] != '') {
+        $imgSNewsEdit = uploadImgToFolder($_FILES['imgSNewsEdit']['tmp_name']);
+    }
+
+    if ($_FILES['imgLNewsEdit']['tmp_name'] != '') {
+        $imgLNewsEdit = uploadImgToFolder($_FILES['imgLNewsEdit']['tmp_name']);
+    }
+
+    if ($imgSNewsEdit == '' && $imgLNewsEdit != '') {
+        $sql_editEvent = mysqli_query($mysqli, "UPDATE `news` SET 
+        `news_title`='$nameNewsEdit',`news_img_detail`='$imgLNewsEdit',`news_content`='$decriptionNewsEdit' WHERE `news_id` = '$idNewsEdit' ");
+    } else if ($imgSNewsEdit == '' && $imgLNewsEdit == '') {
+        $sql_editEvent = mysqli_query($mysqli, "UPDATE `news` SET 
+            `news_title`='$nameNewsEdit',`news_content`='$decriptionNewsEdit' WHERE `news_id` = '$idNewsEdit' ");
+    } else if ($imgLNewsEdit == '') {
+        $sql_editEvent = mysqli_query($mysqli, "UPDATE `news` SET 
+            `news_title`='$nameNewsEdit',`news_img`='$imgSNewsEdit',`news_content`='$decriptionNewsEdit' WHERE `news_id` = '$idNewsEdit' ");
     } else {
         $sql_editEvent = mysqli_query($mysqli, "UPDATE `news` SET 
             `news_title`='$nameNewsEdit',`news_img`='$imgSNewsEdit',`news_img_detail`='$imgLNewsEdit',`news_content`='$decriptionNewsEdit' WHERE `news_id` = '$idNewsEdit' ");
@@ -76,20 +95,23 @@ if (isset($_POST['FilmEdit'])) {
     $rateEdit = $_POST['rateEdit'];
     $decriptionEdit = $_POST['decriptionEdit'];
     $trailerEdit = $_POST['trailerEdit'];
-    //Get embeed link video trailer
     $searchEdit     = '/youtube\.com\/watch\?v=([a-zA-Z0-9]+)/smi';
     $replaceEdit    = "youtube.com/embed/$1";
     $urlEdit = preg_replace($searchEdit, $replaceEdit, $trailerEdit);
-    //End Get embeed link video trailer
-    $posterEdit = uploadImgToFolder($_FILES['posterEdit']['tmp_name']);
-    //End Code up img to folder
-    if ($posterEdit == './img/') {
-        echo "<script type='text/javascript'>alert('Vui lòng chọn poster cho phim');</script>";
-    } else {
+    $posterEdit = '';
+
+    if ($_FILES['posterEdit']['tmp_name'] == '') {
         $sql_editFilm = mysqli_query($mysqli, "UPDATE `movies` 
-            SET `movie_name`='$filmNameEdit',`movie_directors`='$directorEdit',`movie_cast`='$actorEdit',`movie_cate`='$categoryFilmEdit',
-            `movie_date`='$dateEdit',`movie_time`='$timeEdit',`movie_language`='$languageEdit',`movie_rate`='$rateEdit',`movie_img`='$posterEdit',
-            `movie_description`='$decriptionEdit',`movie_trailer`='$urlEdit' WHERE `movie_id`= '$idFilmEdit'");
+        SET `movie_name`='$filmNameEdit',`movie_directors`='$directorEdit',`movie_cast`='$actorEdit',`movie_cate`='$categoryFilmEdit',
+        `movie_date`='$dateEdit',`movie_time`='$timeEdit',`movie_language`='$languageEdit',`movie_rate`='$rateEdit',
+        `movie_description`='$decriptionEdit',`movie_trailer`='$urlEdit' WHERE `movie_id`= '$idFilmEdit'");
+        echo "<script type='text/javascript'>alert('Chỉnh sửa thông tin phim thành công');</script>";
+    } else {
+        $posterEdit = uploadImgToFolder($_FILES['posterEdit']['tmp_name']);
+        $sql_editFilm = mysqli_query($mysqli, "UPDATE `movies` 
+        SET `movie_name`='$filmNameEdit',`movie_directors`='$directorEdit',`movie_cast`='$actorEdit',`movie_cate`='$categoryFilmEdit',
+        `movie_date`='$dateEdit',`movie_time`='$timeEdit',`movie_language`='$languageEdit',`movie_rate`='$rateEdit',`movie_img`='$posterEdit',
+        `movie_description`='$decriptionEdit',`movie_trailer`='$urlEdit' WHERE `movie_id`= '$idFilmEdit'");
         echo "<script type='text/javascript'>alert('Chỉnh sửa thông tin phim thành công');</script>";
     }
 }
@@ -158,18 +180,20 @@ if (isset($_POST['addNewFilm'])) {
     $rate = $_POST['rate'];
     $decription = $_POST['decription'];
     $trailer = $_POST['trailer'];
-    //Get embeed link video trailer
     $search     = '/youtube\.com\/watch\?v=([a-zA-Z0-9]+)/smi';
     $replace    = "youtube.com/embed/$1";
     $url = preg_replace($search, $replace, $trailer);
-    //End Get embeed link video trailer
-    $poster = uploadImgToFolder($_FILES['poster']['tmp_name']);
-    //End Code up img to folder
-    if ($poster == '') {
+
+    if ($_FILES['posterEdit']['tmp_name'] == '') {
         echo "<script type='text/javascript'>alert('Vui lòng chọn poster cho phim');</script>";
     } else {
-        $sql_insertFilm = mysqli_query($mysqli, "INSERT INTO `movies`(`movie_name`, `movie_directors`, `movie_cast`, `movie_cate`, `movie_date`, `movie_time`, `movie_language`, `movie_rate`, `movie_img`, `movie_description`, `movie_trailer`) 
+        $poster = uploadImgToFolder($_FILES['posterEdit']['tmp_name']);
+        if ($poster == '') {
+            echo "<script type='text/javascript'>alert('Vui lòng chọn poster cho phim');</script>";
+        } else {
+            $sql_insertFilm = mysqli_query($mysqli, "INSERT INTO `movies`(`movie_name`, `movie_directors`, `movie_cast`, `movie_cate`, `movie_date`, `movie_time`, `movie_language`, `movie_rate`, `movie_img`, `movie_description`, `movie_trailer`) 
             VALUES ('$filmName','$director','$actor','$categoryFilm','$date','$time','$language','$rate','$poster','$decription','$url')");
+        }
     }
 }
 if (isset($_GET['adminSignOut'])) {
@@ -253,16 +277,6 @@ if (isset($_POST['regAdmin'])) {
         </div>
         <div class="col-md-10 tabBarRight padding-0" style="background-color: rgb(247,248,251);">
             <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-                <!-- <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                    <div class="input-group">
-                        <input type="text" class="form-control bg-light border-0 small" placeholder="Tìm Kiếm..." aria-label="Search" aria-describedby="basic-addon2">
-                        <div class="input-group-append">
-                            <button class="btn btn-primary" type="button">
-                                <i class="fas fa-search fa-sm"></i>
-                            </button>
-                        </div>
-                    </div>
-                </form> -->
                 <div class="nav-item dropdown ml-auto">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <?php echo $_SESSION['admin_name']; ?> </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">

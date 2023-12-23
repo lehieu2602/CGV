@@ -19,6 +19,11 @@
                         LỊCH SỬ GIAO DỊCH
                     </button>
                 </li>
+                <li class="nav-item">
+                    <button class="nav-link " id="tab-change-password" data-toggle="tab" href="#change-password" role="tab">
+                        THAY ĐỔI MẬT KHẨU
+                    </button>
+                </li>
             </ul>
         </div>
         <div class="right-col col-9">
@@ -94,6 +99,9 @@
                 </div>
                 <div class="tab-pane fade " id="lich-su-giao-dich" role="tabpanel" aria-labelledby="tab-lich-su">
                     <?php include("view/history.php"); ?>
+                </div>
+                <div class="tab-pane fade " id="change-password" role="tabpanel" aria-labelledby="tab-change-password">
+                    Thay dổi mật khẩu
                 </div>
             </div>
         </div>
