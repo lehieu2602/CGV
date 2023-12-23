@@ -101,8 +101,8 @@
     </ul>
 
     <ul class="ul-res" id="userList">
-        <li id="menuList">TÀI KHOẢN</li>
-        <li id="menuList">ĐĂNG KÝ</li>
+        <li id="menuList"><a href="?controller=userInfo">TÀI KHOẢN</a></li>
+        <li id="menuList"><a href="?controller=login">ĐĂNG KÝ</a></li>
         <li id="menuList"><a href="?controller=login">ĐĂNG NHẬP</a></li>
     </ul>
 </div>
