@@ -278,18 +278,11 @@ if (isset($_POST['regAdmin'])) {
                             <div class="card-body">
                                 <h5 class="card-title" style="color:#4e73df ">Doanh Thu</h5>
                                 <?php
-                                $ve2d = 0;
-                                $ve3d = 0;
-                                $sql_revenue = mysqli_query($mysqli, "SELECT * FROM `booking`");
+                                $sql_revenue = mysqli_query($mysqli, "select sum(seat.seat_cost) from seat where seat_status = 1;");
                                 while ($row_revenue = mysqli_fetch_array($sql_revenue)) {
-                                    if ($row_revenue['booking_ticket'] == 'Vé Phim 2D') {
-                                        $ve2d += 1;
-                                    } elseif ($row_revenue['booking_ticket'] == 'Vé Phim 3D') {
-                                        $ve3d += 1;
-                                    }
+                                    echo '<p class="card-text">' . $row_revenue[0] . ' VNĐ</p>';
                                 }
                                 ?>
-                                <p class="card-text"><?php echo number_format(($ve2d * 45000) + ($ve3d * 75000), 0, '', ',') . " VNĐ" ?></p>
                             </div>
                         </div>
                     </div>
