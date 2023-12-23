@@ -1,17 +1,26 @@
-<div class="list-cinema container">
-    <a class="cinema" id="cinema1" href="#" onclick="changeImageColor(1, 'structure2')"><img id="img1" src="../img/cgv-cine-1.png" alt="" /></a>
-    <a class="cinema" id="cinema2" href="#" onclick="changeImageColor(2, 'structure2')"><img id="img2" src="../img/cgv-cine-2.png" alt="" /></a>
-    <a class="cinema" id="cinema3" href="#" onclick="changeImageColor(3,'structure2')"><img id="img3" src="../img/cgv-cine-3.png" alt="" /></a>
-    <a class="cinema" id="cinema4" href="#" onclick="changeImageColor(4, 'structure1')"><img id="img4" src="../img/cgv-cine-4.png" alt="" /></a>
-    <a class="cinema" id="cinema5" href="#" onclick="changeImageColor(5, 'structure1')"><img id="img5" src="../img/cgv-cine-5.png" alt="" /></a>
-    <a class="cinema" id="cinema6" href="#" onclick="changeImageColor(6,'structure2')"><img id="img6" src="../img/cgv-cine-6.png" alt="" /></a>
-    <a class="cinema" id="cinema7" href="#" onclick="changeImageColor(7,'structure2')"><img id="img7" src="../img/cgv-cine-7.png" alt="" /></a>
-    <a class="cinema" id="cinema8" href="#" onclick="changeImageColor(8,'structure2')"><img id="img8" src="../img/cgv-cine-8.png" alt="" /></a>
-    <a class="cinema" id="cinema9" href="#" onclick="changeImageColor(9,'structure1')"><img id="img9" src="../img/cgv-cine-9.png" alt="" /></a>
-    <a class="cinema" id="cinema10" href="#" onclick="changeImageColor(10,'structure2')"><img id="img10" src="../img/cgv-cine-10.png" alt="" /></a>
-    <a class="cinema" id="cinema11" href="#" onclick="changeImageColor(11,'structure2')"><img id="img11" src="../img/cgv-cine-11.png" alt="" /></a>
-    <a class="cinema" id="cinema12" href="#" onclick="changeImageColor(12,'structure2')"><img id="img12" src="" alt="" /></a>
+<div style="position: relative;">
+    <div class="list-cinema container">
+        <div class="special-content">
+            <a class="cinema" id="cinema1" href="#" onclick="changeImageColor(1, 'structure2')"><img id="img1" src="../img/cgv-cine-1.png" alt="" /></a>
+            <a class="cinema" id="cinema2" href="#" onclick="changeImageColor(2, 'structure2')"><img id="img2" src="../img/cgv-cine-2.png" alt="" /></a>
+            <a class="cinema" id="cinema3" href="#" onclick="changeImageColor(3,'structure2')"><img id="img3" src="../img/cgv-cine-3.png" alt="" /></a>
+            <a class="cinema" id="cinema4" href="#" onclick="changeImageColor(4, 'structure1')"><img id="img4" src="../img/cgv-cine-4.png" alt="" /></a>
+            <a class="cinema" id="cinema5" href="#" onclick="changeImageColor(5, 'structure1')"><img id="img5" src="../img/cgv-cine-5.png" alt="" /></a>
+            <a class="cinema" id="cinema6" href="#" onclick="changeImageColor(6,'structure2')"><img id="img6" src="../img/cgv-cine-6.png" alt="" /></a>
+            <a class="cinema" id="cinema7" href="#" onclick="changeImageColor(7,'structure2')"><img id="img7" src="../img/cgv-cine-7.png" alt="" /></a>
+            <a class="cinema" id="cinema8" href="#" onclick="changeImageColor(8,'structure2')"><img id="img8" src="../img/cgv-cine-8.png" alt="" /></a>
+            <a class="cinema" id="cinema9" href="#" onclick="changeImageColor(9,'structure1')"><img id="img9" src="../img/cgv-cine-9.png" alt="" /></a>
+            <a class="cinema" id="cinema10" href="#" onclick="changeImageColor(10,'structure2')"><img id="img10" src="../img/cgv-cine-10.png" alt="" /></a>
+            <a class="cinema" id="cinema11" href="#" onclick="changeImageColor(11,'structure2')"><img id="img11" src="../img/cgv-cine-11.png" alt="" /></a>
+            <a class="cinema" id="cinema12" href="#" onclick="changeImageColor(12,'structure2')"><img id="img12" src="" alt="" /></a>
+        </div>
+
+    </div>
+    <i class="fas fa-chevron-circle-left fa-lg" id="prevBtn" style="color: orange; position: absolute; top:39%; left:11% "></i>
+    <i class="fas fa-chevron-circle-right fa-lg" id="nextBtn" style="color: orange; position: absolute; top:39%; right: 9%"></i>
 </div>
+
+
 
 <div class="content-special-theater">
     <div class=" head-content container">
@@ -31,8 +40,8 @@
                                 <img src=' . $img . ' alt= ' . $name . ' style =" width: 200px">
                             </div>
                             <div class="description" style = "margin-top: 3%;">
-                                <p style = "font-size: 20px;">' . $des1 . '</p>
-                                <p> ' . $des2 . '</p>
+                                <p id = "des1">' . $des1 . '</p>
+                                <p id = "des2"> ' . $des2 . '</p>
                             </div>
                             <ul class = "list-cinema1 list-unstyled row" style = "margin-left:10% ; width:100%">'; ?>
                 <?php
@@ -189,6 +198,38 @@
             console.log(showCinema);
             showCinema.style.display = "flex";
         });
+    });
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const content = document.querySelector(".special-content");
+        const prevBtn = document.getElementById("prevBtn");
+        const nextBtn = document.getElementById("nextBtn");
+
+        let currentIndex = 0;
+        const itemWidth = 127; // Độ rộng của mỗi phần tử
+        const maxIndex = content.childElementCount - 1;
+        prevBtn.addEventListener("click", function() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateContentPosition();
+            }
+        });
+
+        nextBtn.addEventListener("click", function() {
+
+            if (currentIndex < maxIndex - 9) {
+                currentIndex++;
+                updateContentPosition();
+            }
+
+        });
+
+        function updateContentPosition() {
+            const newPosition = -currentIndex * itemWidth;
+            content.style.transform = `translateX(${newPosition}px)`;
+        }
+
     });
 </script>
 
