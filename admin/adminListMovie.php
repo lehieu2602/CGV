@@ -198,7 +198,7 @@ include_once("../db/connect.php");
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="posterEdit">Poster Phim <span class="text-muted">(*Lưu ý: ảnh 406x602px)</span></label>
-                                                            <input type="file" class="form-control-file" id="posterEdit" name="posterEdit">
+                                                            <input type="file" class="form-control-file" id="posterEdit" name="posterEdit" value=''>
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="decriptionEdit">Nội dung phim <span class="text-muted">(vd: Tóm gọn trong 500 từ)</span></label>

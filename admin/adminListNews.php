@@ -113,12 +113,12 @@ include_once("../db/connect.php");
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="imgSNewsEdit">Ảnh bìa<span class="text-muted">(*Lưu ý: ảnh 240x201px)</span></label>
-                                                            <input type="file" class="form-control-file" id="imgSNewsEdit" name="imgSNewsEdit" value="<?php $imgSNews = explode("../img/", $row_listNews['news_img']);
+                                                            <input type="file" class="form-control-file" id="imgSNewsEdit" name="imgSNewsEdit" value="<?php $imgSNews = explode("./img/", $row_listNews['news_img']);
                                                                                                                                                         echo implode(" ", $imgSNews); ?>">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="imgLNewsEdit">Ảnh Nội Dung<span class="text-muted">(*Lưu ý: ảnh 350x495px)</span></label>
-                                                            <input type="file" class="form-control-file" id="imgLNewsEdit" name="imgLNewsEdit" value="<?php $imgLNews = explode("../img/", $row_listNews['news_img_detail']);
+                                                            <input type="file" class="form-control-file" id="imgLNewsEdit" name="imgLNewsEdit" value="<?php $imgLNews = explode("./img/", $row_listNews['news_img_detail']);
                                                                                                                                                         echo implode(" ", $imgLNews); ?>">
                                                         </div>
                                                         <div class="mb-3">
