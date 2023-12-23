@@ -103,11 +103,6 @@ if (isset($_POST['addShowing'])) {
     $addShowRoom = $_POST['addShowingRoom'];
     $addShowTheaterName = $_POST['addShowingTheater'];
     $addShowTime = $_POST['addShowingTime'];
-    // $sql_addNewRoomShowing = mysqli_query($mysqli, "INSERT INTO `rooms`(`room_name`, `room_theater`) 
-    //     VALUES ('$addShowRoom','$addShowTheaterName');");
-    // $sql_getLastInsertRoom = mysqli_query($mysqli, "SELECT LAST_INSERT_ID();");
-    // $row = $sql_getLastInsertRoom->fetch_row();
-    // $sql_createNewSeat = mysqli_query($mysqli, "CALL addNewSeat('$row[0]')");
     $sql_roomShowing = mysqli_query($mysqli, "Select * from `rooms` where `room_name` = '$addShowRoom' and `room_theater`='$addShowTheaterName';");
     while ($row_room = mysqli_fetch_array($sql_roomShowing)) {
         $total_seat = $row_room['number_seat'];
@@ -283,18 +278,11 @@ if (isset($_POST['regAdmin'])) {
                             <div class="card-body">
                                 <h5 class="card-title" style="color:#4e73df ">Doanh Thu</h5>
                                 <?php
-                                $ve2d = 0;
-                                $ve3d = 0;
-                                $sql_revenue = mysqli_query($mysqli, "SELECT * FROM `booking`");
+                                $sql_revenue = mysqli_query($mysqli, "select sum(seat.seat_cost) from seat where seat_status = 1;");
                                 while ($row_revenue = mysqli_fetch_array($sql_revenue)) {
-                                    if ($row_revenue['booking_ticket'] == 'Vé Phim 2D') {
-                                        $ve2d += 1;
-                                    } elseif ($row_revenue['booking_ticket'] == 'Vé Phim 3D') {
-                                        $ve3d += 1;
-                                    }
+                                    echo '<p class="card-text">' . $row_revenue[0] . ' VNĐ</p>';
                                 }
                                 ?>
-                                <p class="card-text"><?php echo number_format(($ve2d * 45000) + ($ve3d * 75000), 0, '', ',') . " VNĐ" ?></p>
                             </div>
                         </div>
                     </div>

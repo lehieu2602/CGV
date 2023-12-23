@@ -127,7 +127,7 @@ while ($detail = mysqli_fetch_array($sql_detail)) {
                             }
                         } else {
                             ?>
-                            <button type="button" class="btn btn-primary" onclick="showAlert()"><span>&#10084;</span>
+                            <button type="button" class="btn btn-danger" onclick="showAlert()"><span>&#10084;</span>
                                 <?php echo $count ?>
                             </button>
                         <?php

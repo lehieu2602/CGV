@@ -88,7 +88,7 @@ $sql_listMovie = mysqli_query($mysqli, 'Select * from movies order by movie_id d
                                 }
                             } else {
                                 ?>
-                                <button type="button" class="btn btn-primary" onclick="showAlert()"><span>&#10084;</span>
+                                <button type="button" class="btn btn-danger" onclick="showAlert()"><span>&#10084;</span>
                                     <?php echo $count ?>
                                 </button>
                                 <?php

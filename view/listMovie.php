@@ -78,7 +78,7 @@ $sql_react = mysqli_query($mysqli,'Select * from react order by movie_id desc');
                                     }
                                 } else {
                                     ?>
-                                        <button type="button" class="btn btn-primary" onclick="showAlert()"><span>&#10084;</span> <?php echo $count ?> </button>
+                                        <button type="button" class="btn btn-danger" onclick="showAlert()"><span>&#10084;</span> <?php echo $count ?> </button>
                                     <?php
                                 }  
                             ?>
