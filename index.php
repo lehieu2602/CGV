@@ -20,6 +20,7 @@ session_start();
     <link rel="stylesheet" href="../css/listEvent.css" />
     <link rel="stylesheet" href="../css/newsD.css" />
     <link rel="stylesheet" href="../css/membership.css" />
+    <link rel="stylesheet" href="../css/booking.css" />
     <!-- <link rel="stylesheet" href="../css/stylesignin.css" /> -->
     <!-- <link rel="stylesheet" href="../css/stylelogin.css" /> -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />

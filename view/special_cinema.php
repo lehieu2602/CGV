@@ -43,7 +43,7 @@
                                 <p id = "des1">' . $des1 . '</p>
                                 <p id = "des2"> ' . $des2 . '</p>
                             </div>
-                            <ul class = "list-cinema1 list-unstyled row" style = "margin-left:10% ; width:100%">'; ?>
+                            <ul class = "list-cinema1 list-unstyled row">'; ?>
                 <?php
                 $arrayOfCinemas = trim($cinemas, '[]');
                 $arrayOfStringCinemas = explode(', ', $arrayOfCinemas);
@@ -64,7 +64,7 @@
                 <p style = "font-size: 20px;">' . $des1 . '</p>
                 <p> ' . $des2 . '</p>
             </div>
-            <ul class = "list-cinema1 list-unstyled row" style = "margin-left:10%; width:100%">'; ?>
+            <ul class = "list-cinema1 list-unstyled row">'; ?>
         <?php
                 $arrayOfCinemas = trim($cinemas, '[]');
                 $arrayOfStringCinemas = explode(', ', $arrayOfCinemas);

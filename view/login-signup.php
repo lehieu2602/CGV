@@ -10,6 +10,7 @@ if (isset($_POST['login'])) {
     $count = mysqli_num_rows($sql_login);
     if ($count > 0) {
         while ($getId = mysqli_fetch_array($sql_login)) {
+
             $_SESSION['idUser'] = $getId['user_id'];
             $_SESSION['name'] = $getId['username'];
             $_SESSION['phone'] = $getId['phone_number'];
@@ -165,7 +166,7 @@ if (isset($_POST['register'])) {
                         }
                         ?>
                         <select name="selectedTheater" id="Select">
-                            
+
                         </select>
                         <span id="cinemaError" class="error" style="color: red" ;></span>
 

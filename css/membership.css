@@ -18,7 +18,7 @@
   margin-left: 0%;
   border-radius: 5px;
   box-sizing: border-box;
-  background-color: silver;
+  background-color: #f54242;
   width: 100%;
 }
 
@@ -50,4 +50,33 @@
 .nav-fill .nav-item a,
 .card button {
   color: #f7e62a;
+}
+
+@media only screen and (max-width: 548px) {
+
+
+  .nav-item a {
+    font-size: 8px;
+  }
+
+  .btn.btn-danger {
+    height: 30px;
+  }
+
+  .btn.btn-secondary {
+    font-size: 10px;
+  }
+}
+
+.nav-item {
+  height: 100% !important;
+}
+
+.nav-link {
+  height: 100% !important;
+}
+
+.btn.btn-danger {
+  height: 50px;
+
 }
