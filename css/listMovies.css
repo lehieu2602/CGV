@@ -1,49 +1,72 @@
-
 .listMovie-content {
     margin-bottom: 30px;
 }
-.listMovie-content .borderBottom-title{
+
+.listMovie-content .borderBottom-title {
     margin-top: 15px;
     border-top: 2.5px solid black;
 }
+
 .listMovie-content .listMovie-content-list .row .col-md-4 {
     margin-top: 20px;
 }
-.listMovie-content .listMovie-content-list .row .col-md-4 a img{
+
+.listMovie-content .listMovie-content-list .row .col-md-4 a img {
     width: 100%;
 }
+
 .image-film {
     height: 60%;
     width: 100%;
 }
 
-.movie-btn{
+.col-lg-3 img {
+    border-radius: 10px;
+}
+
+.movie-btn {
     display: flex;
     justify-content: space-between;
     position: absolute;
-    bottom: 0; left: 50%; 
+    bottom: 0;
+    left: 50%;
     transform: translateX(-50%);
-    float: left; 
+    float: left;
     width: 92%;
 }
+
+@media only screen and (max-width: 1200px) {
+    .d-flex h2 {
+        font-size: 1.5rem;
+    }
+}
+
 @media only screen and (max-width: 480px) {
-    *{
+    .d-flex h2 {
+        font-size: 1.5rem;
+    }
+
+    * {
         font-size: 15px;
     }
+
     .movie-info {
         margin-bottom: 10px;
     }
-    .movie-info h5{
+
+    .movie-info h5 {
         font-size: 15px;
         font-weight: bold;
 
     }
-    .movie-btn{
+
+    .movie-btn {
         bottom: -15px;
         /* margin-top: ; */
         font-size: 1rem;
     }
-    .col-lg-3{
+
+    .col-lg-3 {
         margin-bottom: initial;
         border-bottom: 20px
     }

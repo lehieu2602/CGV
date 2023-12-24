@@ -72,11 +72,11 @@ if (isset($_POST['register'])) {
                         <div class="form-group" style="margin-left: 5%;">
                             <label for="emailUser" style="font-size: 13px; font-family: Verdana, Arial, sans-serif; font-weight: 600;text-transform: none;">Email
                                 hoặc số điện thoại</label>
-                            <input type="email" id="emailUser" name="emailUser" class="form-control" placeholder="Email hoặc số điện thoại">
-                            <span id="myEmailValue" class="error" style="color: red;font-size: 14px;text-transform: none;font-family: verdana,Arial,sans-serif; "></span>
+                            <input type="email" id="emailUser" name="emailUser" class="form-control" placeholder="Email hoặc số điện thoại" style="width: 96%;">
+                            <span id=" myEmailValue" class="error" style="color: red;font-size: 14px;text-transform: none;font-family: verdana,Arial,sans-serif; "></span>
                             <label for="password" style="font-size: 13px; font-family: Verdana, Arial, sans-serif; font-weight: 600;text-transform: none;">Mật
                                 khẩu</label>
-                            <input type="password" id="password" name="password" class="form-control" placeholder="Mật khẩu">
+                            <input type="password" id="password" name="password" class="form-control" placeholder="Mật khẩu" style="width: 96%;">
                             <span id="myPasswordValue" class="error" style="color: red;font-size: 14px;text-transform: none;font-family: verdana,Arial,sans-serif; "></span>
 
                             <button type="submit" name="login" class="btn btn-danger" style="width: 100%;background-color: #e71a0f;color: white;padding: 14px 20px;margin: 8px 0;border: none;border-radius: 4px;cursor: pointer;text-transform: uppercase;">Đăng
@@ -226,6 +226,7 @@ if (isset($_POST['register'])) {
 
     var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     var phoneRegex = /^0\d{9}$/;
+    var nameRegex = /^[a-zA-ZÀ-Ỹà-ỹ\s']+$/;
 
     emailInput.addEventListener("input", function() {
         var isValidEmail = emailRegex.test(emailInput.value);
@@ -244,14 +245,23 @@ if (isset($_POST['register'])) {
             phoneError.innerHTML = "";
         }
     });
-
-
-
     nameInput.addEventListener("input", function() {
-        if (nameInput.value !== "") {
-            nameError.innerHTML = ""; // Ẩn cảnh báo nếu trường không rỗng
+        var isValidName = nameRegex.test(nameInput.value);
+        if (!isValidName) {
+            nameError.innerHTML = "Tên không thể chứa kí tự đặc biệt";
+
+        } else {
+            nameError.innerHTML = "";
         }
-    });
+    })
+
+
+
+    // nameInput.addEventListener("input", function() {
+    //     if (nameInput.value !== "") {
+    //         nameError.innerHTML = ""; // Ẩn cảnh báo nếu trường không rỗng
+    //     }
+    // });
     birthInput.addEventListener("input", function() {
         if (birthInput.value !== "") {
             birthError.innerHTML = ""; // Ẩn cảnh báo nếu trường không rỗng
