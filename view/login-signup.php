@@ -13,6 +13,9 @@ if (isset($_POST['login'])) {
             $_SESSION['idUser'] = $getId['user_id'];
             $_SESSION['name'] = $getId['username'];
             $_SESSION['phone'] = $getId['phone_number'];
+            $_SESSION['birth'] = $getId['date_of_birth'];
+            $_SESSION['city'] = $getId['location'];
+            $_SESSION['favorite_cinema'] = $getId['favorite_theater'];
         }
         $_SESSION['user'] = $username;
         echo "<script type='text/javascript'>alert('Hello " . $_SESSION['user'] . "'); window.location.href = 'index.php';</script>";
@@ -69,11 +72,11 @@ if (isset($_POST['register'])) {
                         <div class="form-group" style="margin-left: 5%;">
                             <label for="emailUser" style="font-size: 13px; font-family: Verdana, Arial, sans-serif; font-weight: 600;text-transform: none;">Email
                                 hoặc số điện thoại</label>
-                            <input type="email" id="emailUser" name="emailUser" class="form-control" placeholder="Email hoặc số điện thoại">
-                            <span id="myEmailValue" class="error" style="color: red;font-size: 14px;text-transform: none;font-family: verdana,Arial,sans-serif; "></span>
+                            <input type="email" id="emailUser" name="emailUser" class="form-control" placeholder="Email hoặc số điện thoại" style="width: 96%;">
+                            <span id=" myEmailValue" class="error" style="color: red;font-size: 14px;text-transform: none;font-family: verdana,Arial,sans-serif; "></span>
                             <label for="password" style="font-size: 13px; font-family: Verdana, Arial, sans-serif; font-weight: 600;text-transform: none;">Mật
                                 khẩu</label>
-                            <input type="password" id="password" name="password" class="form-control" placeholder="Mật khẩu">
+                            <input type="password" id="password" name="password" class="form-control" placeholder="Mật khẩu" style="width: 96%;">
                             <span id="myPasswordValue" class="error" style="color: red;font-size: 14px;text-transform: none;font-family: verdana,Arial,sans-serif; "></span>
 
                             <button type="submit" name="login" class="btn btn-danger" style="width: 100%;background-color: #e71a0f;color: white;padding: 14px 20px;margin: 8px 0;border: none;border-radius: 4px;cursor: pointer;text-transform: uppercase;">Đăng
@@ -142,6 +145,7 @@ if (isset($_POST['register'])) {
                             var select = document.getElementById("mySelect");
                             var option_def = document.createElement("option");
                             option_def.text = "Khu vực";
+                            option_def.disabled
                             select.add(option_def);
                             var options = [<?php echo '"' . implode('","', $list_city) . '"' ?>];
                             for (var i = 0; i < options.length; i++) {
@@ -161,13 +165,18 @@ if (isset($_POST['register'])) {
                         }
                         ?>
                         <select name="selectedTheater" id="Select">
-                            <span id="cinemaError" class="error" style="color: red" ;></span>
-
+                            
                         </select>
+                        <span id="cinemaError" class="error" style="color: red" ;></span>
+
                         <script>
                             var options = [<?php echo '"' . implode('","', $list_cinema) . '"' ?>];
 
                             var select = document.getElementById("Select");
+                            var option_def = document.createElement("option");
+                            option_def.text = "Rạp yêu thích";
+                            option_def.disabled
+                            select.add(option_def);
                             for (var i = 0; i < options.length; i++) {
                                 var option = document.createElement("option");
                                 option.text = options[i];
@@ -223,6 +232,7 @@ if (isset($_POST['register'])) {
 
     var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     var phoneRegex = /^0\d{9}$/;
+    var nameRegex = /^[a-zA-ZÀ-Ỹà-ỹ\s']+$/;
 
     emailInput.addEventListener("input", function() {
         var isValidEmail = emailRegex.test(emailInput.value);
@@ -241,14 +251,23 @@ if (isset($_POST['register'])) {
             phoneError.innerHTML = "";
         }
     });
-
-
-
     nameInput.addEventListener("input", function() {
-        if (nameInput.value !== "") {
-            nameError.innerHTML = ""; // Ẩn cảnh báo nếu trường không rỗng
+        var isValidName = nameRegex.test(nameInput.value);
+        if (!isValidName) {
+            nameError.innerHTML = "Tên không thể chứa kí tự đặc biệt";
+
+        } else {
+            nameError.innerHTML = "";
         }
-    });
+    })
+
+
+
+    // nameInput.addEventListener("input", function() {
+    //     if (nameInput.value !== "") {
+    //         nameError.innerHTML = ""; // Ẩn cảnh báo nếu trường không rỗng
+    //     }
+    // });
     birthInput.addEventListener("input", function() {
         if (birthInput.value !== "") {
             birthError.innerHTML = ""; // Ẩn cảnh báo nếu trường không rỗng
@@ -288,7 +307,6 @@ if (isset($_POST['register'])) {
         var emailValue = emailInput.value;
 
 
-
         // Kiểm tra trường tên
         if (nameValue === "") {
             document.getElementById("nameError").innerHTML = "Họ tên chưa nhập.";
@@ -325,6 +343,12 @@ if (isset($_POST['register'])) {
             event.preventDefault();
         } else {
             document.getElementById("cityError").innerHTML = "";
+        }
+        if (cinemaValue === "Rạp yêu thích") {
+            document.getElementById("cinemaError").innerHTML = "Vui lòng chọn rạp yêu thích.";
+            event.preventDefault();
+        } else {
+            document.getElementById("cinemaError").innerHTML = "";
         }
     });
 </script>

@@ -30,7 +30,7 @@
             <div class="tab-content" id="myPillContent">
                 <div class="tab-pane fade show active" id="thong-tin-chung" role="tabpanel" aria-labelledby="tab-thong-tin">
                     <br>
-                    <div class="title-header1">
+                    <div class="title-header-black">
                         <h1>THÔNG TIN CHUNG</h1>
                     </div>
                     <form action="" method="post" enctype="multipart/form-data">
@@ -101,7 +101,7 @@
                     <?php include("view/history.php"); ?>
                 </div>
                 <div class="tab-pane fade " id="change-password" role="tabpanel" aria-labelledby="tab-change-password">
-                    Thay dổi mật khẩu
+                <?php include("view/changePassword.php"); ?>
                 </div>
             </div>
         </div>

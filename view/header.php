@@ -79,6 +79,12 @@
                 <li><a href="?controller=specialTheater">Rạp Đặc Biệt</a></li>
             </ul>
         </li>
+        <li id="menuList"><a href="?controller=membership">THÀNH VIÊN</a></li>
+        <li class="has-submenu">CULTUREPLEX
+            <ul class="ul-level-1">
+                <li>RULE</li>
+            </ul>
+        </li>
     </ul>
 
     <ul class="ul-res" id="userList">
