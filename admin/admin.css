@@ -2,6 +2,10 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   box-sizing: border-box;
 }
+
+#parent-row {
+  height: 100vh;
+}
 .tabBarLeft {
   height: 100%;
 }

@@ -10,7 +10,6 @@
                   </ul>";
     } else {
         echo '<ul>
-          <a href="">vé của tôi</a>
           <a href="?controller=login">đăng nhập/đăng ký</a>
       </ul>';
     }
@@ -42,27 +41,15 @@
                 </div>
             </li>
             <li>
-                RẠP CGV
+                GIỚI THIỆU RẠP PHIM
                 <div class="menu-ul">
                     <ul>
                         <li><a href="?controller=allTheater">Tất Cả Các Rạp</a></li>
                         <li><a href="?controller=specialTheater">Rạp Đặc Biệt</a></li>
-                        <li><a href="#">Rạp 3D</a></li>
                     </ul>
                 </div>
             </li>
             <li><a href="?controller=membership">THÀNH VIÊN</a></li>
-            <li>
-                CULTUREPLEX
-                <div class="menu-ul">
-                    <ul>
-                        <li><a href="#">CGV Rule</a></li>
-                    </ul>
-                </div>
-            </li>
-            <li href="">
-                <img src="../img/kenhcine.gif" alt="" />
-            </li>
         </ul>
         <a class="header-buy" href="?controller=listmovies">
             <img src="../img/mua-ve_ngay.png" alt="" />
@@ -73,7 +60,7 @@
             <td onclick="toggleList('menuList', this)">
                 <img src="../img/menu-icon.png" alt="" />
             </td>
-            <td><img src="../img/icon_ticket25.png" alt="" /></td>
+            <td><a href="?controller=listnews"><img src="../img/icon_ticket25.png" alt="" /></a></td>
             <td onclick="toggleList('userList', this)">
                 <img src="../img/user-icon.png" alt="" />
             </td>
@@ -92,18 +79,17 @@
                 <li><a href="?controller=specialTheater">Rạp Đặc Biệt</a></li>
             </ul>
         </li>
-        <li id="menuList">THÀNH VIÊN</li>
-        <li class="has-submenu">CULTUREPLEX
-            <ul class="ul-level-1">
-                <li>RULE</li>
-            </ul>
-        </li>
     </ul>
 
     <ul class="ul-res" id="userList">
-        <li id="menuList"><a href="?controller=userInfo">TÀI KHOẢN</a></li>
-        <li id="menuList"><a href="?controller=login">ĐĂNG KÝ</a></li>
-        <li id="menuList"><a href="?controller=login">ĐĂNG NHẬP</a></li>
+        <?php
+        if (isset($_SESSION['user']) && $_SESSION['user'] != '') {
+            echo '<li id="menuList"><a href="?controller=userInfo">TÀI KHOẢN</a></li>';
+            echo '<li id="menuList"><a href="?signout=true">Đăng Xuất</a></li>';
+        } else {
+            echo '<li id="menuList"><a href="?controller=login">ĐĂNG NHẬP/ĐĂNG KÝ</a></li>';
+        }
+        ?>
     </ul>
 </div>
 <!-- Only for home screen -->

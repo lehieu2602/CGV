@@ -1,7 +1,7 @@
 <!-- Content -->
 <?php
-$sql_listMovie = mysqli_query($mysqli, 'Select * from movies order by movie_id desc');
-$sql_react = mysqli_query($mysqli,'Select * from react order by movie_id desc');
+$sql_listMovie = mysqli_query($mysqli, "Select * from movies where created_at >= '2023-12-25' order by movie_id desc");
+$sql_react = mysqli_query($mysqli, 'Select * from react order by movie_id desc');
 ?>
 <div class="listMovie-content container">
     <div class="d-flex justify-content-between">
@@ -21,10 +21,10 @@ $sql_react = mysqli_query($mysqli,'Select * from react order by movie_id desc');
             while ($row_listMovie = mysqli_fetch_array($sql_listMovie)) {
                 //
                 $movie_id = $row_listMovie['movie_id'];
-                $sql_react = mysqli_query($mysqli,"SELECT COUNT(*) AS count_records FROM react WHERE movie_id = '$movie_id'");
+                $sql_react = mysqli_query($mysqli, "SELECT COUNT(*) AS count_records FROM react WHERE movie_id = '$movie_id'");
                 $row = mysqli_fetch_assoc($sql_react);
                 $count = $row['count_records'];
-                if(isset($_SESSION['user']) && $_SESSION['user'] != '') {
+                if (isset($_SESSION['user']) && $_SESSION['user'] != '') {
                     $sql_user_react = mysqli_query($mysqli, "SELECT COUNT(*) AS count_user_records FROM react WHERE movie_id = '$movie_id' AND user_id = '" . $_SESSION['idUser'] . "'");
                     $row_user_react = mysqli_fetch_assoc($sql_user_react);
                     $count_user = $row_user_react['count_user_records'];
@@ -36,7 +36,7 @@ $sql_react = mysqli_query($mysqli,'Select * from react order by movie_id desc');
                 $movieTimestamp = strtotime($myinput);
                 $currentTimestamp = time();
                 if ($movieTimestamp < $currentTimestamp && $myinput != null) {
-                    ?>
+            ?>
                     <div class="col-lg-3 col-md-4 col-sm-6 col-6">
                         <a href="?controller=phim&id=<?php echo $row_listMovie['movie_id'] ?>">
                             <img class="image-film" src="<?php echo $row_listMovie['movie_img'] ?>" alt="">
@@ -60,31 +60,31 @@ $sql_react = mysqli_query($mysqli,'Select * from react order by movie_id desc');
                                     <?php echo $row_listMovie['movie_time'] ?>
                                 </span></div>
                         </div>
-                        <div class="movie-btn" >
-                            <button type="button" class="btn btn-primary" onclick='window.location.href="?controller=phim&id=<?php echo $row_listMovie["movie_id"] ?> "'>Mua vé</button>                     
-                            <?php 
-                                if (isset($_SESSION['user']) && $_SESSION['user'] != '') {
-                                    
-                                    if($count_user == 1) {
-                                        ?>
-                                            <button type="button" class="btn btn-outline-danger" onclick="unlike('<?php echo $movie_id; ?>', '<?php echo $_SESSION['idUser']; ?>')"> <span>&#10084;</span> <?php echo $count?> </button>
-                                        <?php
-                                            
-                                    } 
-                                    if($count_user == 0) {
-                                        ?>
-                                            <button type="button" class="btn btn-danger" onclick="like('<?php echo $movie_id; ?>', '<?php echo $_SESSION['idUser']; ?>')"><span>&#10084;</span> <?php echo $count ?> </button>
-                                        <?php
-                                    }
-                                } else {
-                                    ?>
-                                        <button type="button" class="btn btn-danger" onclick="showAlert()"><span>&#10084;</span> <?php echo $count ?> </button>
-                                    <?php
-                                }  
+                        <div class="movie-btn">
+                            <button type="button" class="btn btn-primary" onclick='window.location.href="?controller=phim&id=<?php echo $row_listMovie["movie_id"] ?> "'>Mua vé</button>
+                            <?php
+                            if (isset($_SESSION['user']) && $_SESSION['user'] != '') {
+
+                                if ($count_user == 1) {
+                            ?>
+                                    <button type="button" class="btn btn-outline-danger" onclick="unlike('<?php echo $movie_id; ?>', '<?php echo $_SESSION['idUser']; ?>')"> <span>&#10084;</span> <?php echo $count ?> </button>
+                                <?php
+
+                                }
+                                if ($count_user == 0) {
+                                ?>
+                                    <button type="button" class="btn btn-danger" onclick="like('<?php echo $movie_id; ?>', '<?php echo $_SESSION['idUser']; ?>')"><span>&#10084;</span> <?php echo $count ?> </button>
+                                <?php
+                                }
+                            } else {
+                                ?>
+                                <button type="button" class="btn btn-danger" onclick="showAlert()"><span>&#10084;</span> <?php echo $count ?> </button>
+                            <?php
+                            }
                             ?>
                         </div>
                     </div>
-                    <?php
+            <?php
                 }
             }
             ?>

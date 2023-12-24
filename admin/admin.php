@@ -240,7 +240,7 @@ if (isset($_POST['regAdmin'])) {
 </head>
 
 <body>
-    <div class="row">
+    <div class="row" id="parent-row">
         <div class="col-md-2" style="background:rgb(78,115,223);">
             <div class="container tabBarLeft">
                 <div class="tabBarLeft-logo">cgv admin</div>
