@@ -1,6 +1,5 @@
 <div class="my-main-container">
     <div class="my-container">
-
         <div class="left-col col-3">
             <div class="head-left">TÀI KHOẢN CGV</div>
             <ul class="nav nav-pills flex-column" id="myPill" role="tablist">
@@ -101,7 +100,7 @@
                     <?php include("view/history.php"); ?>
                 </div>
                 <div class="tab-pane fade " id="change-password" role="tabpanel" aria-labelledby="tab-change-password">
-                <?php include("view/changePassword.php"); ?>
+                    <?php include("view/changePassword.php"); ?>
                 </div>
             </div>
         </div>
