@@ -85,7 +85,7 @@
     <ul class="ul-res" id="userList">
         <?php
         if (isset($_SESSION['user']) && $_SESSION['user'] != '') {
-            echo '<li id="menuList"><a href="?controller=userInfo">TÀI KHOẢN</a></li>';
+            echo '<li id="menuList"><a href="?controller=userInfo">Tài Khoản</a></li>';
             echo '<li id="menuList"><a href="?signout=true">Đăng Xuất</a></li>';
         } else {
             echo '<li id="menuList"><a href="?controller=login">ĐĂNG NHẬP/ĐĂNG KÝ</a></li>';
