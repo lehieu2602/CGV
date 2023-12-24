@@ -140,9 +140,3 @@ $(document).ready(function () {
     xmlhttp.send();
   });
 });
-
-// document.addEventListener("DOMContentLoaded", function () {
-//   var heightWindow = window.innerHeight;
-//   var myElements = document.querySelectorAll(".col-md-2");
-//   myElements[0].style.height = heightWindow + "px";
-// });

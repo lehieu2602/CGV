@@ -145,6 +145,7 @@ if (isset($_POST['register'])) {
                             var select = document.getElementById("mySelect");
                             var option_def = document.createElement("option");
                             option_def.text = "Khu vực";
+                            option_def.disabled
                             select.add(option_def);
                             var options = [<?php echo '"' . implode('","', $list_city) . '"' ?>];
                             for (var i = 0; i < options.length; i++) {
@@ -164,13 +165,18 @@ if (isset($_POST['register'])) {
                         }
                         ?>
                         <select name="selectedTheater" id="Select">
-                            <span id="cinemaError" class="error" style="color: red" ;></span>
-
+                            
                         </select>
+                        <span id="cinemaError" class="error" style="color: red" ;></span>
+
                         <script>
                             var options = [<?php echo '"' . implode('","', $list_cinema) . '"' ?>];
 
                             var select = document.getElementById("Select");
+                            var option_def = document.createElement("option");
+                            option_def.text = "Rạp yêu thích";
+                            option_def.disabled
+                            select.add(option_def);
                             for (var i = 0; i < options.length; i++) {
                                 var option = document.createElement("option");
                                 option.text = options[i];
@@ -301,7 +307,6 @@ if (isset($_POST['register'])) {
         var emailValue = emailInput.value;
 
 
-
         // Kiểm tra trường tên
         if (nameValue === "") {
             document.getElementById("nameError").innerHTML = "Họ tên chưa nhập.";
@@ -338,6 +343,12 @@ if (isset($_POST['register'])) {
             event.preventDefault();
         } else {
             document.getElementById("cityError").innerHTML = "";
+        }
+        if (cinemaValue === "Rạp yêu thích") {
+            document.getElementById("cinemaError").innerHTML = "Vui lòng chọn rạp yêu thích.";
+            event.preventDefault();
+        } else {
+            document.getElementById("cinemaError").innerHTML = "";
         }
     });
 </script>

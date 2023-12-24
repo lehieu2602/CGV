@@ -202,7 +202,7 @@ include_once("../db/connect.php");
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="decriptionEdit">Nội dung phim <span class="text-muted">(vd: Tóm gọn trong 500 từ)</span></label>
-                                                            <textarea class="form-control" id="decriptionEdit" name="decriptionEdit" rows="4"><?php echo $row_listMovie['movie_decription']; ?></textarea>
+                                                            <textarea class="form-control" id="decriptionEdit" name="decriptionEdit" rows="4"><?php echo $row_listMovie['movie_description']; ?></textarea>
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="trailerEdit">Trailer Phim</label>

@@ -29,3 +29,10 @@
   border-bottom: 2px solid black;
   margin-bottom: 30px;
 }
+
+@media screen and (max-width: 720px) {
+  .listnews .row .col-md-3 a span {
+    color: black;
+    font-size: 13px;
+  }
+}

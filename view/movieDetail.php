@@ -47,7 +47,11 @@ while ($detail = mysqli_fetch_array($sql_detail)) {
     }
     //
     $myinput = $detail['movie_date'];
-    $sqldate = date('d/m/Y', strtotime($myinput))
+    if ($myinput == null) {
+        $sqldate = '';
+    } else {
+        $sqldate = date('d/m/Y', strtotime($myinput));
+    }
 ?>
     <!-- Content -->
     <div class="movie-detail container">

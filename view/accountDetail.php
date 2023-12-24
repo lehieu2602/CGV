@@ -37,50 +37,50 @@ if (isset($_POST['changeInfo'])) {
 ?>
 
 
-<div class="account-content" style="width: 100%;">
+<div class="account-content">
     <br>
-    <div class="title-header2" style=" width: 100%;">
+    <div class="title-header-black">
         <h1>THAY ĐỔI THÔNG TIN</h1>
     </div>
     <div>
-        <form action="" class="cgv-signup-form" method="post" id="cgv-signup-form">
+        <form action="" method="post">
 
 
-            <div class="form-group col-sm-12">
+            <div class="form-group">
                 <label for="change_fullname" style="font-size: 13px; font-family: Verdana, Arial, sans-serif; font-weight: 600;text-transform: none;">Tên
                     <span style="color:#EE2C2C; font-weight: 600;">*</label>
                 <input type="text" class="form-control" name="change_fullname" id="change_fullname" placeholder="Tên" value="<?php echo $_SESSION['name'] ?>">
                 <span id="nameError" class="error" style="color: red;font-size: 14px;text-transform: none;font-family: verdana,Arial,sans-serif; " ;></span>
             </div>
-            <div class="form-group col-sm-12">
+            <div class="form-group">
                 <label for="change_phone" style="font-size: 13px; font-family: Verdana, Arial, sans-serif; font-weight: 600;text-transform: none;">Số
                     điện thoại <span style="color:#EE2C2C; font-weight: 600;">*</span></label>
                 <input type="text" class="form-control" name="change_phone" id="change_phone" placeholder="Số Điện Thoại" value="<?php echo $_SESSION['phone'] ?>">
                 <span id="phoneError" class="error" style="color: red;font-size: 14px;text-transform: none;font-family: verdana,Arial,sans-serif; " ;></span>
 
             </div>
-            <div class="form-group col-sm-12">
+            <div class="form-group">
                 <label for="change_email" style="font-size: 13px; font-family: Verdana, Arial, sans-serif; font-weight: 600;text-transform: none;">Email</label>
                 <input type="email" class="form-control" name="change_email" id="change_email" placeholder="<?php echo $_SESSION['user'] ?>" readonly>
                 <span id="emailError" class="error" style="color: red;font-size: 14px;text-transform: none;font-family: verdana,Arial,sans-serif; " ;></span>
 
             </div>
 
-            <div class="form-group col-sm-12">
+            <div class="form-group">
                 <label for="change_password" style="font-size: 13px; font-family: Verdana, Arial, sans-serif; font-weight: 600;text-transform: none;">Password Confirm
                     <span style="color:#EE2C2C; font-weight: 600;">*</span></label>
                 <input type="password" class="form-control" name="change_password" id="change_password" placeholder="Password" required>
                 <span id="pswError" class="error" style="color: red;font-size: 14px;text-transform: none;font-family: verdana,Arial,sans-serif; " ;></span>
 
             </div>
-            <div class="form-group col-sm-12">
+            <div class="form-group">
                 <label for="change_birthday" style="font-size: 13px; font-family: Verdana, Arial, sans-serif; font-weight: 600;text-transform: none;">Ngày
                     Sinh<span style="color:#EE2C2C; font-weight: 600;">*</span></label>
                 <input type="date" name="change_birthday" id="change_birthday" value="<?php echo $_SESSION['birth']; ?>">
                 <span id="birthError" class="error" style="color: red" ;></span>
 
             </div>
-            <div class=" form-group col-sm-12">
+            <div class="form-group">
                 <label for="mySelect" style="font-size: 13px; font-family: Verdana, Arial, sans-serif; font-weight: 600;text-transform: none;">Khu vực <span style="color:#EE2C2C; font-weight: 600;">*</span></label>
                 <?php
                 $list_city = array();
@@ -111,7 +111,7 @@ if (isset($_POST['changeInfo'])) {
                 </script>
             </div>
 
-            <div class="form-group col-sm-12">
+            <div class="form-group">
                 <label for="Select" style="font-size: 13px; font-family: Verdana, Arial, sans-serif; font-weight: 600;text-transform: none;">Rạp Yêu Thích <span style="color:#EE2C2C; font-weight: 600;">*</span></label>
                 <?php
                 $list_cinema = array();
