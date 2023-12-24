@@ -54,8 +54,8 @@
                                     <div class="info-center">
                                         <strong>Thẻ thành viên</strong>
                                     </div>
-                                    <div class="info-center">
-                                        <img src="https://www.webarcode.com/barcode/image.php?code=9992311666546264&amp;style=196&amp;type=C128B&amp;width=220&amp;height=80&amp;xres=1&amp;font=3" alt="Barcode.">
+                                    <div class="info-center" style="text-align: center;">
+                                        <?php echo $_SESSION['idUser'] ?>
                                     </div>
 
                                 </div>

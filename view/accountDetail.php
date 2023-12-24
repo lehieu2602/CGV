@@ -49,7 +49,7 @@ if (isset($_POST['changeInfo'])) {
         <h1>THAY ĐỔI THÔNG TIN</h1>
     </div>
     <div>
-        <form action="" method="post">
+        <form action="" method="post" id="changeAcc">
 
 
             <div class="form-group">
@@ -167,7 +167,7 @@ if (isset($_POST['changeInfo'])) {
 
             var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             var phoneRegex = /^0\d{9}$/;
-
+            var nameRegex = /^[a-zA-ZÀ-Ỹà-ỹ\s']+$/;
             var submitchange = document.getElementById("changeInfo");
 
 
@@ -180,20 +180,29 @@ if (isset($_POST['changeInfo'])) {
                 }
             })
 
+           
+
+
             phoneInput.addEventListener("input", function() {
+                if (phoneInput.value !== "") {
+                    phoneError.innerHTML = ""; // Ẩn cảnh báo nếu trường không rỗng
+                }
                 var isValidPhone = phoneRegex.test(phoneInput.value);
                 if (!isValidPhone) {
-                    phoneError.innerHTML = "số điện thoại không hợp lệ"; // Ẩn cảnh báo nếu trường không rỗng
+                    phoneError.innerHTML = "số điện thoại không hợp lệ"; 
                 } else {
                     phoneError.innerHTML = "";
                 }
             });
-
-
-
             nameInput.addEventListener("input", function() {
                 if (nameInput.value !== "") {
                     nameError.innerHTML = ""; // Ẩn cảnh báo nếu trường không rỗng
+                }
+                var isValidName = nameRegex.test(nameInput.value);
+                if (!isValidName) {
+                    nameError.innerHTML = "Tên không thể chứa kí tự đặc biệt";
+                } else {
+                    nameError.innerHTML = "";
                 }
             });
             birthInput.addEventListener("input", function() {
@@ -214,6 +223,28 @@ if (isset($_POST['changeInfo'])) {
             cinemaInput.addEventListener("input", function() {
                 if (cinemaInput.value !== "") {
                     cinemaError.innerHTML = ""; // Ẩn cảnh báo nếu trường không rỗng
+                }
+            });
+
+            
+            
+
+            document.getElementById('changeAcc').addEventListener('submit', function(event) {
+                
+                var isValidName = nameRegex.test(nameInput.value);
+                if (!isValidName) {
+                    nameError.innerHTML = "Tên không thể chứa kí tự đặc biệt";
+                    event.preventDefault();
+                } else {
+                    nameError.innerHTML = "";
+                }
+
+                var isValidPhone = phoneRegex.test(phoneInput.value);
+                if (!isValidPhone) {
+                    phoneError.innerHTML = "số điện thoại không hợp lệ"; 
+                    event.preventDefault();
+                } else {
+                    phoneError.innerHTML = "";
                 }
             });
         </script>
