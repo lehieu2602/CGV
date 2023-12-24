@@ -18,7 +18,7 @@ if (isset($_POST['login'])) {
             $_SESSION['favorite_cinema'] = $getId['favorite_theater'];
         }
         $_SESSION['user'] = $username;
-        echo "<script type='text/javascript'>alert('Hello " . $_SESSION['user'] . "'); window.location.href = 'index.php';</script>";
+        echo "<script type='text/javascript'>alert('Hello " . $_SESSION['name'] . "'); window.location.href = 'index.php';</script>";
     } else {
         echo "<script type='text/javascript'>alert('Sai Tài Khoản Hoặc Mật Khẩu');</script>";
     }

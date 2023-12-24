@@ -6,7 +6,7 @@ if (isset($_POST['changeInfo'])) {
 
     $username = $_POST['change_fullname'];
     $email = $_SESSION['user'];
-    $password = md5($_POST['change_password']);
+    $password = md5($_POST['current_password']);
     $sql_login = mysqli_query($mysqli, "SELECT * FROM `users` WHERE `user_email` = '$email' and `user_password` = '$password'");
     $phone = $_POST['change_phone'];
     $birth = $_POST['change_birthday'];
@@ -24,6 +24,12 @@ if (isset($_POST['changeInfo'])) {
         `location` = '$city',
         `favorite_theater` = '$theater' 
         WHERE `user_id` ='$idUser'");
+
+        session_destroy();
+        echo "<script type='text/javascript'>
+        alert('Thay đổi thông tin thành công, vui lòng đăng nhập lại');
+        window.location.href = 'index.php?controller=login';
+        </script>";
     } else {
         echo "<script type='text/javascript'>
         alert('Sai mật khẩu');
@@ -67,9 +73,9 @@ if (isset($_POST['changeInfo'])) {
             </div>
 
             <div class="form-group">
-                <label for="change_password" style="font-size: 13px; font-family: Verdana, Arial, sans-serif; font-weight: 600;text-transform: none;">Password Confirm
+                <label for="current_password" style="font-size: 13px; font-family: Verdana, Arial, sans-serif; font-weight: 600;text-transform: none;">Password Confirm
                     <span style="color:#EE2C2C; font-weight: 600;">*</span></label>
-                <input type="password" class="form-control" name="change_password" id="change_password" placeholder="Password" required>
+                <input type="password" class="form-control" name="current_password" id="current_password" placeholder="Password" required>
                 <span id="pswError" class="error" style="color: red;font-size: 14px;text-transform: none;font-family: verdana,Arial,sans-serif; " ;></span>
 
             </div>
@@ -153,7 +159,7 @@ if (isset($_POST['changeInfo'])) {
 
             var emailInput = document.getElementById("change_email");
 
-            var passwordInput = document.getElementById("change_password");
+            var passwordInput = document.getElementById("current_password");
             var genderInput = document.getElementsByName("r-gender")
             var birthInput = document.getElementById("change_birthday");
             var cityInput = document.getElementById("mySelect");

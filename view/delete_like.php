@@ -1,5 +1,5 @@
 <?php
-include_once("db/connect.php");
+include_once("../db/connect.php");
 // Kết nối đến cơ sở dữ liệu
 // ... (Thực hiện kết nối tới MySQL hoặc cơ sở dữ liệu khác)
 
