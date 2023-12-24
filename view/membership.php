@@ -1,24 +1,54 @@
+<style>
+    @media only screen and (max-width: 548px) {
+
+
+        .nav-item a {
+            font-size: 8px;
+        }
+
+        .btn.btn-danger {
+            height: 30px;
+        }
+
+        .btn.btn-secondary {
+            font-size: 10px;
+        }
+    }
+
+    .nav-item {
+        height: 100% !important;
+    }
+
+    .nav-link {
+        height: 100% !important;
+    }
+
+    .btn.btn-danger {
+        height: 50px;
+        /* Thay đổi giá trị theo mong muốn của bạn */
+        /* Các quy tắc CSS khác nếu cần */
+    }
+</style>
+
 <div class="membership-title" style="text-align: center;">
     <img src="img\theaterimg\membership.jpg" style="max-width: 100%; height: auto; display: inline-block;">
 </div>
 <br>
 <div class="content-membership container">
     <ul class="nav nav-tabs nav-fill" id="myTab" role="tablist">
-        <li class="nav-item" role="presentation">
-            <a class="nav-link active" id="diemthuong-tab" data-toggle="tab" href="#diemthuong" role="tab" aria-controls="diemthuong" aria-selected="true">CHƯƠNG TRÌNH ĐIỂM THƯỞNG</a>
+        <li class="nav-item " role="presentation" style="width: 21%;">
+            <a class="btn btn-danger  active" id="diemthuong-tab" data-toggle="tab" href="#diemthuong" role="tab" aria-controls="diemthuong" aria-selected="true">CHƯƠNG TRÌNH ĐIỂM THƯỞNG</a>
         </li>
-        <li class="nav-item" role="presentation">
-            <a class="nav-link" id="quatang-tab" data-toggle="tab" href="#quatang" role="tab" aria-controls="quatang" aria-selected="false">QUÀ TẶNG SINH NHẬT</a>
+        <li class="nav-item " role="presentation" style="width: 16%;">
+            <a class="btn btn-danger" id="quatang-tab" data-toggle="tab" href="#quatang" role="tab" aria-controls="quatang" aria-selected="false">QUÀ TẶNG SINH NHẬT</a>
         </li>
-        <li class="nav-item" role="presentation">
-            <a class="nav-link" id="capdo-tab" data-toggle="tab" href="#capdo" role="tab" aria-controls="capdo" aria-selected="false">CẤP ĐỘ THÀNH VIÊN</a>
+        <li class="nav-item " role="presentation">
+            <a class="btn btn-danger" id="capdo-tab" data-toggle="tab" href="#capdo" role="tab" aria-controls="capdo" aria-selected="false">CẤP ĐỘ THÀNH VIÊN</a>
         </li>
-        <li class="nav-item" role="presentation">
-            <a class="nav-link" id="quanly-tab" data-toggle="tab" href="#quanly" role="tab" aria-controls="quanly" aria-selected="false">QUẢN LÝ TÀI KHOẢN</a>
+        <li class="nav-item " role="presentation">
+            <a class="btn btn-danger" id="quanly-tab" data-toggle="tab" href="#quanly" role="tab" aria-controls="quanly" aria-selected="false">QUẢN LÝ TÀI KHOẢN</a>
         </li>
-        <li class="nav-item" role="presentation">
-            <a class="nav-link" id="hotro-tab" data-toggle="tab" href="#hotro" role="tab" aria-controls="hotro" aria-selected="false">BẠN CẦN HỖ TRỢ</a>
-        </li>
+
     </ul><br>
     <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="diemthuong" role="tabpanel" aria-labelledby="diemthuong-tab">
@@ -410,17 +440,7 @@
             </div>
 
         </div>
-        <div class="tab-pane fade" id="hotro" role="tabpanel" aria-labelledby="contact-tab">
-            <div class="lyt-heading"><strong>BẠN CẦN HỖ TRỢ</strong></div>
-            <div class="lyt-details-content">
-                <p>Với những ưu đãi hấp dẫn từ chương trình thành viên, CGV hy vọng sẽ mang đến cho bạn những trải nghiệm vượt xa điện ảnh.
-                </p>
-                <p>Mọi thắc mắc về chương trình thành viên bạn có thể liên hệ ngay Bộ phận hỗ trợ khách hàng của chúng tôi qua email hoidap@cgv.vn hoặc hotline 1900 6017 (8:00 – 22:00, từ thứ Hai đến Chủ Nhật - bao gồm các ngày Lễ, Tết).</p>
-                <p>Cảm ơn bạn đã luôn đồng hành cùng CGV!</p>
 
-            </div>
-
-        </div>
         <br>
         <br>
 
