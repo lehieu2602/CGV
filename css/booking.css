@@ -1,0 +1,413 @@
+.noselect {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                                        supported by Chrome, Opera and Firefox */
+}
+
+.disabled {
+  pointer-events: none;
+}
+
+.noteTitle {
+  margin-bottom: 15px;
+  font-weight: bold;
+  margin-right: 10px;
+  font-size: 11px;
+}
+
+.seatNoteA {
+  padding: 10px;
+  font-size: 11px;
+  border-radius: 5px;
+  background-color: rgb(185, 222, 160);
+  color: white;
+  font-weight: bold;
+}
+
+.seatNoteB {
+  padding: 10px;
+  font-size: 11px;
+  border-radius: 5px;
+  background-color: rgb(230, 202, 196);
+  color: white;
+  font-weight: bold;
+}
+
+.seatNoteC {
+  padding: 10px;
+  font-size: 11px;
+  border-radius: 5px;
+  background-color: rgb(71, 43, 52);
+  color: white;
+  font-weight: bold;
+}
+
+.theaterMap .rowSeat {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.theaterMap .screen {
+  background-color: rgb(240, 240, 240);
+  text-align: center;
+  margin-top: 8px;
+  margin-bottom: 30px;
+}
+
+.reserved {
+  display: inline;
+  padding: 20px;
+  font-size: 15.5px;
+  border-radius: 5px;
+  background-color: rgb(71, 43, 52);
+  color: white;
+  font-weight: bold;
+}
+
+.theaterMap .rowSeat .seats {
+  display: inline;
+  padding: 20px;
+  font-size: 15.5px;
+  border-radius: 5px;
+  background-color: rgb(185, 222, 160);
+  color: white;
+  font-weight: bold;
+}
+
+.theaterMap .seats:hover {
+  background-color: green;
+}
+
+@media only screen and (max-width: 1198px) {
+  .noteTitle {
+    margin-bottom: 15px;
+    font-weight: bold;
+    margin-right: 10px;
+    font-size: 11px;
+  }
+
+  .seatNoteA {
+    padding: 10px;
+    font-size: 11px;
+    border-radius: 5px;
+    background-color: rgb(185, 222, 160);
+    color: white;
+    font-weight: bold;
+  }
+
+  .seatNoteB {
+    padding: 10px;
+    font-size: 11px;
+    border-radius: 5px;
+    background-color: rgb(230, 202, 196);
+    color: white;
+    font-weight: bold;
+  }
+
+  .seatNoteC {
+    padding: 10px;
+    font-size: 11px;
+    border-radius: 5px;
+    background-color: rgb(71, 43, 52);
+    color: white;
+    font-weight: bold;
+  }
+
+  .theaterMap .rowSeat {
+    text-align: center;
+    margin-bottom: 5px;
+  }
+
+  .reserved {
+    display: inline;
+    padding: 17px;
+    font-size: 15.5px;
+    border-radius: 5px;
+    background-color: rgb(71, 43, 52);
+    color: white;
+    font-weight: bold;
+  }
+
+  .theaterMap .rowSeat .seats {
+    display: inline;
+    padding: 17px;
+    font-size: 15.5px;
+    border-radius: 5px;
+    background-color: rgb(185, 222, 160);
+    color: white;
+    font-weight: bold;
+  }
+
+  .theaterMap .seats:hover {
+    background-color: green;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .noteTitle {
+    margin-bottom: 15px;
+    font-weight: bold;
+    margin-right: 10px;
+    font-size: 11px;
+  }
+
+  .seatNoteA {
+    padding: 10px;
+    font-size: 11px;
+    border-radius: 5px;
+    background-color: rgb(185, 222, 160);
+    color: white;
+    font-weight: bold;
+  }
+
+  .seatNoteB {
+    padding: 10px;
+    font-size: 11px;
+    border-radius: 5px;
+    background-color: rgb(230, 202, 196);
+    color: white;
+    font-weight: bold;
+  }
+
+  .seatNoteC {
+    padding: 10px;
+    font-size: 11px;
+    border-radius: 5px;
+    background-color: rgb(71, 43, 52);
+    color: white;
+    font-weight: bold;
+  }
+
+  .theaterMap .rowSeat {
+    text-align: center;
+    margin-bottom: 5px;
+  }
+
+  .reserved {
+    display: inline;
+    padding: 8px;
+    font-size: 15.5px;
+    border-radius: 5px;
+    background-color: rgb(71, 43, 52);
+    color: white;
+    font-weight: bold;
+  }
+
+  .theaterMap .rowSeat .seats {
+    display: inline;
+    padding: 8px;
+    font-size: 15.5px;
+    border-radius: 5px;
+    background-color: rgb(185, 222, 160);
+    color: white;
+    font-weight: bold;
+  }
+
+  .theaterMap .seats:hover {
+    background-color: green;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .noteTitle {
+    margin-bottom: 15px;
+    font-weight: bold;
+    margin-right: 10px;
+    font-size: 11px;
+  }
+
+  .seatNoteA {
+    padding: 10px;
+    font-size: 11px;
+    border-radius: 5px;
+    background-color: rgb(185, 222, 160);
+    color: white;
+    font-weight: bold;
+  }
+
+  .seatNoteB {
+    padding: 10px;
+    font-size: 11px;
+    border-radius: 5px;
+    background-color: rgb(230, 202, 196);
+    color: white;
+    font-weight: bold;
+  }
+
+  .seatNoteC {
+    padding: 10px;
+    font-size: 11px;
+    border-radius: 5px;
+    background-color: rgb(71, 43, 52);
+    color: white;
+    font-weight: bold;
+  }
+
+  .theaterMap .rowSeat {
+    text-align: center;
+    margin-bottom: 5px;
+  }
+
+  .reserved {
+    display: inline;
+    padding: 12px;
+    font-size: 11px;
+    border-radius: 5px;
+    background-color: rgb(71, 43, 52);
+    color: white;
+    font-weight: bold;
+  }
+
+  .theaterMap .rowSeat .seats {
+    display: inline;
+    padding: 12px;
+    font-size: 11px;
+    border-radius: 5px;
+    background-color: rgb(185, 222, 160);
+    color: white;
+    font-weight: bold;
+  }
+
+  .theaterMap .seats:hover {
+    background-color: green;
+  }
+}
+
+@media only screen and (max-width: 548px) {
+  .noteTitle {
+    margin-bottom: 15px;
+    font-weight: bold;
+    margin-right: 10px;
+    font-size: 11px;
+  }
+
+  .seatNoteA {
+    padding: 10px;
+    font-size: 11px;
+    border-radius: 5px;
+    background-color: rgb(185, 222, 160);
+    color: white;
+    font-weight: bold;
+  }
+
+  .seatNoteB {
+    padding: 10px;
+    font-size: 11px;
+    border-radius: 5px;
+    background-color: rgb(230, 202, 196);
+    color: white;
+    font-weight: bold;
+  }
+
+  .seatNoteC {
+    padding: 10px;
+    font-size: 11px;
+    border-radius: 5px;
+    background-color: rgb(71, 43, 52);
+    color: white;
+    font-weight: bold;
+  }
+
+  .theaterMap .rowSeat {
+    text-align: center;
+    margin-bottom: 5px;
+  }
+
+  .reserved {
+    display: inline;
+    padding: 9px;
+    font-size: 11px;
+    border-radius: 5px;
+    background-color: rgb(71, 43, 52);
+    color: white;
+    font-weight: bold;
+  }
+
+  .theaterMap .rowSeat .seats {
+    display: inline;
+    padding: 9px;
+    font-size: 11px;
+    border-radius: 5px;
+    background-color: rgb(185, 222, 160);
+    color: white;
+    font-weight: bold;
+  }
+
+  .theaterMap .seats:hover {
+    background-color: green;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .noteTitle {
+    margin-bottom: 10px;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+
+  .seatNoteA {
+    padding: 5px;
+    font-size: 9px;
+    border-radius: 5px;
+    background-color: rgb(185, 222, 160);
+    color: white;
+    font-weight: bold;
+  }
+
+  .seatNoteB {
+    padding: 5px;
+    font-size: 9px;
+    border-radius: 5px;
+    background-color: rgb(230, 202, 196);
+    color: white;
+    font-weight: bold;
+  }
+
+  .seatNoteC {
+    padding: 5px;
+    font-size: 9px;
+    border-radius: 5px;
+    background-color: rgb(71, 43, 52);
+    color: white;
+    font-weight: bold;
+  }
+
+  .theaterMap .rowSeat {
+    text-align: center;
+    margin-bottom: 3px;
+  }
+
+  .reserved {
+    display: inline;
+    padding: 5px;
+    font-size: 9px;
+    border-radius: 5px;
+    background-color: rgb(71, 43, 52);
+    color: white;
+    font-weight: bold;
+  }
+
+  .theaterMap .rowSeat .seats {
+    display: inline;
+    padding: 5px;
+    font-size: 9px;
+    border-radius: 5px;
+    background-color: rgb(185, 222, 160);
+    color: white;
+    font-weight: bold;
+  }
+
+  .theaterMap .seats:hover {
+    background-color: green;
+  }
+}
