@@ -59,11 +59,11 @@
     font-size: 8px;
   }
 
-  .btn.btn-danger {
+  .nav-item .btn-danger {
     height: 30px;
   }
 
-  .btn.btn-secondary {
+  .nav-item .btn-secondary {
     font-size: 10px;
   }
 }
@@ -76,7 +76,7 @@
   height: 100% !important;
 }
 
-.btn.btn-danger {
+.nav-item .btn-danger {
   height: 50px;
 
 }
