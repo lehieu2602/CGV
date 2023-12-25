@@ -244,7 +244,7 @@ if (isset($_POST['register'])) {
 
 
     // var emailRegex = /^[^\s@']+@[^\s@']+\.[^\s@']+$/;
-    var emailRegex = /^ [a - zA - Z0 - 9] + @[a - zA - Z0 - 9] + \.[a - zA - Z0 - 9] + $/;
+    var emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
     var phoneRegex = /^0\d{9}$/;
     var nameRegex = /^[a-zA-ZÀ-Ỹà-ỹ\s']+$/;
 
@@ -398,12 +398,12 @@ if (isset($_POST['register'])) {
     var logMail = document.getElementById("emailUser");
     console.log(logMail);
     // var loginEmailRegex = /^[^\s@']+@[^\s@']+\.[^\s@']+$/;
-    var loginEmailRegex = /^ [a - zA - Z0 - 9] + @[a - zA - Z0 - 9] + \.[a - zA - Z0 - 9] + $/;
-
+    var loginEmailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
     logMail.addEventListener("input", function() {
-        var isValidEmail = emailRegex.test(logMail.value);
+        var isValidEmail = loginEmailRegex.test(logMail.value);
+        console.log(logMail.value);
         if (!isValidEmail) {
-            myEmailValue.innerHTML = "email không hợp lệ<br>"; // Ẩn cảnh báo nếu trường không rỗng
+            myEmailValue.innerHTML = "Email không hợp lệ<br>"; // Ẩn cảnh báo nếu trường không rỗng
         } else {
             myEmailValue.innerHTML = "";
         }
@@ -414,7 +414,7 @@ if (isset($_POST['register'])) {
         // var isValidLogMail = loginEmailRegex.test(logMail.value);
         // console.log(loginEmailRegex);
         if (!loginEmailRegex.test(logMail.value)) {
-            console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+
             myEmailValue.innerHTML = "Email không hợp lệ<br>";
             event.preventDefault();
         } else {
