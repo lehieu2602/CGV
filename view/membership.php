@@ -1,35 +1,3 @@
-<style>
-    @media only screen and (max-width: 548px) {
-
-
-        .nav-item a {
-            font-size: 8px;
-        }
-
-        .btn.btn-danger {
-            height: 30px;
-        }
-
-        .btn.btn-secondary {
-            font-size: 10px;
-        }
-    }
-
-    .nav-item {
-        height: 100% !important;
-    }
-
-    .nav-link {
-        height: 100% !important;
-    }
-
-    .btn.btn-danger {
-        height: 50px;
-        /* Thay đổi giá trị theo mong muốn của bạn */
-        /* Các quy tắc CSS khác nếu cần */
-    }
-</style>
-
 <div class="membership-title" style="text-align: center;">
     <img src="img\theaterimg\membership.jpg" style="max-width: 100%; height: auto; display: inline-block;">
 </div>
